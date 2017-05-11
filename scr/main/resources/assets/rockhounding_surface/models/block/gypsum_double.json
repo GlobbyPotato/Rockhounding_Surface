@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "particle": "rockhounding_surface:blocks/gypsum_block",
+        "down": "rockhounding_surface:blocks/gypsum_block",
+        "up": "rockhounding_surface:blocks/gypsum_block",
+        "north": "rockhounding_surface:blocks/gypsum_double",
+        "east": "rockhounding_surface:blocks/gypsum_double",
+        "south": "rockhounding_surface:blocks/gypsum_double",
+        "west": "rockhounding_surface:blocks/gypsum_double"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_post",
+    "textures": {
+        "texture": "rockhounding_surface:blocks/fossilPlanks_driftwood"
+    }
+}

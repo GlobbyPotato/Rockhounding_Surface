@@ -1,0 +1,7 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "particle": "rockhounding_surface:blocks/gypsumBushLo_soaptree",
+        "cross": "rockhounding_surface:blocks/gypsumBushLo_soaptree"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=blinds":  {"model" : "rockhounding_surface:kauriChiseled_blinds"},
+        "variant=chaotic": {"model" : "rockhounding_surface:kauriChiseled_chaotic"},
+        "variant=chaotich":{"model" : "rockhounding_surface:kauriChiseled_chaotich"},
+        "variant=clean":   {"model" : "rockhounding_surface:kauriChiseled_clean"},
+        "variant=crate":   {"model" : "rockhounding_surface:kauriChiseled_crate"},
+        "variant=cratex":  {"model" : "rockhounding_surface:kauriChiseled_cratex"},
+        "variant=cratef":  {"model" : "rockhounding_surface:kauriChiseled_cratef"},
+        "variant=double":  {"model" : "rockhounding_surface:kauriChiseled_double"},
+        "variant=fancy":   {"model" : "rockhounding_surface:kauriChiseled_fancy"},
+        "variant=large":   {"model" : "rockhounding_surface:kauriChiseled_large"},
+        "variant=panel":   {"model" : "rockhounding_surface:kauriChiseled_panel"},
+        "variant=parquet": {"model" : "rockhounding_surface:kauriChiseled_parquet"},
+        "variant=short":   {"model" : "rockhounding_surface:kauriChiseled_short"},
+        "variant=vertical":{"model" : "rockhounding_surface:kauriChiseled_vertical"},
+        "variant=uneven":  {"model" : "rockhounding_surface:kauriChiseled_uneven"},
+        "variant=fence":   {"model" : "rockhounding_surface:kauriChiseled_fence"}
+    }
+}

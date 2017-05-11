@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=blinds":  {"model" : "rockhounding_surface:betulaChiseled_blinds"},
+        "variant=chaotic": {"model" : "rockhounding_surface:betulaChiseled_chaotic"},
+        "variant=chaotich":{"model" : "rockhounding_surface:betulaChiseled_chaotich"},
+        "variant=clean":   {"model" : "rockhounding_surface:betulaChiseled_clean"},
+        "variant=crate":   {"model" : "rockhounding_surface:betulaChiseled_crate"},
+        "variant=cratex":  {"model" : "rockhounding_surface:betulaChiseled_cratex"},
+        "variant=cratef":  {"model" : "rockhounding_surface:betulaChiseled_cratef"},
+        "variant=double":  {"model" : "rockhounding_surface:betulaChiseled_double"},
+        "variant=fancy":   {"model" : "rockhounding_surface:betulaChiseled_fancy"},
+        "variant=large":   {"model" : "rockhounding_surface:betulaChiseled_large"},
+        "variant=panel":   {"model" : "rockhounding_surface:betulaChiseled_panel"},
+        "variant=parquet": {"model" : "rockhounding_surface:betulaChiseled_parquet"},
+        "variant=short":   {"model" : "rockhounding_surface:betulaChiseled_short"},
+        "variant=vertical":{"model" : "rockhounding_surface:betulaChiseled_vertical"},
+        "variant=uneven":  {"model" : "rockhounding_surface:betulaChiseled_uneven"},
+        "variant=fence":   {"model" : "rockhounding_surface:betulaChiseled_fence"}
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "rockhounding_surface:blocks/fossilPlanks_mophane",
+        "top": "rockhounding_surface:blocks/fossilPlanks_mophane",
+        "side": "rockhounding_surface:blocks/fossilPlanks_mophane"
+    }
+}

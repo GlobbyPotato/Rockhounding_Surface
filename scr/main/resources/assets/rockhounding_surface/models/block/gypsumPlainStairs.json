@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "rockhounding_surface:blocks/gypsum_plain",
+        "top": "rockhounding_surface:blocks/gypsum_plain",
+        "side": "rockhounding_surface:blocks/gypsum_plain"
+    }
+}

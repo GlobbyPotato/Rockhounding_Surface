@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=down":  { "model": "rockhounding_surface:compostBin"	},
+        "facing=up":    { "model": "rockhounding_surface:compostBin" 	},
+        "facing=south": { "model": "rockhounding_surface:compostBin", "y": 180},
+        "facing=north": { "model": "rockhounding_surface:compostBin" },
+        "facing=east":  { "model": "rockhounding_surface:compostBin", "y": 90  },
+        "facing=west":  { "model": "rockhounding_surface:compostBin", "y": 270 }
+    }
+}

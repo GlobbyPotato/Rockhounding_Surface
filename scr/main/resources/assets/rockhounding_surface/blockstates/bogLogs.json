@@ -1,0 +1,23 @@
+{
+    "variants": {
+        "axis=y,variant=oak":    	 { "model": "rockhounding_surface:bogLogs_oak" },
+        "axis=z,variant=oak":    	 { "model": "rockhounding_surface:bogLogs_oak", "x": 90 },
+        "axis=x,variant=oak":        { "model": "rockhounding_surface:bogLogs_oak", "x": 90, "y": 90 },
+        "axis=none,variant=oak":     { "model": "rockhounding_surface:bogLogs_oak" },
+        
+		"axis=y,variant=spruce":   	 { "model": "rockhounding_surface:bogLogs_spruce" },
+        "axis=z,variant=spruce":     { "model": "rockhounding_surface:bogLogs_spruce", "x": 90 },
+        "axis=x,variant=spruce":     { "model": "rockhounding_surface:bogLogs_spruce", "x": 90, "y": 90 },
+        "axis=none,variant=spruce":  { "model": "rockhounding_surface:bogLogs_spruce" },
+        
+		"axis=y,variant=kauri":    	 { "model": "rockhounding_surface:bogLogs_kauri" },
+        "axis=z,variant=kauri":    	 { "model": "rockhounding_surface:bogLogs_kauri", "x": 90 },
+        "axis=x,variant=kauri":      { "model": "rockhounding_surface:bogLogs_kauri", "x": 90, "y": 90 },
+        "axis=none,variant=kauri":   { "model": "rockhounding_surface:bogLogs_kauri" },
+        
+		"axis=y,variant=mophane":    { "model": "rockhounding_surface:bogLogs_mophane" },
+        "axis=z,variant=mophane":    { "model": "rockhounding_surface:bogLogs_mophane", "x": 90  },
+        "axis=x,variant=mophane":    { "model": "rockhounding_surface:bogLogs_mophane", "x": 90, "y": 90 },
+        "axis=none,variant=mophane": { "model": "rockhounding_surface:bogLogs_mophane" }
+    }
+}

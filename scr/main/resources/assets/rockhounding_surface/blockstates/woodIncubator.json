@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=down":  { "model": "rockhounding_surface:woodIncubator"	},
+        "facing=up":    { "model": "rockhounding_surface:woodIncubator" 	},
+        "facing=south": { "model": "rockhounding_surface:woodIncubator", "y": 180},
+        "facing=north": { "model": "rockhounding_surface:woodIncubator" },
+        "facing=east":  { "model": "rockhounding_surface:woodIncubator", "y": 90  },
+        "facing=west":  { "model": "rockhounding_surface:woodIncubator", "y": 270 }
+    }
+}

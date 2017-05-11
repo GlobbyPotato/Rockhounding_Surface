@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_nse",
+    "textures": {
+        "wall": "rockhounding_surface:blocks/gypsum_plain"
+    }
+}

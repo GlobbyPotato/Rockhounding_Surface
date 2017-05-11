@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=blinds":  {"model" : "rockhounding_surface:palmChiseled_blinds"},
+        "variant=chaotic": {"model" : "rockhounding_surface:palmChiseled_chaotic"},
+        "variant=chaotich":{"model" : "rockhounding_surface:palmChiseled_chaotich"},
+        "variant=clean":   {"model" : "rockhounding_surface:palmChiseled_clean"},
+        "variant=crate":   {"model" : "rockhounding_surface:palmChiseled_crate"},
+        "variant=cratex":  {"model" : "rockhounding_surface:palmChiseled_cratex"},
+        "variant=cratef":  {"model" : "rockhounding_surface:palmChiseled_cratef"},
+        "variant=double":  {"model" : "rockhounding_surface:palmChiseled_double"},
+        "variant=fancy":   {"model" : "rockhounding_surface:palmChiseled_fancy"},
+        "variant=large":   {"model" : "rockhounding_surface:palmChiseled_large"},
+        "variant=panel":   {"model" : "rockhounding_surface:palmChiseled_panel"},
+        "variant=parquet": {"model" : "rockhounding_surface:palmChiseled_parquet"},
+        "variant=short":   {"model" : "rockhounding_surface:palmChiseled_short"},
+        "variant=vertical":{"model" : "rockhounding_surface:palmChiseled_vertical"},
+        "variant=uneven":  {"model" : "rockhounding_surface:palmChiseled_uneven"},
+        "variant=fence":   {"model" : "rockhounding_surface:palmChiseled_fence"}
+    }
+}

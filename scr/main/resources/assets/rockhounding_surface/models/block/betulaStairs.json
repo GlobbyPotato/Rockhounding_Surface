@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "rockhounding_surface:blocks/fossilPlanks_betula",
+        "top": "rockhounding_surface:blocks/fossilPlanks_betula",
+        "side": "rockhounding_surface:blocks/fossilPlanks_betula"
+    }
+}

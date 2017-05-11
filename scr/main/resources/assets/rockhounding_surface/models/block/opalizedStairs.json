@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "rockhounding_surface:blocks/fossilPlanks_opalized",
+        "top": "rockhounding_surface:blocks/fossilPlanks_opalized",
+        "side": "rockhounding_surface:blocks/fossilPlanks_opalized"
+    }
+}

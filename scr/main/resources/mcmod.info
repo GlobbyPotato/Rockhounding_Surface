@@ -1,0 +1,16 @@
+[
+{
+  "modid": "rockhounding_surface",
+  "name": "Rockhounding: Surface",
+  "description": "A collection of feature wrapped around nature and geology resources. It includes a development for each one. Some features are activated by the presence of other mods to share common resources (see wiki).",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["GlobbyPotato"],
+  "credits": "The Forge and FML guys. MrCrayfish for the Model Creator.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
