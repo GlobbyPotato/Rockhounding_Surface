@@ -45,10 +45,26 @@ public class SupportUtils {
 		return null;
 	}
 
-	public static ItemStack labOven(){
+	public static ItemStack ironCasing(){
 		if(rhChemistryLoaded()){
-			Item labOven = Item.REGISTRY.getObject(new ResourceLocation(rhChemistryID + ":" + "labOven"));
-			return new ItemStack(labOven);
+			Item casing = Item.REGISTRY.getObject(new ResourceLocation(rhChemistryID + ":" + "miscItems"));
+			return new ItemStack(casing,1,42);
+		}
+		return null;
+	}
+
+	public static ItemStack logicChip(){
+		if(rhChemistryLoaded()){
+			Item chip = Item.REGISTRY.getObject(new ResourceLocation(rhChemistryID + ":" + "miscItems"));
+			return new ItemStack(chip,1,0);
+		}
+		return null;
+	}
+
+	public static ItemStack cabinet(){
+		if(rhChemistryLoaded()){
+			Item cabinet = Item.REGISTRY.getObject(new ResourceLocation(rhChemistryID + ":" + "miscItems"));
+			return new ItemStack(cabinet,1,1);
 		}
 		return null;
 	}

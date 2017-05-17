@@ -70,10 +70,10 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 				if(slot == REDSTONE_SLOT && hasRedstone(insertingStack)){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
-				if(slot == INPUT_SLOT && isValidInterval() && inputHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getInput()) ){
+				if(slot == INPUT_SLOT && activation && isValidInterval() && inputHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getInput()) ){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
-				if(slot == SOLUTE_SLOT && isValidInterval() && (soluteHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getSolute()) || canSoluteOredict(insertingStack, slot))){
+				if(slot == SOLUTE_SLOT && activation && isValidInterval() && (soluteHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getSolute()) || canSoluteOredict(insertingStack, slot))){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
 				if(slot == SOLVENT_SLOT && activation && isValidInterval() && solventHasRecipe(FluidUtil.getFluidContained(insertingStack)) && FluidUtil.getFluidContained(insertingStack).isFluidEqual(getRecipe().getSolvent())){

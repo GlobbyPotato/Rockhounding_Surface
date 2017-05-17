@@ -210,7 +210,7 @@ public class ModRecipes {
 	private static void agingRecipes() {
 		if(SupportUtils.rhChemistryLoaded()){
 		//wood incubator
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.woodIncubator), new Object[] { "ILI", "GCG", "IRI", 'L', SupportUtils.labOven(), 'I', "ingotIron", 'R', "dustRedstone", 'C', Items.CAULDRON, 'G', "blockGlass" }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.woodIncubator), new Object[] { "IcI", "ICI", "IGI", 'c', SupportUtils.logicChip(), 'I', SupportUtils.ironCasing(), 'C', SupportUtils.cabinet(), 'G', "blockGlass" }));
 		//composts
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 0), new Object[] {SupportUtils.chemFlask(), compost, compost, compost, compost, compost, compost, compost, compost}));
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 1), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustIron", "dustCopper", "dustCopper", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
