@@ -1,3 +1,13 @@
+v1.15 changelog
+	All devices
+		Output items can be extracted from any side
+	Misc fixes
+		Enabled the Universal Bucket
+		Rebalanced the Enriched Bonemeal due to gypsum abundance
+		Added an enabler for each building part (fences, gates, stairs)
+		Some tooltip fix
+		Some code cleaning
+
 v1.14 changelog
 	Wood Incubator
 		Solid inputs will now respect too the activation switch to improve their automation
