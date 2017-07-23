@@ -1,5 +1,6 @@
 package com.globbypotato.rockhounding_surface.blocks.itemblocks;
 
+import com.globbypotato.rockhounding_core.blocks.itemblocks.BaseMetaIB;
 import com.globbypotato.rockhounding_surface.ModBlocks;
 import com.globbypotato.rockhounding_surface.blocks.plants.GypsumShrubs;
 import com.globbypotato.rockhounding_surface.enums.EnumShrubs;
@@ -21,7 +22,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ShrubsIB extends MetaIB {
+public class ShrubsIB extends BaseMetaIB {
     IBlockState placingState;
 
     public ShrubsIB(Block block, String[] names) {

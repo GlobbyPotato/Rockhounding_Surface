@@ -2,6 +2,7 @@ package com.globbypotato.rockhounding_surface.blocks.itemblocks;
 
 import java.util.List;
 
+import com.globbypotato.rockhounding_core.blocks.itemblocks.BaseMetaIB;
 import com.globbypotato.rockhounding_surface.blocks.woods.FossilChisel;
 
 import net.minecraft.block.Block;
@@ -11,7 +12,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class FossilChiselIB extends MetaIB {
+public class FossilChiselIB extends BaseMetaIB {
 	public FossilChiselIB(Block block, String[] names) {
         super(block, names);
 	}

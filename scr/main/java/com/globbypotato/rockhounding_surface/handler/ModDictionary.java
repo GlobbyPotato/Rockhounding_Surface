@@ -23,22 +23,24 @@ public class ModDictionary {
 				OreDictionary.registerOre("logWood", 		new ItemStack(ModBlocks.petrifiedLogs, 1, x));
 				OreDictionary.registerOre("logWood", 		new ItemStack(ModBlocks.coldLogs, 1, x));
 			}
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.oakStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.spruceStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.kauriStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.mophaneStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.palmStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.pineStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.araucariaStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.driftwoodStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.betulaStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.castanoStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.rainbowStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.opalizedStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.azuriteStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.beechStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.teredoStairs));
-			OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.redwoodStairs));
+			if(ModConfig.allowStairs){
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.oakStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.spruceStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.kauriStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.mophaneStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.palmStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.pineStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.araucariaStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.driftwoodStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.betulaStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.castanoStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.rainbowStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.opalizedStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.azuriteStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.beechStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.teredoStairs));
+				OreDictionary.registerOre("stairsWood", 		new ItemStack(ModBlocks.redwoodStairs));
+			}
 		}
 
 		OreDictionary.registerOre("dustGypsum", 			new ItemStack(ModItems.gypsumItems,1,0));

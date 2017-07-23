@@ -11,15 +11,12 @@ import com.globbypotato.rockhounding_surface.integration.SupportUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.MaterialLiquid;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.Mod;
@@ -47,10 +44,6 @@ public class ModFluids {
 	public static final Fluid CASTING_BATH = createFluid("casting_bath", true, SupportUtils.rhChemistryLoaded(), 0xFFADA488,
 			fluid -> fluid.setDensity(100).setViscosity(30000).canBePlacedInWorld(),
 			fluid -> new BlockFluidClassic(fluid, new MaterialLiquid(MapColor.FOLIAGE)));
-
-	public static Item acidicWaterBucket;
-	public static Item agingBathBucket;
-	public static Item castingBathBucket;
 
 	/**
 	 * Create a {@link Fluid} and its {@link IFluidBlock}, or use the existing ones if a fluid has already been registered with the same name.
@@ -126,25 +119,6 @@ public class ModFluids {
 
 	private static void registerBucket(Fluid fluid) {
 		FluidRegistry.addBucketForFluid(fluid);
-	}
-
-	public static void loadBuckets(){
-		if( SupportUtils.rhChemistryLoaded()){
-			acidicWaterBucket = new ItemBeaker("acidicWaterBucket", ModFluids.ACIDIC_WATER.getBlock(), false).setContainerItem(Items.BUCKET);
-			agingBathBucket = new ItemBeaker("agingBathBucket", ModFluids.AGING_BATH.getBlock(), false).setContainerItem(Items.BUCKET);
-			castingBathBucket = new ItemBeaker("castingBathBucket", ModFluids.CASTING_BATH.getBlock(), false).setContainerItem(Items.BUCKET);
-		}
-	}
-
-	public static void registerFluidBuckets() {
-		if( SupportUtils.rhChemistryLoaded()){
-		    FluidContainerRegistry.registerFluidContainer(ACIDIC_WATER, new ItemStack(acidicWaterBucket), new ItemStack(Items.BUCKET));
-		    FluidContainerRegistry.registerFluidContainer(AGING_BATH, new ItemStack(agingBathBucket), new ItemStack(Items.BUCKET));
-		    FluidContainerRegistry.registerFluidContainer(CASTING_BATH, new ItemStack(castingBathBucket), new ItemStack(Items.BUCKET));
-			BucketHandler.INSTANCE.registerFluid(ACIDIC_WATER.getBlock(), acidicWaterBucket);
-			BucketHandler.INSTANCE.registerFluid(AGING_BATH.getBlock(), agingBathBucket);
-			BucketHandler.INSTANCE.registerFluid(CASTING_BATH.getBlock(), castingBathBucket);
-		}
 	}
 
 }

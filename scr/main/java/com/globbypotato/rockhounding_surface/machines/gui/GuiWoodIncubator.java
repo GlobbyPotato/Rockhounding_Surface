@@ -3,11 +3,11 @@ package com.globbypotato.rockhounding_surface.machines.gui;
 import java.util.Arrays;
 import java.util.List;
 
+import com.globbypotato.rockhounding_core.utils.RenderUtils;
+import com.globbypotato.rockhounding_core.utils.Translator;
 import com.globbypotato.rockhounding_surface.handler.Reference;
 import com.globbypotato.rockhounding_surface.machines.container.ContainerWoodIncubator;
 import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityWoodIncubator;
-import com.globbypotato.rockhounding_surface.utils.RenderUtils;
-import com.globbypotato.rockhounding_surface.utils.Translator;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -24,7 +24,7 @@ public class GuiWoodIncubator extends GuiBase {
 	public static final ResourceLocation TEXTURE_REF =  new ResourceLocation(Reference.MODID + ":textures/gui/guiwoodincubator.png");
 
 	public GuiWoodIncubator(InventoryPlayer playerInv, TileEntityWoodIncubator tile){
-		super(tile,new ContainerWoodIncubator(playerInv, tile));
+		super(tile, new ContainerWoodIncubator(playerInv, tile));
 		this.playerInventory = playerInv;
 		TEXTURE = TEXTURE_REF;
 		this.woodIncubator = tile;

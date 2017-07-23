@@ -11,21 +11,19 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 group= "com.globbypotato.rockhounding_surface"
 archivesBaseName = "rockhounding_surface"
 version = "${version_mc}-${version_mod}"
 
-sourceCompatibility = targetCompatibility = "1.8"
-compileJava {
-    sourceCompatibility = targetCompatibility = "1.8"
-}
-
 minecraft {
-    version = "1.10.2-12.18.3.2281"
-	replace '${version}', project.version
+    version = "1.10.2-12.18.3.2316"
     runDir = "run"
     mappings = "snapshot_20161111"
     makeObfSourceJar = false
+	replace '${version_mod}', project.version
 }
 
 repositories {
@@ -40,35 +38,13 @@ repositories {
     maven { // CraftTweaker
         url "http://maven.blamejared.com"
     }
-
 }
 
 dependencies {
     deobfCompile "mezz.jei:jei_${version_mc}:${version_jei}"
     compile "team.chisel:Chisel:MC${version_mc}-${version_chisel}:api"
     deobfCompile "MineTweaker3:MineTweaker3-MC1102-Main:${version_ct}"
-
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
-    // except that these dependencies get remapped to your current MCP mappings
-    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+	compile files("lib/rockhounding_core-1.10.2-1.02.jar")
 }
 
 processResources

@@ -1,7 +1,6 @@
 package com.globbypotato.rockhounding_surface.blocks.woods;
 
-import com.globbypotato.rockhounding_surface.blocks.BaseLog;
-import com.globbypotato.rockhounding_surface.blocks.itemblocks.MetaIB;
+import com.globbypotato.rockhounding_core.blocks.itemblocks.BaseMetaIB;
 import com.globbypotato.rockhounding_surface.enums.EnumFossilLogs;
 
 import net.minecraft.block.BlockLog;
@@ -18,7 +17,7 @@ public class FossilLogs extends BaseLog {
     
     public FossilLogs(String name, String[] array){
         super(name, array);
-        GameRegistry.register(new MetaIB(this, EnumFossilLogs.getNames()).setRegistryName(name));
+        GameRegistry.register(new BaseMetaIB(this, EnumFossilLogs.getNames()).setRegistryName(name));
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumFossilLogs.values()[0]).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
     }
 

@@ -1,5 +1,7 @@
 package com.globbypotato.rockhounding_surface.integration;
 
+import com.globbypotato.rockhounding_surface.handler.ModConfig;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,14 +14,17 @@ public class SupportUtils {
 	private static String bopID = "BiomesOPlenty";
 	private static String chiselID = "chisel";
 	private static String pamsID = "harvestcraft";
+	private static String naturaID = "natura";
 
 	// MOD CHECK
 	public static boolean rhChemistryLoaded(){return Loader.isModLoaded(rhChemistryID);}
 	public static boolean rhTiersLoaded(){return Loader.isModLoaded(rhTiersID);}
 	public static boolean bopLoaded() {return Loader.isModLoaded(bopID);}
 	public static boolean chiselLoaded() {return Loader.isModLoaded(chiselID);}
+	public static boolean chiselEnabled(){return chiselLoaded() && ModConfig.allowChisel;}
 	public static boolean pamsLoaded() {return Loader.isModLoaded(pamsID);}
-
+	public static boolean naturaLoaded() {return Loader.isModLoaded(naturaID);}
+	
 	public static ItemStack chemFlask(){
 		if(rhChemistryLoaded()){
 			Item flask = Item.REGISTRY.getObject(new ResourceLocation(rhChemistryID + ":" + "chemFlask"));
@@ -28,19 +33,10 @@ public class SupportUtils {
 		return null;
 	}
 
-	//SEARCH
 	public static ItemStack saltCompound(){
 		if(rhChemistryLoaded()){
 			Item salt = Item.REGISTRY.getObject(new ResourceLocation(rhChemistryID + ":" + "chemicalItems"));
 			return new ItemStack(salt, 1, 3);
-		}
-		return null;
-	}
-
-	public static ItemStack inductor(){
-		if(rhChemistryLoaded()){
-			Item inductor = Item.REGISTRY.getObject(new ResourceLocation(rhChemistryID + ":" + "miscItems"));
-			return new ItemStack(inductor,1,17);
 		}
 		return null;
 	}
@@ -96,7 +92,15 @@ public class SupportUtils {
 	public static ItemStack driedPeat(){
 		if(rhTiersLoaded()){
 			Item driedPeat = Item.REGISTRY.getObject(new ResourceLocation(rhTiersID + ":" + "tiersItems"));
-			return new ItemStack(driedPeat,1,8);
+			return new ItemStack(driedPeat,1,6);
+		}
+		return null;
+	}
+
+	public static ItemStack naturaSeeds(){
+		if(naturaLoaded()){
+			Item naturaseed = Item.REGISTRY.getObject(new ResourceLocation(naturaID + ":" + "overworld_seeds"));
+			return new ItemStack(naturaseed, 1, 0);
 		}
 		return null;
 	}

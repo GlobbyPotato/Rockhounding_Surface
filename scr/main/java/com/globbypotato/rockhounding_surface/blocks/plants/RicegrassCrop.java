@@ -1,7 +1,6 @@
 package com.globbypotato.rockhounding_surface.blocks.plants;
 
 import com.globbypotato.rockhounding_surface.ModItems;
-import com.globbypotato.rockhounding_surface.blocks.BaseCrop;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;

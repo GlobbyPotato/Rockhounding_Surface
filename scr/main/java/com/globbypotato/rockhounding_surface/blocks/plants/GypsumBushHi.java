@@ -1,7 +1,6 @@
 package com.globbypotato.rockhounding_surface.blocks.plants;
 
 import com.globbypotato.rockhounding_surface.ModBlocks;
-import com.globbypotato.rockhounding_surface.blocks.BaseBush;
 import com.globbypotato.rockhounding_surface.blocks.itemblocks.BushIB;
 import com.globbypotato.rockhounding_surface.enums.EnumBushes;
 

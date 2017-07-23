@@ -18,14 +18,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BaseSlab extends BaseMetaBlock {
+public class BaseSlab extends BlockIO {
     public static final AxisAlignedBB LO_SLAB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
     public static final AxisAlignedBB HI_SLAB = new AxisAlignedBB(0.0D, 0.5D, 0.0D, 1.0D, 1.0D, 1.0D);
     public String[] array;
     public boolean tab;
     
-	public BaseSlab(String name, Material material, SoundType soundtype, String[] array, float hardness, float resistance, boolean tab) {
-		super(name, array, material, soundtype, hardness, resistance);
+	public BaseSlab(String name, Material material, SoundType stepSound, String[] array, float hardness, float resistance, boolean tab) {
+		super(material, array, hardness, resistance, name, stepSound);
 		this.tab = tab;
 		this.array = array;
 	}

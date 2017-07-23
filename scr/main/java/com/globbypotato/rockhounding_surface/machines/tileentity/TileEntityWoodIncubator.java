@@ -1,46 +1,36 @@
 package com.globbypotato.rockhounding_surface.machines.tileentity;
 
+import com.globbypotato.rockhounding_core.machines.tileentity.MachineStackHandler;
+import com.globbypotato.rockhounding_core.machines.tileentity.TemplateStackHandler;
+import com.globbypotato.rockhounding_core.machines.tileentity.TileEntityMachineTank;
+import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler;
+import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler.WriteMode;
+import com.globbypotato.rockhounding_core.utils.CoreUtils;
 import com.globbypotato.rockhounding_surface.handler.ModConfig;
-import com.globbypotato.rockhounding_surface.handler.ModRecipes;
-import com.globbypotato.rockhounding_surface.integration.SupportUtils;
 import com.globbypotato.rockhounding_surface.machines.gui.GuiWoodIncubator;
+import com.globbypotato.rockhounding_surface.machines.recipe.MachineRecipes;
 import com.globbypotato.rockhounding_surface.machines.recipe.WoodIncubatorRecipe;
-import com.globbypotato.rockhounding_surface.machines.tileentity.WrappedItemHandler.WriteMode;
-import com.globbypotato.rockhounding_surface.utils.FuelUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.FluidUtil;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements IFluidHandlingTile{
+public class TileEntityWoodIncubator extends TileEntityMachineTank{
 
 	private ItemStackHandler template = new TemplateStackHandler(3);
 
 	//Input handler slots
-	public static final int SOLUTE_SLOT = 0;
-	public static final int SOLVENT_SLOT = 4;
-	public static final int INPUT_SLOT = 2;
+	public static final int WOOD_SLOT = 2;
 	public static final int REDSTONE_SLOT = 3;
-	public static final int OUTPUT_SLOT = 0;
-
-	public int recipeIndex = -1;
-	public boolean activation;
+	public static final int SOLVENT_SLOT = 4;
 
 	public FluidTank inputTank;
 
@@ -64,16 +54,16 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 		input =  new MachineStackHandler(INPUT_SLOTS,this){
 			@Override
 			public ItemStack insertItem(int slot, ItemStack insertingStack, boolean simulate){
-				if(slot == FUEL_SLOT && (FuelUtils.isItemFuel(insertingStack) || ItemStack.areItemsEqual(insertingStack, SupportUtils.inductor())) && !isWood(insertingStack)){
+				if(slot == FUEL_SLOT && CoreUtils.isPowerSource(insertingStack) && !isWood(insertingStack)){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
 				if(slot == REDSTONE_SLOT && hasRedstone(insertingStack)){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
-				if(slot == INPUT_SLOT && activation && isValidInterval() && inputHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getInput()) ){
+				if(slot == WOOD_SLOT && activation && isValidInterval() && inputHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getInput()) ){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
-				if(slot == SOLUTE_SLOT && activation && isValidInterval() && (soluteHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getSolute()) || canSoluteOredict(insertingStack, slot))){
+				if(slot == INPUT_SLOT && activation && isValidInterval() && (soluteHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getSolute()) || canSoluteOredict(insertingStack, slot))){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
 				if(slot == SOLVENT_SLOT && activation && isValidInterval() && solventHasRecipe(FluidUtil.getFluidContained(insertingStack)) && FluidUtil.getFluidContained(insertingStack).isFluidEqual(getRecipe().getSolvent())){
@@ -82,7 +72,7 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 				return insertingStack;
 			}
 		};
-		automationInput = new WrappedItemHandler(input,WriteMode.IN_OUT);
+		automationInput = new WrappedItemHandler(input, WriteMode.IN);
 		this.markDirtyClient();
 	}
 
@@ -111,25 +101,25 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 
 	//----------------------- CUSTOM -----------------------
 	public boolean isValidInterval() {
-		return recipeIndex >= 0 && recipeIndex <= ModRecipes.woodIncubatorRecipes.size() - 1;
+		return recipeIndex >= 0 && recipeIndex <= MachineRecipes.woodIncubatorRecipes.size() - 1;
 	}
 
 	public WoodIncubatorRecipe getRecipe(){
-		return isValidInterval() ? ModRecipes.woodIncubatorRecipes.get(recipeIndex) : null;
+		return isValidInterval() ? MachineRecipes.woodIncubatorRecipes.get(recipeIndex) : null;
 	}
 
 	public boolean soluteHasRecipe(ItemStack insertingStack){
-		return isValidInterval() && ModRecipes.woodIncubatorRecipes.stream().anyMatch(
+		return isValidInterval() && MachineRecipes.woodIncubatorRecipes.stream().anyMatch(
 				recipe -> insertingStack != null && recipe.getSolute() != null && insertingStack.isItemEqual(getRecipe().getSolute()));
 	}
 
 	public boolean inputHasRecipe(ItemStack insertingStack){
-		return isValidInterval() && ModRecipes.woodIncubatorRecipes.stream().anyMatch(
+		return isValidInterval() && MachineRecipes.woodIncubatorRecipes.stream().anyMatch(
 				recipe -> insertingStack != null && recipe.getInput() != null && insertingStack.isItemEqual(getRecipe().getInput()));
 	}
 
 	public boolean solventHasRecipe(FluidStack insertingStack){
-		return isValidInterval() && ModRecipes.woodIncubatorRecipes.stream().anyMatch(
+		return isValidInterval() && MachineRecipes.woodIncubatorRecipes.stream().anyMatch(
 				recipe -> insertingStack != null && recipe.getSolvent()!= null && insertingStack.isFluidEqual(getRecipe().getSolvent()));
 	}
 
@@ -187,8 +177,6 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 		super.readFromNBT(compound);
 		this.recipeIndex = compound.getInteger("RecipeScan");
 		this.activation = compound.getBoolean("Activation");
-		this.cookTime = compound.getInteger("CookTime");
-		this.redstoneCount = compound.getInteger("RedstoneCount");
 		this.inputTank.readFromNBT(compound.getCompoundTag("InputTank"));
 	}
 
@@ -197,8 +185,6 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 		super.writeToNBT(compound);
 		compound.setInteger("RecipeScan", this.recipeIndex);
 		compound.setBoolean("Activation", this.activation);
-		compound.setInteger("CookTime", this.cookTime);
-		compound.setInteger("RedstoneCount", this.redstoneCount);
 
 		NBTTagCompound inputTankNBT = new NBTTagCompound();
 		this.inputTank.writeToNBT(inputTankNBT);
@@ -207,27 +193,8 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 		return compound;
 	}
 
-	public boolean interactWithBucket(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
-		boolean didFill = FluidUtil.interactWithFluidHandler(heldItem, this.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, side), player);
-		this.markDirtyClient();
-		return didFill;
-	}
-
-	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) return true;
-		else return super.hasCapability(capability, facing);
-	}
-
-	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
-			return (T) getCombinedTank();
-		return super.getCapability(capability, facing);
-	}
-
 	public FluidHandlerConcatenate getCombinedTank(){
-		return new FluidHandlerConcatenate(inputTank);
+		return new FluidHandlerConcatenate(lavaTank, inputTank);
 	}
 
 
@@ -238,12 +205,15 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 		if(!isValidInterval()){ recipeIndex = -1; }
 		fuelHandler(input.getStackInSlot(FUEL_SLOT));
 		redstoneHandler(REDSTONE_SLOT, this.getCookTimeMax());
+		lavaHandler();
 
 		if(!worldObj.isRemote){
 			emptyContainer(SOLVENT_SLOT, inputTank);
 
 			if(isValidInterval()){
-				if(canSynthesize()){execute();}
+				if(canSynthesize()){
+					execute();
+				}
 			}
 			this.markDirtyClient();
 		}
@@ -253,10 +223,10 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 		return activation
 			&& this.getPower() >= this.getCookTimeMax()
 			&& this.getRedstone() >= this.getCookTimeMax()
-			&& ItemStack.areItemsEqual(getRecipe().getInput(), input.getStackInSlot(INPUT_SLOT))
-			&& (ItemStack.areItemsEqual(getRecipe().getSolute(), input.getStackInSlot(SOLUTE_SLOT)) || canSoluteOredict(input.getStackInSlot(SOLUTE_SLOT), SOLUTE_SLOT))
-			&& (inputTank.getFluid() != null && inputTank.getFluid().containsFluid(getRecipe().getSolvent()) && inputTank.getFluidAmount() >= getRecipe().getSolvent().amount)
-			&& ((output.getStackInSlot(OUTPUT_SLOT) == null) || (output.getStackInSlot(OUTPUT_SLOT) != null && ItemStack.areItemsEqual(getRecipe().getOutput(), output.getStackInSlot(OUTPUT_SLOT)) && output.getStackInSlot(OUTPUT_SLOT).stackSize < output.getStackInSlot(OUTPUT_SLOT).getMaxStackSize() ));
+			&& ItemStack.areItemsEqual(getRecipe().getInput(), input.getStackInSlot(WOOD_SLOT))
+			&& (ItemStack.areItemsEqual(getRecipe().getSolute(), input.getStackInSlot(INPUT_SLOT)) || canSoluteOredict(input.getStackInSlot(INPUT_SLOT), INPUT_SLOT))
+			&& input.hasEnoughFluid(inputTank.getFluid(), getRecipe().getSolvent())
+			&& output.canSetOrStack(output.getStackInSlot(OUTPUT_SLOT), getRecipe().getOutput());
 	}
 
 	private void execute() {
@@ -270,12 +240,10 @@ public class TileEntityWoodIncubator extends TileEntityMachineEnergy implements 
 	}
 
 	private void handleOutput() {
-		inputTank.getFluid().amount -= getRecipe().getSolvent().amount;
-		if(inputTank.getFluid().amount <= 0){inputTank.setFluid(null);}
-		ItemStack recipeOutput = getRecipe().getOutput();
-		output.setOrStack(OUTPUT_SLOT, recipeOutput);
+		input.drainOrClean(inputTank, getRecipe().getSolvent().amount, true);
+		output.setOrStack(OUTPUT_SLOT, getRecipe().getOutput());
+		input.decrementSlot(WOOD_SLOT);
 		input.decrementSlot(INPUT_SLOT);
-		input.decrementSlot(SOLUTE_SLOT);
 	}
 
 }

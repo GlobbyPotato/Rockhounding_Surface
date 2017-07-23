@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 
 import com.globbypotato.rockhounding_surface.ModBlocks;
 import com.globbypotato.rockhounding_surface.ModItems;
-import com.globbypotato.rockhounding_surface.blocks.BaseShrubs;
 import com.globbypotato.rockhounding_surface.blocks.itemblocks.ShrubsIB;
 import com.globbypotato.rockhounding_surface.enums.EnumShrubs;
 

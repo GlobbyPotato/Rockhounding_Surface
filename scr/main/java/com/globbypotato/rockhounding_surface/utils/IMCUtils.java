@@ -2,8 +2,8 @@ package com.globbypotato.rockhounding_surface.utils;
 
 import java.util.List;
 
-import com.globbypotato.rockhounding_surface.handler.ModRecipes;
 import com.globbypotato.rockhounding_surface.machines.recipe.CompostBinRecipe;
+import com.globbypotato.rockhounding_surface.machines.recipe.MachineRecipes;
 import com.globbypotato.rockhounding_surface.machines.recipe.WoodIncubatorRecipe;
 
 import net.minecraft.item.ItemStack;
@@ -36,9 +36,9 @@ public class IMCUtils {
 		        			wood = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("Output"));
 		        		}
 		        		if(wood != null){
-		        			for(int x = 0; x < ModRecipes.woodIncubatorRecipes.size(); x++){
-		        				if(ModRecipes.woodIncubatorRecipes.get(x).getOutput().isItemEqual(wood)){
-		        					ModRecipes.woodIncubatorRecipes.remove(x);
+		        			for(int x = 0; x < MachineRecipes.woodIncubatorRecipes.size(); x++){
+		        				if(MachineRecipes.woodIncubatorRecipes.get(x).getOutput().isItemEqual(wood)){
+		        					MachineRecipes.woodIncubatorRecipes.remove(x);
 		        				}
 		        			}
 		        		}
@@ -48,9 +48,9 @@ public class IMCUtils {
 		        			bin = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("Input"));
 		        		}
 		        		if(bin != null){
-		        			for(int x = 0; x < ModRecipes.compostRecipes.size(); x++){
-		        				if(ModRecipes.compostRecipes.get(x).getInput().isItemEqual(bin)){
-		        					ModRecipes.compostRecipes.remove(x);
+		        			for(int x = 0; x < MachineRecipes.compostRecipes.size(); x++){
+		        				if(MachineRecipes.compostRecipes.get(x).getInput().isItemEqual(bin)){
+		        					MachineRecipes.compostRecipes.remove(x);
 		        				}
 		        			}
 		        		}
@@ -75,7 +75,7 @@ public class IMCUtils {
 		        			output = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("Output"));
 		        		}
 		        		if(input != null && solute != null && solvent.getFluid() != null && output != null){
-		        			ModRecipes.woodIncubatorRecipes.add(new WoodIncubatorRecipe(input, solute, canOredict, solvent, output));
+		        			MachineRecipes.woodIncubatorRecipes.add(new WoodIncubatorRecipe(input, solute, canOredict, solvent, output));
 		        		}
 					}else if(message.key.equalsIgnoreCase(COMPOST_KEY)){
 		        		if(tag.hasKey("Input")){
@@ -85,7 +85,7 @@ public class IMCUtils {
 		        			canOredict = tag.getBoolean("Oredict");
 		        		}
 		        		if(input != null){
-		        			ModRecipes.compostRecipes.add(new CompostBinRecipe(input, canOredict));
+		        			MachineRecipes.compostRecipes.add(new CompostBinRecipe(input, canOredict));
 		        		}
 					}
 	    		}

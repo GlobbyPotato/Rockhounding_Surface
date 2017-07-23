@@ -10,7 +10,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class Truffles extends BaseArray {
+public class Truffles extends ArrayIO {
 
 	public Truffles(String name, String[] array) {
 		super(name, array);

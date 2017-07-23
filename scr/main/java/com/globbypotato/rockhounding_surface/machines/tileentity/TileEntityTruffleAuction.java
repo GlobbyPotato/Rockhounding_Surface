@@ -3,6 +3,10 @@ package com.globbypotato.rockhounding_surface.machines.tileentity;
 import java.util.List;
 import java.util.Random;
 
+import com.globbypotato.rockhounding_core.machines.tileentity.MachineStackHandler;
+import com.globbypotato.rockhounding_core.machines.tileentity.TileEntityMachineInv;
+import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler;
+import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler.WriteMode;
 import com.globbypotato.rockhounding_surface.ModItems;
 import com.globbypotato.rockhounding_surface.enums.EnumTruffles;
 import com.globbypotato.rockhounding_surface.machines.gui.GuiTruffleAuction;
@@ -31,7 +35,7 @@ public class TileEntityTruffleAuction extends TileEntityMachineInv {
 	ItemStack lootStack;
 
 	public TileEntityTruffleAuction(){
-		super(1,0);
+		super(1, 0);
 
 		input =  new MachineStackHandler(INPUT_SLOTS,this){
 			@Override
@@ -42,7 +46,7 @@ public class TileEntityTruffleAuction extends TileEntityMachineInv {
 				return insertingStack;
 			}
 		};
-		this.automationInput = new WrappedItemHandler(input, WrappedItemHandler.WriteMode.IN_OUT);
+		this.automationInput = new WrappedItemHandler(input, WriteMode.IN);
 	}
 
 	@Override

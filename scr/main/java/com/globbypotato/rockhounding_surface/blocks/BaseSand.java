@@ -30,7 +30,7 @@ public class BaseSand extends BlockFalling {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public int getDustColor(IBlockState p_189876_1_){
+    public int getDustColor(IBlockState state){
         return 13355979;
     }
 

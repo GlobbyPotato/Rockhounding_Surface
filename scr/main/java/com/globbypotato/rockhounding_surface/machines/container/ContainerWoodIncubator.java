@@ -1,6 +1,6 @@
 package com.globbypotato.rockhounding_surface.machines.container;
 
-import com.globbypotato.rockhounding_surface.handler.ModRecipes;
+import com.globbypotato.rockhounding_surface.machines.recipe.MachineRecipes;
 import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityWoodIncubator;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,7 +49,7 @@ public class ContainerWoodIncubator extends ContainerBase<TileEntityWoodIncubato
 			}
     		return null;
     	}else if(slot == 7){
-    		if(this.tile.recipeIndex < ModRecipes.woodIncubatorRecipes.size() - 1){
+    		if(this.tile.recipeIndex < MachineRecipes.woodIncubatorRecipes.size() - 1){
     			this.tile.recipeIndex++; 
     			this.tile.activation = false;
     		}

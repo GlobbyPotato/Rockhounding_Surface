@@ -1,8 +1,6 @@
 package com.globbypotato.rockhounding_surface.enums;
 
-import net.minecraft.util.IStringSerializable;
-
-public enum EnumChiseled implements IStringSerializable {
+public enum EnumChiseled implements BaseEnum {
 	BLINDS, 
 	CHAOTIC,
 	CHAOTICH,
@@ -20,15 +18,16 @@ public enum EnumChiseled implements IStringSerializable {
 	UNEVEN,
 	FENCE;
 
-	@Override
-	public String getName() {
-        return toString().toLowerCase();
-	}
-
+	//---------CUSTOM----------------
 	public static int size(){
 		return values().length;
 	}
 
+	public static String name(int index) {
+		return values()[index].getName();
+	}
+
+	//---------ENUM----------------
 	public static String[] getNames(){
 		String[] temp = new String[size()];
 		for(int i=0;i<size();i++){temp[i] = getName(i);}
@@ -36,7 +35,7 @@ public enum EnumChiseled implements IStringSerializable {
 	}
 
 	public static String getName(int index){
-		return index > -1 && index < size() ? EnumChiseled.values()[index].getName() : EnumChiseled.values()[0].getName();
+		return name(index);
 	}
 
 }

@@ -6,7 +6,7 @@ import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityTruff
 import net.minecraft.block.material.Material;
 import net.minecraft.util.EnumFacing;
 
-public class TruffleAuction extends BaseTileBlock{
+public class TruffleAuction extends BaseMachine{
     public TruffleAuction(float hardness, float resistance, String name){
         super(name, Material.IRON, TileEntityTruffleAuction.class,GuiHandler.truffleAuctionID);
 		setHardness(hardness); setResistance(resistance);	

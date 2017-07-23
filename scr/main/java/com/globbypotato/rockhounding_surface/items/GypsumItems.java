@@ -3,7 +3,6 @@ package com.globbypotato.rockhounding_surface.items;
 import java.util.List;
 import java.util.Random;
 
-import com.globbypotato.rockhounding_surface.enums.EnumGypsumItems;
 import com.globbypotato.rockhounding_surface.integration.SupportUtils;
 
 import net.minecraft.block.BlockGrass;
@@ -20,12 +19,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class GypsumItems extends BaseArray {
+public class GypsumItems extends ArrayIO {
 	public String[] array;
 	Random rand = new Random();
 	private int successRate = 4;
@@ -203,13 +201,4 @@ public class GypsumItems extends BaseArray {
         }
     }
 
-    @SideOnly(Side.CLIENT)
-	@Override
-    public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean held) {
-		if(SupportUtils.rhChemistryLoaded() && itemstack.getItemDamage() == EnumGypsumItems.GYPSUM.ordinal()){
-			list.add(TextFormatting.DARK_GRAY + "Category: " + TextFormatting.YELLOW + "Sulfate");
-			list.add(TextFormatting.DARK_GRAY + "Calcium: " + TextFormatting.WHITE + "23%");
-			list.add(TextFormatting.DARK_GRAY + "Sulfur: " + TextFormatting.WHITE + "19%");
-		}
-    }
 }

@@ -19,9 +19,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 
-public class WoodIncubator extends BaseTileBlock{
+public class WoodIncubator extends BaseMachine{
     public WoodIncubator(float hardness, float resistance, String name){
-        super(name, Material.IRON, TileEntityWoodIncubator.class,GuiHandler.woodIncubatorID);
+        super(name, Material.IRON, TileEntityWoodIncubator.class, GuiHandler.woodIncubatorID);
 		setHardness(hardness); setResistance(resistance);	
 		setHarvestLevel("pickaxe", 0);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
@@ -29,20 +29,11 @@ public class WoodIncubator extends BaseTileBlock{
 
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack){
+    	super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing()), 2);
 		if(stack.hasTagCompound()){
-        	int fuel = stack.getTagCompound().getInteger("Fuel");
-        	int energy = stack.getTagCompound().getInteger("Energy");
-        	int recipe = stack.getTagCompound().getInteger("Recipe");
-        	boolean induction = stack.getTagCompound().getBoolean("Induction");
         	TileEntityWoodIncubator te = (TileEntityWoodIncubator) worldIn.getTileEntity(pos);
 			if(te != null){
-            	te.powerCount = fuel;
-            	te.redstoneCount = energy;
-            	te.permanentInductor = induction;
-        		if(stack.getTagCompound().hasKey("Recipe")){
-        			te.recipeIndex = recipe;
-        		}
         		if(stack.getTagCompound().hasKey("Solvent")){
         			te.inputTank.setFluid(FluidStack.loadFluidStackFromNBT(stack.getTagCompound().getCompoundTag("Solvent")));
         		}
@@ -67,13 +58,8 @@ public class WoodIncubator extends BaseTileBlock{
 	private void addNbt(ItemStack itemstack, TileEntity tileentity) {
 		TileEntityWoodIncubator incubator = ((TileEntityWoodIncubator)tileentity);
 		itemstack.setTagCompound(new NBTTagCompound());
-		itemstack.getTagCompound().setInteger("Fuel", incubator.powerCount);
-		itemstack.getTagCompound().setInteger("Energy", incubator.redstoneCount);
-		itemstack.getTagCompound().setBoolean("Induction", incubator.permanentInductor);
+		addPowerNbt(itemstack, tileentity);
 		NBTTagCompound solvent = new NBTTagCompound(); 
-		if(incubator.recipeIndex >= 0){
-			itemstack.getTagCompound().setInteger("Recipe", incubator.recipeIndex);
-		}
 		if(incubator.inputTank.getFluid() != null){
 			incubator.inputTank.getFluid().writeToNBT(solvent);
 			itemstack.getTagCompound().setTag("Solvent", solvent);

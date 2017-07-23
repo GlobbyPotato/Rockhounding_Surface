@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import com.globbypotato.rockhounding_surface.compat.jei.RHRecipeWrapper;
-import com.globbypotato.rockhounding_surface.handler.ModRecipes;
+import com.globbypotato.rockhounding_surface.machines.recipe.MachineRecipes;
 import com.globbypotato.rockhounding_surface.machines.recipe.WoodIncubatorRecipe;
 
 import mezz.jei.api.ingredients.IIngredients;
@@ -22,7 +22,7 @@ public class WoodIncubatorRecipeWrapper extends RHRecipeWrapper<WoodIncubatorRec
 
 	public static List<WoodIncubatorRecipeWrapper> getRecipes() {
 		List<WoodIncubatorRecipeWrapper> recipes = new ArrayList<>();
-		for (WoodIncubatorRecipe recipe : ModRecipes.woodIncubatorRecipes) {
+		for (WoodIncubatorRecipe recipe : MachineRecipes.woodIncubatorRecipes) {
 			recipes.add(new WoodIncubatorRecipeWrapper(recipe));
 		}
 		return recipes;

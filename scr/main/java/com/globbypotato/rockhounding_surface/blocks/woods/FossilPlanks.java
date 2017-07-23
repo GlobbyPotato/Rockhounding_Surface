@@ -1,7 +1,7 @@
 package com.globbypotato.rockhounding_surface.blocks.woods;
 
-import com.globbypotato.rockhounding_surface.blocks.BaseMetaBlock;
-import com.globbypotato.rockhounding_surface.blocks.itemblocks.MetaIB;
+import com.globbypotato.rockhounding_core.blocks.itemblocks.BaseMetaIB;
+import com.globbypotato.rockhounding_surface.blocks.BlockIO;
 import com.globbypotato.rockhounding_surface.enums.EnumFossilPlanks;
 
 import net.minecraft.block.SoundType;
@@ -12,12 +12,12 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class FossilPlanks extends BaseMetaBlock {
+public class FossilPlanks extends BlockIO {
 	public static final PropertyEnum VARIANT = PropertyEnum.create("variant", EnumFossilPlanks.class);
 
-    public FossilPlanks(String name, Material material, SoundType soundtype, String[] array, float hardness, float resistance ){
-        super(name, array, material, soundtype, hardness, resistance);
-        GameRegistry.register(new MetaIB(this, EnumFossilPlanks.getNames()).setRegistryName(name));
+    public FossilPlanks(Material material, String[] array, float hardness, float resistance, String name, SoundType stepSound) {
+		super(material, array, hardness, resistance, name, stepSound);
+        GameRegistry.register(new BaseMetaIB(this, EnumFossilPlanks.getNames()).setRegistryName(name));
         setHarvestLevel("axe", 0);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumFossilPlanks.values()[0]));
     }

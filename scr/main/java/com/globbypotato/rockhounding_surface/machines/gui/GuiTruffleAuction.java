@@ -1,9 +1,9 @@
 package com.globbypotato.rockhounding_surface.machines.gui;
 
+import com.globbypotato.rockhounding_core.utils.Translator;
 import com.globbypotato.rockhounding_surface.handler.Reference;
 import com.globbypotato.rockhounding_surface.machines.container.ContainerTruffleAuction;
 import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityTruffleAuction;
-import com.globbypotato.rockhounding_surface.utils.Translator;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;

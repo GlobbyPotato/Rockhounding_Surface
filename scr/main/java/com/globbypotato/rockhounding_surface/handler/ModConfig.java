@@ -1,6 +1,5 @@
 package com.globbypotato.rockhounding_surface.handler;
 
-import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityMachineEnergy;
 import com.globbypotato.rockhounding_surface.world.FossilGenerator;
 import com.globbypotato.rockhounding_surface.world.SandGenerator;
 
@@ -8,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ModConfig {
+	public static final String CATEGORY_BUILDING = "Building";
 	public static final String CATEGORY_FOSSILWOOD = "FossilWood";
 	public static final String CATEGORY_TRUFFLES = "Truffles";
 	public static final String CATEGORY_TOOLS = "Tools";
@@ -17,7 +17,10 @@ public class ModConfig {
 	public static boolean enableTruffles;
 	public static int truffleRarity;
 	public static boolean pigGriefing;
-	public static boolean allowTab;
+	public static boolean allowStairs;
+	public static boolean allowFences;
+	public static boolean allowGates;
+	public static boolean allowChisel;
 
 	public static int speedWoodIncubator;
 	public static int speedCompost;
@@ -27,6 +30,13 @@ public class ModConfig {
 	public static void loadConfig(FMLPreInitializationEvent event) {
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
+
+	//BUILDING
+		config.addCustomCategoryComment("Building", "These settings handle the allowed building parts.");
+		allowStairs = config.get(						CATEGORY_BUILDING, 	"ALLOW_STAIRS", 			true,	"Include the mod stairs to the game").getBoolean();
+		allowFences = config.get(						CATEGORY_BUILDING, 	"ALLOW_FENCES", 			true,	"Include the mod fences to the game").getBoolean();
+		allowGates = config.get(						CATEGORY_BUILDING, 	"ALLOW_GATES", 				true,	"Include the mod fence gates to the game").getBoolean();
+		allowChisel = config.get(						CATEGORY_BUILDING, 	"ALLOW_CHISEL", 			true,	"Include the mod chiseled blocks to the game").getBoolean();
 
 	//FOSSIL WOOD
 		config.addCustomCategoryComment("FossilWood", "These settings handle the fossil wood parameters.");
@@ -61,7 +71,6 @@ public class ModConfig {
 		speedWoodIncubator = config.get(				CATEGORY_TOOLS, 	 "SPEED_INCUBATOR", 		400,	"Ticks required to process in the Wood Incubator").getInt();
 		speedCompost = config.get(						CATEGORY_TOOLS, 	 "SPEED_COMPOST", 			1600,	"Ticks required to process in the Compost Bin").getInt();
 		machineTank = config.get(						CATEGORY_TOOLS, 	 "TANK_CAPACITY", 			9000,	"Capacity for machine fluid tanks. This value is increased by 1000 by default").getInt();
-		TileEntityMachineEnergy.allowInductor = config.get(CATEGORY_TOOLS,   "PERMANENT_INDUCTION",		false,	"Make the Induction Heating Interface a machine permanent upgrade").getBoolean();
 
 	//GYPSUM
 		config.addCustomCategoryComment("Gypsum", "These settings handle the settings of the gypsum feature.");

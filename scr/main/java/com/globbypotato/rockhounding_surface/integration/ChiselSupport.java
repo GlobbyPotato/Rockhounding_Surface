@@ -11,7 +11,7 @@ import team.chisel.api.carving.ICarvingRegistry;
 public class ChiselSupport  {
 
 	public static void loadChisel() {
-		if(SupportUtils.chiselLoaded()){
+		if(SupportUtils.chiselEnabled()){
 			ICarvingRegistry chisel = CarvingUtils.getChiselRegistry();
 			if(chisel != null) {
 			//fossil woods

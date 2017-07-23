@@ -1,6 +1,5 @@
 package com.globbypotato.rockhounding_surface.blocks.woods;
 
-import com.globbypotato.rockhounding_surface.blocks.BaseGate;
 import com.globbypotato.rockhounding_surface.enums.EnumFossilPlanks;
 
 import net.minecraft.block.BlockPlanks.EnumType;

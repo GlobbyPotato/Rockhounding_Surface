@@ -3,13 +3,17 @@ package com.globbypotato.rockhounding_surface.machines.tileentity;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.globbypotato.rockhounding_core.machines.tileentity.MachineStackHandler;
+import com.globbypotato.rockhounding_core.machines.tileentity.TileEntityMachineEnergy;
+import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler;
+import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler.WriteMode;
+import com.globbypotato.rockhounding_core.utils.Utils;
 import com.globbypotato.rockhounding_surface.ModItems;
 import com.globbypotato.rockhounding_surface.handler.ModConfig;
-import com.globbypotato.rockhounding_surface.handler.ModRecipes;
 import com.globbypotato.rockhounding_surface.integration.SupportUtils;
 import com.globbypotato.rockhounding_surface.machines.gui.GuiCompostBin;
 import com.globbypotato.rockhounding_surface.machines.recipe.CompostBinRecipe;
-import com.globbypotato.rockhounding_surface.utils.Utils;
+import com.globbypotato.rockhounding_surface.machines.recipe.MachineRecipes;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -29,8 +33,6 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class TileEntityCompostBin extends TileEntityMachineEnergy {
 
-	public static final int INPUT_SLOT = 0;
-	public static final int OUTPUT_SLOT = 0;
 	Random rand = new Random();
 	public int compostFactor = 100;
 	public int capacity = 1000 + ModConfig.machineTank;
@@ -38,7 +40,7 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 	public ItemStack compostStack = new ItemStack(ModItems.gypsumItems,1,4);
 
 	public TileEntityCompostBin(){
-		super(1,1,0);
+		super(1, 1, 0);
 		input =  new MachineStackHandler(INPUT_SLOTS,this){
 			@Override
 			public ItemStack insertItem(int slot, ItemStack insertingStack, boolean simulate){
@@ -48,11 +50,11 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 				return insertingStack;
 			}
 		};
-		this.automationInput = new WrappedItemHandler(input, WrappedItemHandler.WriteMode.IN_OUT);
+		this.automationInput = new WrappedItemHandler(input, WriteMode.IN);
 	}
 
 	public static boolean hasRecipe(ItemStack insertingStack){
-		return ModRecipes.compostRecipes.stream().anyMatch(
+		return MachineRecipes.compostRecipes.stream().anyMatch(
 				recipe -> ItemStack.areItemsEqual(recipe.getInput(), insertingStack));
 	}
 
@@ -62,13 +64,14 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 			|| composting instanceof ItemSeeds
 			|| (composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof IPlantable)
 			|| (composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof BlockLeaves)
-			|| (composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof IGrowable && !(Block.getBlockFromItem(composting) instanceof BlockGrass));
+			|| (composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof IGrowable && !(Block.getBlockFromItem(composting) instanceof BlockGrass))
+			|| composting == SupportUtils.naturaSeeds().getItem();
 	}
 
 	public static boolean isValidOredict(ItemStack stack) {
 		if(stack != null){
 			ArrayList<Integer> inputIDs = Utils.intArrayToList(OreDictionary.getOreIDs(stack));
-			for(CompostBinRecipe recipe: ModRecipes.compostRecipes){
+			for(CompostBinRecipe recipe: MachineRecipes.compostRecipes){
 				ArrayList<Integer> recipeIDs = Utils.intArrayToList(OreDictionary.getOreIDs(recipe.getInput()));
 				for(Integer ores: recipeIDs){
 					if(inputIDs.contains(ores)) return true;
@@ -95,14 +98,12 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 	public void readFromNBT(NBTTagCompound compound){
 		super.readFromNBT(compound);
 		this.amount = compound.getInteger("Amount");
-		this.cookTime = compound.getInteger("CookTime");
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound){
 		super.writeToNBT(compound);
 		compound.setInteger("Amount", this.amount);
-		compound.setInteger("CookTime", this.cookTime);
 		return compound;
 	}
 
@@ -150,7 +151,7 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 		ItemStack stack = input.getStackInSlot(INPUT_SLOT);
 		if(stack != null){
 			Item composting = stack.getItem();
-			if(composting instanceof ItemSeeds || composting == Items.FEATHER){
+			if(composting instanceof ItemSeeds || composting == Items.FEATHER || composting == SupportUtils.naturaSeeds().getItem()){
 				return 1;
 			}else if(composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof BlockSapling){
 				return 2;

@@ -1,5 +1,6 @@
 package com.globbypotato.rockhounding_surface.blocks.itemblocks;
 
+import com.globbypotato.rockhounding_core.blocks.itemblocks.BaseMetaIB;
 import com.globbypotato.rockhounding_surface.ModBlocks;
 import com.globbypotato.rockhounding_surface.blocks.woods.FossilSlabs;
 import com.globbypotato.rockhounding_surface.enums.EnumFossilPlanks;
@@ -17,7 +18,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class FossilSlabIB extends MetaIB {
+public class FossilSlabIB extends BaseMetaIB {
     IBlockState placingState;
 
     public FossilSlabIB(Block block, String[] names) {

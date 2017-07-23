@@ -1,6 +1,6 @@
 package com.globbypotato.rockhounding_surface.blocks.woods;
 
-import com.globbypotato.rockhounding_surface.blocks.BaseMetaBlock;
+import com.globbypotato.rockhounding_surface.blocks.BlockIO;
 import com.globbypotato.rockhounding_surface.blocks.itemblocks.FossilChiselIB;
 import com.globbypotato.rockhounding_surface.enums.EnumChiseled;
 
@@ -12,11 +12,11 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class FossilChisel extends BaseMetaBlock {
+public class FossilChisel extends BlockIO {
 	public static final PropertyEnum VARIANT = PropertyEnum.create("variant", EnumChiseled.class);
 
-    public FossilChisel(String name, Material material, SoundType soundtype, String[] array, float hardness, float resistance){
-        super(name, array, material, soundtype, resistance, resistance);
+    public FossilChisel(Material material, String[] array, float hardness, float resistance, String name, SoundType stepSound) {
+		super(material, array, hardness, resistance, name, stepSound);
         GameRegistry.register(new FossilChiselIB(this, EnumChiseled.getNames()).setRegistryName(name));
         setHarvestLevel("axe", 0);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumChiseled.values()[0]));

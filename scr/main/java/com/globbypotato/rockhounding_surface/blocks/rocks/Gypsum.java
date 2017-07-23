@@ -5,9 +5,9 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.globbypotato.rockhounding_core.blocks.itemblocks.BaseMetaIB;
 import com.globbypotato.rockhounding_surface.ModBlocks;
-import com.globbypotato.rockhounding_surface.blocks.BaseMetaBlock;
-import com.globbypotato.rockhounding_surface.blocks.itemblocks.MetaIB;
+import com.globbypotato.rockhounding_surface.blocks.BlockIO;
 import com.globbypotato.rockhounding_surface.enums.EnumGypsumBlocks;
 
 import net.minecraft.block.SoundType;
@@ -28,24 +28,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class Gypsum extends BaseMetaBlock {
+public class Gypsum extends BlockIO {
 	public static final PropertyEnum VARIANT = PropertyEnum.create("variant", EnumGypsumBlocks.class);
 
-    public Gypsum(String name, Material material, SoundType soundtype, String[] array, float hardness, float resistance ){
-        super(name, array, material, soundtype, hardness, resistance);
-        GameRegistry.register(new MetaIB(this, EnumGypsumBlocks.getNames()).setRegistryName(name));
+    public Gypsum(Material material, String[] array, float hardness, float resistance, String name, SoundType stepSound) {
+		super(material, array, hardness, resistance, name, stepSound);
+        GameRegistry.register(new BaseMetaIB(this, EnumGypsumBlocks.getNames()).setRegistryName(name));
         setHarvestLevel("pickaxe", 0);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumGypsumBlocks.values()[0]));
-    }
-
-    @SideOnly(Side.CLIENT)
-	@Override
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list){
-    	for(int x = 0; x < this.array.length; x++){
-    		if(x != EnumGypsumBlocks.DOUBLE.ordinal()){
-    			list.add(new ItemStack(itemIn, 1, x));
-    		}
-    	}
     }
 
 	@Override
@@ -62,16 +52,6 @@ public class Gypsum extends BaseMetaBlock {
 	public BlockStateContainer createBlockState(){
 		return new BlockStateContainer(this, new IProperty[] { VARIANT });
 	}
-	
-	@Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune){
-		return Item.getItemFromBlock(this);
-	}
-
-	@Override
-    public int damageDropped(IBlockState state){
-    	return getMetaFromState(state);
-    }
 
     @Override
     public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, @Nullable ItemStack stack){
