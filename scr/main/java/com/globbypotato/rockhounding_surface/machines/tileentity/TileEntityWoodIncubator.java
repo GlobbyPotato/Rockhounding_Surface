@@ -221,6 +221,7 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 
 	public boolean canSynthesize(){
 		return activation
+			&& isValidInterval()
 			&& this.getPower() >= this.getCookTimeMax()
 			&& this.getRedstone() >= this.getCookTimeMax()
 			&& ItemStack.areItemsEqual(getRecipe().getInput(), input.getStackInSlot(WOOD_SLOT))

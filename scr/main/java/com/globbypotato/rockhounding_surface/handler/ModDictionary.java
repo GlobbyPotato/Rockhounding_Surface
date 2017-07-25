@@ -4,6 +4,7 @@ import com.globbypotato.rockhounding_surface.ModBlocks;
 import com.globbypotato.rockhounding_surface.ModItems;
 import com.globbypotato.rockhounding_surface.enums.EnumFossilPlanks;
 import com.globbypotato.rockhounding_surface.enums.EnumTruffles;
+import com.globbypotato.rockhounding_surface.utils.BaseRecipes;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -43,8 +44,8 @@ public class ModDictionary {
 			}
 		}
 
-		OreDictionary.registerOre("dustGypsum", 			new ItemStack(ModItems.gypsumItems,1,0));
-		OreDictionary.registerOre("gypsum", 				new ItemStack(ModBlocks.gypsum,1,0));
+		OreDictionary.registerOre("dustGypsum", 			BaseRecipes.gypsumDust);
+		OreDictionary.registerOre("gypsum", 				BaseRecipes.gypsumDust);
 		OreDictionary.registerOre("blockGypsum", 			new ItemStack(ModBlocks.gypsum,1,1));
 
 		for(int x = 0; x < EnumTruffles.size(); x++){
@@ -66,7 +67,7 @@ public class ModDictionary {
 		OreDictionary.registerOre("cropPurplepear", 		new ItemStack(ModItems.purplePear));
 		
 		OreDictionary.registerOre("cropMesquite", 			new ItemStack(ModItems.mesquite));
-		OreDictionary.registerOre("foodFlour", 				new ItemStack(ModItems.gypsumItems,1,5));
-		OreDictionary.registerOre("flourEqualsWheat", 		new ItemStack(ModItems.gypsumItems,1,5));
+		OreDictionary.registerOre("foodFlour", 				BaseRecipes.mesquiteFlour);
+		OreDictionary.registerOre("flourEqualsWheat", 		BaseRecipes.mesquiteFlour);
 	}
 }

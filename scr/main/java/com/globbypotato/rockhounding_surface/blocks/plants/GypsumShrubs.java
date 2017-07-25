@@ -9,6 +9,7 @@ import com.globbypotato.rockhounding_surface.ModBlocks;
 import com.globbypotato.rockhounding_surface.ModItems;
 import com.globbypotato.rockhounding_surface.blocks.itemblocks.ShrubsIB;
 import com.globbypotato.rockhounding_surface.enums.EnumShrubs;
+import com.globbypotato.rockhounding_surface.utils.BaseRecipes;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -114,7 +115,7 @@ public class GypsumShrubs extends BaseShrubs{
 
     private boolean isFertilizer(EntityPlayer player, EnumHand hand, ItemStack heldItem) {
 		return player.getHeldItem(hand).isItemEqual(new ItemStack(Items.DYE,1,15)) ||
-				player.getHeldItem(hand).isItemEqual(new ItemStack(ModItems.gypsumItems,1,1));
+				player.getHeldItem(hand).isItemEqual(BaseRecipes.gypsumMeal);
 	}
 
 	private void harvestBerry(World worldIn, IBlockState state, BlockPos pos, EntityPlayer playerIn, int meta) {
@@ -122,7 +123,7 @@ public class GypsumShrubs extends BaseShrubs{
 		worldIn.setBlockState(pos, ModBlocks.gypsumCrops.getStateFromMeta(meta - 1), 2);
         worldIn.spawnEntityInWorld(entityitem);
         if(meta == 8){
-        	ItemStack flowerStack = new ItemStack(ModItems.gypsumItems, 1, 6);
+        	ItemStack flowerStack = BaseRecipes.mesquiteFlower;
             EntityItem entityflower = new EntityItem(worldIn, playerIn.posX, playerIn.posY - 1.0D, playerIn.posZ, flowerStack);
             worldIn.spawnEntityInWorld(entityflower);
         }

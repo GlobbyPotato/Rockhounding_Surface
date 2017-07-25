@@ -101,17 +101,17 @@ public class ModRecipes extends BaseRecipes {
 	private static void agingRecipes() {
 		if(SupportUtils.rhChemistryLoaded()){
 		//composts
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 0), new Object[] {SupportUtils.chemFlask(), compost, compost, compost, compost, compost, compost, compost, compost}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 1), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustIron", "dustCopper", "dustCopper", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 2), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustIron", "dustIron", "dustIron", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 3), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustCopper", "dustCopper", "dustCopper", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 4), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustChromium", "dustChromium", "dustChromium", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 5), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustManganese", "dustManganese", "dustManganese", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 6), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustCobalt", "dustManganese", "dustCopper", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 7), new Object[] {SupportUtils.chemFlask(), "gemLapis", "gemLapis", "gemLapis", "gemLapis", "gemLapis", "gemLapis", "gemLapis", "gemLapis"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 8), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustIron", "dustIron", "dustIron", "dustSilicon", "dustSilicon", "dustSilicon", "dustSilicon"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 8), new Object[] {SupportUtils.chemFlask(), "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian"}));
-			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.agingItems, 8, 10),new Object[] {SupportUtils.chemFlask(), teredos, teredos, teredos, teredos, teredos, teredos, teredos, teredos}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 0), new Object[] {SupportUtils.chemFlask(), compost, compost, compost, compost, compost, compost, compost, compost}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 1), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustIron", "dustCopper", "dustCopper", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 2), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustIron", "dustIron", "dustIron", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 3), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustCopper", "dustCopper", "dustCopper", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 4), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustChromium", "dustChromium", "dustChromium", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 5), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustManganese", "dustManganese", "dustManganese", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 6), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustCobalt", "dustManganese", "dustCopper", "gemQuartz", "gemQuartz", "gemQuartz", "gemQuartz"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 7), new Object[] {SupportUtils.chemFlask(), "gemLapis", "gemLapis", "gemLapis", "gemLapis", "gemLapis", "gemLapis", "gemLapis", "gemLapis"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 8), new Object[] {SupportUtils.chemFlask(), "dustIron", "dustIron", "dustIron", "dustIron", "dustSilicon", "dustSilicon", "dustSilicon", "dustSilicon"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 8), new Object[] {SupportUtils.chemFlask(), "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian", "gemCarnelian"}));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(aging(8, 10),new Object[] {SupportUtils.chemFlask(), teredo, teredo, teredo, teredo, teredo, teredo, teredo, teredo}));
 		}
 	}
 

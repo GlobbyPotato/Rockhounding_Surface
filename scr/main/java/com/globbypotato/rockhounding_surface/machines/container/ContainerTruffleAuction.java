@@ -14,6 +14,7 @@ public class ContainerTruffleAuction extends ContainerBase<TileEntityTruffleAuct
 	@Override
 	protected void addOwnSlots() {
 		IItemHandler input = tile.getInput();
-        this.addSlotToContainer(new SlotItemHandler(input, 0, 123, 39));//tool
+        this.addSlotToContainer(new SlotItemHandler(input, 0, 80, 17));//input
+        this.addSlotToContainer(new SlotItemHandler(input, 1, 124, 51));//tool
 	}
 }

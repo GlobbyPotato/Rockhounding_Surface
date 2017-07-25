@@ -1,3 +1,12 @@
+v1.19 changelog
+	Truffle Auction Table
+		Truffles to sell must be placed inside the gui to start an auction. May require to break and place again the table after updating
+	Wood Incubator
+		Fixed a potential crash
+	Misc Fixes
+		Some JEI additions 
+		Minor cleanings
+
 v1.18 changelog
 	Rockhounding core updated to v1.02
 		[Request] Added a Fuel Blend option inspired by ATM:Expert, configurable from the Core config 

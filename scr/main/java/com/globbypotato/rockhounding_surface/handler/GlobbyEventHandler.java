@@ -5,6 +5,7 @@ import java.util.Random;
 import com.globbypotato.rockhounding_surface.ModItems;
 import com.globbypotato.rockhounding_surface.enums.EnumTruffles;
 import com.globbypotato.rockhounding_surface.integration.SupportUtils;
+import com.globbypotato.rockhounding_surface.utils.BaseRecipes;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
@@ -26,7 +27,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -38,7 +38,7 @@ public class GlobbyEventHandler {
 		if(event.getState().getBlock() instanceof BlockLilyPad){
 			if(rand.nextInt(10) == 0){
 				if(!event.getWorld().isRemote){
-                	EntityItem entGrub = new EntityItem(event.getWorld(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), new ItemStack(ModItems.agingItems,1,9));
+                	EntityItem entGrub = new EntityItem(event.getWorld(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), BaseRecipes.teredo);
                 	entGrub.motionY += rand.nextFloat() * 0.05F;
                 	entGrub.motionX += (rand.nextFloat() - rand.nextFloat()) * 0.1F;
                 	entGrub.motionZ += (rand.nextFloat() - rand.nextFloat()) * 0.1F;

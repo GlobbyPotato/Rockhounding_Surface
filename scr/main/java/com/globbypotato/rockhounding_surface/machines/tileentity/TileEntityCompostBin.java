@@ -8,12 +8,12 @@ import com.globbypotato.rockhounding_core.machines.tileentity.TileEntityMachineE
 import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler;
 import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler.WriteMode;
 import com.globbypotato.rockhounding_core.utils.Utils;
-import com.globbypotato.rockhounding_surface.ModItems;
 import com.globbypotato.rockhounding_surface.handler.ModConfig;
 import com.globbypotato.rockhounding_surface.integration.SupportUtils;
 import com.globbypotato.rockhounding_surface.machines.gui.GuiCompostBin;
 import com.globbypotato.rockhounding_surface.machines.recipe.CompostBinRecipe;
 import com.globbypotato.rockhounding_surface.machines.recipe.MachineRecipes;
+import com.globbypotato.rockhounding_surface.utils.BaseRecipes;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -37,7 +37,6 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 	public int compostFactor = 100;
 	public int capacity = 1000 + ModConfig.machineTank;
 	public int amount;
-	public ItemStack compostStack = new ItemStack(ModItems.gypsumItems,1,4);
 
 	public TileEntityCompostBin(){
 		super(1, 1, 0);
@@ -125,16 +124,12 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 
 	private boolean canProcess(ItemStack stack) {
 		return this.amount >= this.compostFactor
-			&& canOutput(stack);
-	}
-
-	private boolean canOutput(ItemStack stack) {
-		return (stack == null || (stack != null && stack.isItemEqual(compostStack) && stack.stackSize < stack.getMaxStackSize()));
+			&& output.canSetOrStack(stack, BaseRecipes.compost);
 	}
 
 	private void compost() {
 		this.amount -= this.compostFactor;
-		output.setOrIncrement(OUTPUT_SLOT, compostStack.copy());
+		output.setOrIncrement(OUTPUT_SLOT, BaseRecipes.compost.copy());
 	}
 
 	private boolean canAcquire() {

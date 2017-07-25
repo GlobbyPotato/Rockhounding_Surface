@@ -21,22 +21,22 @@ public class MachineRecipes extends BaseRecipes {
 
 	public static void machineRecipes() {
 		if(SupportUtils.rhChemistryLoaded()){
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG2,1, 1), new ItemStack(ModItems.agingItems, 1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), new ItemStack(ModBlocks.bogLogs, 1, 0)));//bog oak
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 1), new ItemStack(ModItems.agingItems, 1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), new ItemStack(ModBlocks.bogLogs, 1, 1)));//bog spruce
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG2,1, 0), new ItemStack(ModItems.agingItems, 1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), new ItemStack(ModBlocks.bogLogs, 1, 3)));//mophane
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 2), new ItemStack(ModItems.agingItems, 1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), new ItemStack(ModBlocks.fossilLogs, 1, 1)));//pine
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 0), new ItemStack(ModItems.agingItems, 1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), new ItemStack(ModBlocks.bogLogs, 1, 2)));//kauri
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 3), new ItemStack(ModItems.agingItems, 1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), new ItemStack(ModBlocks.fossilLogs, 1, 0)));//palmosylon
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 0), new ItemStack(ModItems.agingItems, 1, 1), false, new FluidStack(FluidRegistry.WATER,1000),  new ItemStack(ModBlocks.fossilLogs, 1, 2)));//driftwood
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG2,1, 1), new ItemStack(ModItems.agingItems, 1, 3), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.fossilLogs, 1, 3)));//araucaria
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 1), new ItemStack(ModItems.agingItems, 1, 2), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.petrifiedLogs, 1, 1)));//castano
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 2), new ItemStack(ModItems.agingItems, 1, 5), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.petrifiedLogs, 1, 0)));//betula
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG2,1, 0), new ItemStack(ModItems.agingItems, 1, 4), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.petrifiedLogs, 1, 2)));//opalized
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 0), new ItemStack(ModItems.agingItems, 1, 6), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.petrifiedLogs, 1, 3)));//rainbow
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 0), new ItemStack(ModItems.agingItems, 1, 7), false, new FluidStack(ModFluids.CASTING_BATH,1000), new ItemStack(ModBlocks.coldLogs, 1, 0)));//azurite
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 2), new ItemStack(ModItems.agingItems, 1, 10),false, new FluidStack(FluidRegistry.WATER,1000), new ItemStack(ModBlocks.coldLogs, 1, 1)));//teredo
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 1), new ItemStack(ModItems.agingItems, 1, 7), false, new FluidStack(ModFluids.AGING_BATH,1000), new ItemStack(ModBlocks.coldLogs, 1, 2)));//beech
-			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 3), new ItemStack(ModItems.agingItems, 1, 8), false, new FluidStack(ModFluids.CASTING_BATH,1000), new ItemStack(ModBlocks.coldLogs, 1, 3)));//redwood
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG2,1, 1), aging(1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), 	new ItemStack(ModBlocks.bogLogs, 1, 0)));//bog oak
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 1), aging(1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), 	new ItemStack(ModBlocks.bogLogs, 1, 1)));//bog spruce
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG2,1, 0), aging(1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), 	new ItemStack(ModBlocks.bogLogs, 1, 3)));//mophane
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 2), aging(1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), 	new ItemStack(ModBlocks.fossilLogs, 1, 1)));//pine
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 0), aging(1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), 	new ItemStack(ModBlocks.bogLogs, 1, 2)));//kauri
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 3), aging(1, 1), false, new FluidStack(ModFluids.AGING_BATH,1000), 	new ItemStack(ModBlocks.fossilLogs, 1, 0)));//palmosylon
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 0), aging(1, 1), false, new FluidStack(FluidRegistry.WATER,1000),  	new ItemStack(ModBlocks.fossilLogs, 1, 2)));//driftwood
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG2,1, 1), aging(1, 3), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.fossilLogs, 1, 3)));//araucaria
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 1), aging(1, 2), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.petrifiedLogs, 1, 1)));//castano
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 2), aging(1, 5), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.petrifiedLogs, 1, 0)));//betula
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG2,1, 0), aging(1, 4), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.petrifiedLogs, 1, 2)));//opalized
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 0), aging(1, 6), false, new FluidStack(ModFluids.CASTING_BATH,1000),  new ItemStack(ModBlocks.petrifiedLogs, 1, 3)));//rainbow
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 0), aging(1, 7), false, new FluidStack(ModFluids.CASTING_BATH,1000), 	new ItemStack(ModBlocks.coldLogs, 1, 0)));//azurite
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 2), aging(1, 10),false, new FluidStack(FluidRegistry.WATER,1000), 	new ItemStack(ModBlocks.coldLogs, 1, 1)));//teredo
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 1), aging(1, 7), false, new FluidStack(ModFluids.AGING_BATH,1000),	new ItemStack(ModBlocks.coldLogs, 1, 2)));//beech
+			woodIncubatorRecipes.add(new WoodIncubatorRecipe(new ItemStack(Blocks.LOG, 1, 3), aging(1, 8), false, new FluidStack(ModFluids.CASTING_BATH,1000), 	new ItemStack(ModBlocks.coldLogs, 1, 3)));//redwood
 		}
 
 		compostRecipes.add(new CompostBinRecipe(new ItemStack(Blocks.PUMPKIN), true));

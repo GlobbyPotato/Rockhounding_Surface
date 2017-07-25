@@ -2,6 +2,7 @@ package com.globbypotato.rockhounding_surface.proxy;
 
 import com.globbypotato.rockhounding_surface.ModBlocks;
 import com.globbypotato.rockhounding_surface.ModItems;
+import com.globbypotato.rockhounding_surface.handler.ModRenderers;
 import com.globbypotato.rockhounding_surface.handler.Reference;
 
 import net.minecraft.block.Block;
@@ -27,6 +28,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void init(FMLInitializationEvent e) {
 		super.init(e);
+		ModRenderers.specialRenders();
 	}
 
 	@Override
