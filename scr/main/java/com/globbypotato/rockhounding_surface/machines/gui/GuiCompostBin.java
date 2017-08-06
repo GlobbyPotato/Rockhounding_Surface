@@ -1,9 +1,5 @@
 package com.globbypotato.rockhounding_surface.machines.gui;
 
-import java.util.Arrays;
-import java.util.List;
-
-import com.globbypotato.rockhounding_core.utils.Translator;
 import com.globbypotato.rockhounding_surface.handler.Reference;
 import com.globbypotato.rockhounding_surface.machines.container.ContainerCompostBin;
 import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityCompostBin;
@@ -29,6 +25,7 @@ public class GuiCompostBin extends GuiBase {
         this.playerInventory = playerInv;
 		this.xSize = WIDTH;
 		this.ySize = HEIGHT;
+		this.containerName = "container.compostBin";
     }
 
     @Override
@@ -42,20 +39,9 @@ public class GuiCompostBin extends GuiBase {
 			String text = this.composter.amount + "/" + this.composter.capacity + " units";
 			int processed = (this.composter.cookTime * 100) / this.composter.getMaxCookTime();
 			String process = processed + "% compost ready";
-
 			String multiString[] = new String[]{text, process};
-
-			List<String> tooltip = Arrays.asList(multiString);
-			drawHoveringText(tooltip, mouseX, mouseY, fontRendererObj);
+			drawMultiLabel(multiString, mouseX, mouseY);
 		}
-    }
-
-    @Override
-    public void drawGuiContainerForegroundLayer(int mouseX, int mouseY){
-    	super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-    	String device = Translator.translateToLocal("container.compostBin");
-        this.fontRendererObj.drawString(device, this.xSize / 2 - this.fontRendererObj.getStringWidth(device) / 2, 6, 4210752);
-        this.fontRendererObj.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
     }
 
     public void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY){

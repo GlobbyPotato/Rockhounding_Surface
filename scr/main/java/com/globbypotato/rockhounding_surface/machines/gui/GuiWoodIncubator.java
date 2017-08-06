@@ -1,17 +1,12 @@
 package com.globbypotato.rockhounding_surface.machines.gui;
 
-import java.util.Arrays;
-import java.util.List;
-
-import com.globbypotato.rockhounding_core.utils.RenderUtils;
-import com.globbypotato.rockhounding_core.utils.Translator;
 import com.globbypotato.rockhounding_surface.handler.Reference;
 import com.globbypotato.rockhounding_surface.machines.container.ContainerWoodIncubator;
 import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityWoodIncubator;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -22,6 +17,7 @@ public class GuiWoodIncubator extends GuiBase {
 	public static final int WIDTH = 176;
 	public static final int HEIGHT = 225;
 	public static final ResourceLocation TEXTURE_REF =  new ResourceLocation(Reference.MODID + ":textures/gui/guiwoodincubator.png");
+	private FluidTank inputTank;
 
 	public GuiWoodIncubator(InventoryPlayer playerInv, TileEntityWoodIncubator tile){
 		super(tile, new ContainerWoodIncubator(playerInv, tile));
@@ -30,6 +26,8 @@ public class GuiWoodIncubator extends GuiBase {
 		this.woodIncubator = tile;
 		this.xSize = WIDTH;
 		this.ySize = HEIGHT;
+		this.inputTank = this.woodIncubator.inputTank;
+		this.containerName = "container.woodIncubator";
 	}
 
 	@Override
@@ -40,56 +38,41 @@ public class GuiWoodIncubator extends GuiBase {
 
 		//fuel
 		if(mouseX >= 10+x && mouseX <= 21+x && mouseY >= 48+y && mouseY <= 99+y){
-			String text = this.woodIncubator.getPower() + "/" + this.woodIncubator.getPowerMax() + " ticks";
-			List<String> tooltip = Arrays.asList(text);
-			drawHoveringText(tooltip, mouseX, mouseY, fontRendererObj);
+			drawPowerInfo("ticks", this.woodIncubator.getPower(), this.woodIncubator.getPowerMax(), mouseX, mouseY);
 		}
+
 		//redstone
 		if(mouseX >= 31+x && mouseX <= 42+x && mouseY >= 33+y && mouseY <= 84+y){
-			String text = this.woodIncubator.getRedstone() + "/" + this.woodIncubator.getRedstoneMax() + " RF";
-			List<String> tooltip = Arrays.asList(text);
-			drawHoveringText(tooltip, mouseX, mouseY, fontRendererObj);
+			drawPowerInfo("RF", this.woodIncubator.getRedstone(), this.woodIncubator.getRedstoneMax(), mouseX, mouseY);
 		}
+
 		//input tank
 		if(mouseX>= 84+x && mouseX <= 104+x && mouseY >= 33+y && mouseY <= 99+y){
-			int fluidAmount = 0;
-			if(woodIncubator.inputTank.getFluid() != null){
-				fluidAmount = this.woodIncubator.inputTank.getFluidAmount();
-			}
-			String text = fluidAmount + "/" + this.woodIncubator.inputTank.getCapacity() + " mb ";
-			String liquid = "";
-			if(woodIncubator.inputTank.getFluid() != null) liquid = woodIncubator.inputTank.getFluid().getLocalizedName();
-			List<String> tooltip = Arrays.asList(text, liquid);
-			drawHoveringText(tooltip, mouseX, mouseY, fontRendererObj);
+			drawTankInfo(this.inputTank, mouseX, mouseY);
 		}
+
 		//prev
 		if(mouseX >= 137+x && mouseX <= 153+x && mouseY >= 122+y && mouseY <= 138+y){
-			List<String> tooltip = Arrays.asList("Previous Recipe");
-			drawHoveringText(tooltip, mouseX, mouseY, fontRendererObj);
+			drawButtonLabel("Previous Recipe", mouseX, mouseY);
 		}
+
 		//next
 		if(mouseX >= 154+x && mouseX <= 168+x && mouseY >= 122+y && mouseY <= 138+y){
-			List<String> tooltip = Arrays.asList("Next Recipe");
-			drawHoveringText(tooltip, mouseX, mouseY, fontRendererObj);
+			drawButtonLabel("Next Recipe", mouseX, mouseY);
 		}
+
 		//activation
 		if(mouseX >= 7+x && mouseX <= 23+x && mouseY >= 122+y && mouseY <= 138+y){
-			List<String> tooltip = Arrays.asList("Activation");
-			drawHoveringText(tooltip, mouseX, mouseY, fontRendererObj);
+			drawButtonLabel("Activation", mouseX, mouseY);
 		}
 	}
 
 	 @Override
 	public void drawGuiContainerForegroundLayer(int mouseX, int mouseY){
 		super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-
-    	String device = Translator.translateToLocal("container.woodIncubator");
-		this.fontRendererObj.drawString(device, this.xSize / 2 - this.fontRendererObj.getStringWidth(device) / 2, 4, 4210752);
-		String recipeLabel = "";
+		String recipeLabel = "No Recipe";
 		if(this.woodIncubator.isValidInterval()){
 			recipeLabel = this.woodIncubator.getRecipe().getOutput().getDisplayName();
-		}else{
-			recipeLabel = "No Recipe";
 		}
 		this.fontRendererObj.drawString(recipeLabel, 26, 127, 4210752);
 	}
@@ -129,13 +112,8 @@ public class GuiWoodIncubator extends GuiBase {
         }
 
 		//input fluid
-		if(woodIncubator.inputTank.getFluid() != null){
-			FluidStack temp = woodIncubator.inputTank.getFluid();
-			int capacity = woodIncubator.inputTank.getCapacity();
-			if(temp.amount > 5){
-				RenderUtils.bindBlockTexture();
-				RenderUtils.renderGuiTank(temp,capacity, temp.amount, i + 84, j + 34, zLevel, 20, 65);
-			}
+		if(this.inputTank.getFluid() != null){
+			renderFluidBar(this.inputTank.getFluid(), this.inputTank.getCapacity(), i + 84, j + 34, 20, 65);
 		}
 	}
 

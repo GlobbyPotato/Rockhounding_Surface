@@ -141,9 +141,7 @@ public class ModBlocks {
 	public static void init() {
 		truffleAuction = new TruffleAuction(3.0F, 5.0F, "truffleAuction");
 		compostBin = new CompostBin(3.0F, 5.0F, "compostBin");
-		if(SupportUtils.rhChemistryLoaded()){
-			woodIncubator = new WoodIncubator(3.0F, 5.0F, "woodIncubator");
-		}
+		woodIncubator = new WoodIncubator(3.0F, 5.0F, "woodIncubator");
 
 		bogLogs = new BogLogs("bogLogs", EnumBogLogs.getNames());
 		fossilLogs = new FossilLogs("fossilLogs", EnumFossilLogs.getNames());
@@ -249,9 +247,7 @@ public class ModBlocks {
 	public static void initClient(){
 		registerItemBlockRender(compostBin, 0, "compostBin");
 		registerItemBlockRender(truffleAuction, 0, "truffleAuction");
-		if(SupportUtils.rhChemistryLoaded()){
-			registerItemBlockRender(woodIncubator, 0, "woodIncubator");
-		}
+		registerItemBlockRender(woodIncubator, 0, "woodIncubator");
 
 		for(int i = 0; i < EnumBogLogs.size(); i++){			registerMetaBlockRender(bogLogs, i, EnumBogLogs.getName(i));}
 		for(int i = 0; i < EnumFossilLogs.size(); i++){			registerMetaBlockRender(fossilLogs, i, EnumFossilLogs.getName(i));}

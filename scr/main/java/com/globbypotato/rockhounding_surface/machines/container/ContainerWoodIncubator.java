@@ -46,11 +46,17 @@ public class ContainerWoodIncubator extends ContainerBase<TileEntityWoodIncubato
 			if(this.tile.recipeIndex >= 0){
 	    		this.tile.recipeIndex--; 
     			this.tile.activation = false;
+			}else{
+				this.tile.recipeIndex = MachineRecipes.woodIncubatorRecipes.size() - 1;
+    			this.tile.activation = false;
 			}
     		return null;
     	}else if(slot == 7){
     		if(this.tile.recipeIndex < MachineRecipes.woodIncubatorRecipes.size() - 1){
     			this.tile.recipeIndex++; 
+    			this.tile.activation = false;
+    		}else{
+    			this.tile.recipeIndex = -1; 
     			this.tile.activation = false;
     		}
     		return null;

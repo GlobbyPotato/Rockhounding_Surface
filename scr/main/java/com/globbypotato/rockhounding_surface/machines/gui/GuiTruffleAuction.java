@@ -1,6 +1,5 @@
 package com.globbypotato.rockhounding_surface.machines.gui;
 
-import com.globbypotato.rockhounding_core.utils.Translator;
 import com.globbypotato.rockhounding_surface.handler.Reference;
 import com.globbypotato.rockhounding_surface.machines.container.ContainerTruffleAuction;
 import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityTruffleAuction;
@@ -26,21 +25,7 @@ public class GuiTruffleAuction extends GuiBase {
         this.playerInventory = playerInv;
 		this.xSize = WIDTH;
 		this.ySize = HEIGHT;
-    }
-
-    @Override
-    public void drawScreen(int mouseX, int mouseY, float f) {
-       super.drawScreen(mouseX, mouseY, f);
-	   int x = (this.width - this.xSize) / 2;
-	   int y = (this.height - this.ySize) / 2;
-    }
-
-    @Override
-    public void drawGuiContainerForegroundLayer(int mouseX, int mouseY){
-    	super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-    	String device = Translator.translateToLocal("container.truffleTable");
-        this.fontRendererObj.drawString(device, this.xSize / 2 - this.fontRendererObj.getStringWidth(device) / 2, 6, 4210752);
-        this.fontRendererObj.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
+		this.containerName = "container.truffleTable";
     }
 
     public void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY){

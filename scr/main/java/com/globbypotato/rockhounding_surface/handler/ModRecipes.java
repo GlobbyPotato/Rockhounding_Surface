@@ -32,6 +32,8 @@ public class ModRecipes extends BaseRecipes {
 		//wood incubator
 		if(SupportUtils.rhChemistryLoaded()){
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.woodIncubator), new Object[] { "IcI", "ICI", "IGI", 'c', SupportUtils.logicChip(), 'I', SupportUtils.ironCasing(), 'C', SupportUtils.cabinet(), 'G', "blockGlass" }));
+		}else{
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.woodIncubator), new Object[] { "IcI", "ICI", "IGI", 'c', "dustRedstone", 'I', "ingotIron", 'C', Items.BUCKET, 'G', "blockGlass" }));
 		}
 	}
 
