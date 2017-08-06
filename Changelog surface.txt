@@ -1,3 +1,12 @@
+v1.20 changelog
+	Wood Incubator
+		Machine available for customization also without the Chemistry module installed. 
+		No available recipes from Chemistry though
+		Recipe Selector scrolling made continous once reached the limits
+	Misc fixes
+		Code cleaning
+		Core updated and synced to v1.04
+
 v1.19 changelog
 	Truffle Auction Table
 		Truffles to sell must be placed inside the gui to start an auction. May require to break and place again the table after updating
