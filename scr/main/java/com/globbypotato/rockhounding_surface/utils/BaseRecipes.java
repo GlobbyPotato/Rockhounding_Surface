@@ -23,7 +23,8 @@ public class BaseRecipes {
 
 	public static ItemStack bonemeal = new ItemStack(Items.DYE, 1, 15);
 	public static ItemStack bread = new ItemStack(Items.BREAD);
-	
+	public static ItemStack quartzs = new ItemStack(Items.QUARTZ,3);
+
 	public static ItemStack sourberryFuit = new ItemStack(ModItems.sourberry);
 	public static ItemStack sourberryJuice = new ItemStack(ModItems.sourberryJuice);
 	public static ItemStack sourberryPie = new ItemStack(ModItems.sourberryPie);
@@ -40,7 +41,7 @@ public class BaseRecipes {
 	public static ItemStack mesquiteLiquor = new ItemStack(ModItems.mesquiteLiquor);
 	public static ItemStack mesquiteTea = new ItemStack(ModItems.mesquiteTea);
 
-	protected static ItemStack gypsum(int num, int meta) {return new ItemStack(ModItems.gypsumItems, num, meta);}
+	public static ItemStack gypsum(int num, int meta) {return new ItemStack(ModItems.gypsumItems, num, meta);}
 	public static ItemStack aging(int num, int meta) {return new ItemStack(ModItems.agingItems, num, meta);}
 
 }

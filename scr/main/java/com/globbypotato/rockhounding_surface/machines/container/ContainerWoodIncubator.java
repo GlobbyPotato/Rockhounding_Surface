@@ -6,15 +6,11 @@ import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityWoodI
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class ContainerWoodIncubator extends ContainerBase<TileEntityWoodIncubator> {
-	Slot tPrev;
-	Slot tNext;
-	Slot activation;
 
 	public ContainerWoodIncubator(IInventory playerInventory, TileEntityWoodIncubator tile){
 		super(playerInventory,tile);
@@ -34,9 +30,9 @@ public class ContainerWoodIncubator extends ContainerBase<TileEntityWoodIncubato
 
 		this.addSlotToContainer(new SlotItemHandler(output, 0, 110, 83));//output
 
-		tPrev = this.addSlotToContainer(new SlotItemHandler(template, 0, 137,  122));//prev
-		tNext = this.addSlotToContainer(new SlotItemHandler(template, 1, 153,  122));//next
-		activation = this.addSlotToContainer(new SlotItemHandler(template, 2, 7,  122));//activation
+		this.addSlotToContainer(new SlotItemHandler(template, 0, 137,  122));//prev
+		this.addSlotToContainer(new SlotItemHandler(template, 1, 153,  122));//next
+		this.addSlotToContainer(new SlotItemHandler(template, 2, 7,  122));//activation
 
 	}
 

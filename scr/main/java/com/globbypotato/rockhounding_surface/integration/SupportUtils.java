@@ -9,12 +9,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 
 public class SupportUtils {
-	private static String rhChemistryID = "rockhounding_chemistry";
-	private static String rhTiersID = "rockhounding_oretiers";
-	private static String bopID = "BiomesOPlenty";
-	private static String chiselID = "chisel";
-	private static String pamsID = "harvestcraft";
-	private static String naturaID = "natura";
+	public static String rhChemistryID = "rockhounding_chemistry";
+	public static String rhTiersID = "rockhounding_oretiers";
+	public static String bopID = "BiomesOPlenty";
+	public static String chiselID = "chisel";
+	public static String pamsID = "harvestcraft";
+	public static String naturaID = "natura";
 
 	// MOD CHECK
 	public static boolean rhChemistryLoaded(){return Loader.isModLoaded(rhChemistryID);}

@@ -77,7 +77,7 @@ public class FossilGenerator implements IWorldGenerator {
 	private void generatePole(World world, Random random, BlockPos pos) {
 		Biome biome = world.getBiome(pos);
 		if(isValidTaiga(biome)){
-	    	for(int tries = 0; tries < fossilRarity; tries++){
+	    	for(int tries = 0; tries < getDivisionOf(4); tries++){
 		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(16);
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
@@ -115,7 +115,7 @@ public class FossilGenerator implements IWorldGenerator {
 	private void generateDeep(World world, Random random, BlockPos pos) {
 		Biome biome = world.getBiome(pos);
 		if(isBiome(biome, Type.BEACH)){
-	    	for(int tries = 0; tries < fossilRarity; tries++){
+	    	for(int tries = 0; tries < getDivisionOf(1); tries++){
 		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(30) + 30; int z = pos.getZ() + random.nextInt(16);
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
@@ -131,7 +131,7 @@ public class FossilGenerator implements IWorldGenerator {
 	    	}
 		}
 		if(isBiome(biome, Type.OCEAN)){
-	    	for(int tries = 0; tries < fossilRarity; tries++){
+	    	for(int tries = 0; tries < getDivisionOf(1); tries++){
 		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(30) + 30; int z = pos.getZ() + random.nextInt(16);
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
@@ -152,7 +152,7 @@ public class FossilGenerator implements IWorldGenerator {
 		//spruce
 		Biome biome = world.getBiome(pos);
 		if(isValidTaiga(biome)){
-	    	for(int tries = 0; tries < fossilRarity; tries++){
+	    	for(int tries = 0; tries < getDivisionOf(2); tries++){
 		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(16);
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
@@ -193,7 +193,7 @@ public class FossilGenerator implements IWorldGenerator {
 	private void generateBuried(World world, Random random, BlockPos pos) {
 		Biome biome = world.getBiome(pos);
 	    if(isBiome(biome, Type.SWAMP)){
-	    	for(int tries = 0; tries < fossilRarity / 10; tries++){
+	    	for(int tries = 0; tries < getDivisionOf(10); tries++){
 		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(26) + 50; int z = pos.getZ() + random.nextInt(16);
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
@@ -226,7 +226,7 @@ public class FossilGenerator implements IWorldGenerator {
 	private void generateDead(World world, Random random, BlockPos pos) {
 		Biome biome = world.getBiome(pos);
 	    if(isBiome(biome, Type.SWAMP)){
-	    	for(int tries = 0; tries < fossilRarity / 4; tries++){
+	    	for(int tries = 0; tries < getDivisionOf(4); tries++){
 		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(16);
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
@@ -256,7 +256,7 @@ public class FossilGenerator implements IWorldGenerator {
 		//if is a beach
 		Biome biome = world.getBiome(pos);
 		if(isBiome(biome, Type.BEACH)){
-	    	for(int tries = 0; tries < fossilRarity / 6; tries++){
+	    	for(int tries = 0; tries < getDivisionOf(6); tries++){
 		    	//get a point
 	    		int x = pos.getX() + random.nextInt(16); int y = random.nextInt(5) + 61; int z = pos.getZ() + random.nextInt(16);
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
@@ -291,7 +291,7 @@ public class FossilGenerator implements IWorldGenerator {
 		if(ENABLE_DRIFTWOOD){
 			Biome biome = world.getBiome(pos);
 			if(BiomeDictionary.areBiomesEquivalent(biome, ModBiomes.WHITE_SANDS)){
-		    	for(int tries = 0; tries < fossilRarity / 6; tries++){
+		    	for(int tries = 0; tries < getDivisionOf(6); tries++){
 			    	//get a point
 		    		int x = pos.getX() + random.nextInt(16); int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(16);
 			        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
@@ -326,29 +326,29 @@ public class FossilGenerator implements IWorldGenerator {
 		Biome biome = world.getBiome(pos);
 		//tweak frequency
 	    if(isBiome(biome, Type.JUNGLE)){
-	    	tweakedRarity = 1 + (fossilRarity * 4);
+	    	tweakedRarity = 1 + (getMultiplyOf(4));
 	    }else if(isBiome(biome, Type.BEACH)){
-	    	tweakedRarity = 1 + (fossilRarity + (fossilRarity / 2));
+	    	tweakedRarity = 1 + (getDivisionOf(1));
 	    }else if(isBiome(biome, Type.SANDY)){
-	    	tweakedRarity = 1 + (fossilRarity / 2);
+	    	tweakedRarity = 1 + (getDivisionOf(2));
 	    }else if(isBiome(biome, Type.FOREST)){
-	    	tweakedRarity = 1 + (fossilRarity * 4);
+	    	tweakedRarity = 1 + (getMultiplyOf(4));
 	    }else if(isBiome(biome, Type.RIVER)){
-	    	tweakedRarity = 1 + (fossilRarity * 5);
+	    	tweakedRarity = 1 + (getMultiplyOf(5));
 	    }else if(isBiome(biome, Type.SWAMP)){
-	    	tweakedRarity = 1 + (fossilRarity + (fossilRarity / 2));
+	    	tweakedRarity = 1 + (getDivisionOf(1) + (getDivisionOf(2)));
 	    }else if(isBiome(biome, Type.CONIFEROUS)){
-	    	tweakedRarity = 1 + (fossilRarity * 2);
+	    	tweakedRarity = 1 + (getMultiplyOf(2));
 	    }else if(isBiome(biome, Type.PLAINS)){
-	    	tweakedRarity = 1 + (fossilRarity - (fossilRarity / 3));
+	    	tweakedRarity = 1 + (getDivisionOf(1) - (getDivisionOf(3)));
 	    }else if(isValidHill(biome)){
-	    	tweakedRarity = 1 + (fossilRarity * 3);
+	    	tweakedRarity = 1 + (getMultiplyOf(3));
 	    }else if(isValidAlps(biome)){
-	    	tweakedRarity = 1 + (fossilRarity * 2);
+	    	tweakedRarity = 1 + (getMultiplyOf(2));
 	    }else if(isValidOcean(biome)){
-	    	tweakedRarity = 1 + (fossilRarity * 2);
+	    	tweakedRarity = 1 + (getMultiplyOf(2));
 	    }else{
-	    	tweakedRarity = 1 + fossilRarity;
+	    	tweakedRarity = 1 + getDivisionOf(1);
 	    }
 
 	    for (int i = 0; i < tweakedRarity; ++i){
@@ -499,5 +499,16 @@ public class FossilGenerator implements IWorldGenerator {
 	private boolean isBiome(Biome biome, Type type) {
 		return BiomeDictionary.isBiomeOfType(biome, type);
 	}
+
+	private int getDivisionOf(int i) {
+		int rarity = fossilRarity / i;
+		return rarity >= 1 ? rarity : 1;
+	}
+
+	private int getMultiplyOf(int i) {
+		int rarity = fossilRarity * i;
+		return 0;
+	}
+
 
 }

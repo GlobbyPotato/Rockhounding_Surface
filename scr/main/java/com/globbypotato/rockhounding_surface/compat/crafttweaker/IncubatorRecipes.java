@@ -14,14 +14,14 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 @ZenClass("mods.rockhounding_surface.WoodIncubator")
-public class IncubatorRecipes {
+public class IncubatorRecipes extends CTSupport{
 	private static String name = "Wood Incubator Recipe";
 
     @ZenMethod
     public static void add(IItemStack input, IItemStack solute, boolean oredict, ILiquidStack solvent, int solventAmount, IItemStack output) {
         if(solute == null || solvent == null || output == null) {MineTweakerAPI.logError(name + ": Invalid recipe."); return;}
-        FluidStack solventStack = new FluidStack(CTSupport.toFluid(solvent).getFluid(), solventAmount);
-        MineTweakerAPI.apply(new AddToIncubator(new WoodIncubatorRecipe(CTSupport.toStack(input), CTSupport.toStack(solute), oredict, solventStack, CTSupport.toStack(output))));
+        FluidStack solventStack = new FluidStack(toFluid(solvent).getFluid(), solventAmount);
+        MineTweakerAPI.apply(new AddToIncubator(new WoodIncubatorRecipe(toStack(input), toStack(solute), oredict, solventStack, toStack(output))));
     }
 		    private static class AddToIncubator implements IUndoableAction {
 		    	private WoodIncubatorRecipe recipe;
@@ -58,7 +58,7 @@ public class IncubatorRecipes {
     @ZenMethod
     public static void remove(IItemStack output) {
         if(output == null) {MineTweakerAPI.logError(name + ": Invalid recipe."); return;}
-        MineTweakerAPI.apply(new RemoveFromIncubator(CTSupport.toStack(output)));    
+        MineTweakerAPI.apply(new RemoveFromIncubator(toStack(output)));    
     }
 		    private static class RemoveFromIncubator implements IUndoableAction {
 		    	private ItemStack output;

@@ -11,13 +11,13 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 @ZenClass("mods.rockhounding_surface.CompostBin")
-public class CompostRecipes {
+public class CompostRecipes extends CTSupport{
 	private static String name = "Compost Bin Recipe";
 
     @ZenMethod
     public static void add(IItemStack input, boolean oredict) {
         if(input == null) {MineTweakerAPI.logError(name + ": Invalid recipe."); return;}
-        MineTweakerAPI.apply(new AddToCompost(new CompostBinRecipe(CTSupport.toStack(input), oredict)));
+        MineTweakerAPI.apply(new AddToCompost(new CompostBinRecipe(toStack(input), oredict)));
     }
 		    private static class AddToCompost implements IUndoableAction {
 		    	private CompostBinRecipe recipe;
