@@ -6,6 +6,7 @@ import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityWoodI
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -42,8 +43,32 @@ public class GuiWoodIncubator extends GuiBase {
 		}
 
 		//redstone
-		if(mouseX >= 31+x && mouseX <= 42+x && mouseY >= 33+y && mouseY <= 84+y){
-			drawPowerInfo("RF", this.woodIncubator.getRedstone(), this.woodIncubator.getRedstoneMax(), mouseX, mouseY);
+		if(!this.woodIncubator.hasFuelBlend()){
+			if(mouseX >= 31+x && mouseX <= 42+x && mouseY >= 33+y && mouseY <= 84+y){
+				drawPowerInfo("RF", this.woodIncubator.getRedstone(), this.woodIncubator.getRedstoneMax(), mouseX, mouseY);
+			}
+		}
+
+		//fuel status
+		if(this.woodIncubator.getInput().getStackInSlot(this.woodIncubator.FUEL_SLOT) == null){
+			   	//fuel
+				String fuelString = TextFormatting.DARK_GRAY + "Fuel Type: " + TextFormatting.GOLD + "Common";
+				String indString = TextFormatting.DARK_GRAY + "Induction: " + TextFormatting.RED + "OFF";
+				String permaString = "";
+				if(this.woodIncubator.hasFuelBlend()){
+					fuelString = TextFormatting.DARK_GRAY + "Fuel Type: " + TextFormatting.GOLD + "Blend";
+				}
+				if(this.woodIncubator.canInduct()){
+					indString = TextFormatting.DARK_GRAY + "Induction: " + TextFormatting.RED + "ON";
+					permaString = TextFormatting.DARK_GRAY + "Status: " + TextFormatting.DARK_GREEN + "Mobile";
+					if(this.woodIncubator.hasPermanentInduction()){
+						permaString = TextFormatting.DARK_GRAY + "Status: " + TextFormatting.DARK_RED + "Permanent";
+					}
+				}
+				String multiString[] = new String[]{fuelString, "", indString, permaString};
+			if(mouseX >= 7+x && mouseX <= 24+x && mouseY >= 30+y && mouseY <= 47+y){
+				   drawMultiLabel(multiString, mouseX, mouseY);
+			}
 		}
 
 		//input tank
@@ -83,16 +108,21 @@ public class GuiWoodIncubator extends GuiBase {
 		int i = (this.width - this.xSize) / 2;
 		int j = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
+
 		//power bar
 		if (this.woodIncubator.powerCount > 0){
             int k = this.getBarScaled(50, this.woodIncubator.powerCount, this.woodIncubator.powerMax);
             this.drawTexturedModalRect(i + 11, j + 49 + (50 - k), 176, 27, 10, k);
 		}
+
 		//redstone
-		if (this.woodIncubator.redstoneCount > 0){
-			int k = this.getBarScaled(50, this.woodIncubator.redstoneCount, this.woodIncubator.redstoneMax);
-			this.drawTexturedModalRect(i + 32, j + 34 + (50 - k), 176, 81, 10, k);
+		if(!this.woodIncubator.hasFuelBlend()){
+			if (this.woodIncubator.redstoneCount > 0){
+				int k = this.getBarScaled(50, this.woodIncubator.redstoneCount, this.woodIncubator.redstoneMax);
+				this.drawTexturedModalRect(i + 32, j + 34 + (50 - k), 176, 81, 10, k);
+			}
 		}
+
 		//smelt bar
 		int k = this.getBarScaled(14, this.woodIncubator.cookTime, this.woodIncubator.getCookTimeMax());
 		this.drawTexturedModalRect(i + 109, j + 57, 176, 0, 15, k); //dust
@@ -102,14 +132,21 @@ public class GuiWoodIncubator extends GuiBase {
 			this.drawTexturedModalRect(i + 88, j + 102, 176, 131, 12, 14); //fire
 			this.drawTexturedModalRect(i + 62, j + 61, 176, 145, 15, 9); //fluid drop
 		}
+
 		//induction icons
 		if(this.woodIncubator.hasPermanentInduction()){
 			this.drawTexturedModalRect(i + 7, j + 30, 176, 154, 18, 18); //inductor
 		}
-        //activation
+
+		//activation
         if(this.woodIncubator.activation){
             this.drawTexturedModalRect(i + 7, j + 122, 176, 172, 16, 16);
         }
+
+		//blend fix
+		if(this.woodIncubator.hasFuelBlend()){
+			this.drawTexturedModalRect(i + 25, j + 14, 208, 0, 21, 89); //blend
+		}
 
 		//input fluid
 		if(this.inputTank.getFluid() != null){

@@ -97,6 +97,11 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 		return true;	
 	}
 
+	@Override
+	public boolean isRFGatedByBlend(){
+		return true;
+	}
+
 
 
 	//----------------------- CUSTOM -----------------------
@@ -203,6 +208,7 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 	@Override
 	public void update(){
 		if(!isValidInterval()){ recipeIndex = -1; }
+		acceptEnergy();
 		fuelHandler(input.getStackInSlot(FUEL_SLOT));
 		redstoneHandler(REDSTONE_SLOT, this.getCookTimeMax());
 		lavaHandler();

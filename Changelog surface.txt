@@ -1,3 +1,17 @@
+v1.22 changelog
+	Wood Incubator correctly handling fuel blend
+	Various fixes and tweaks
+	Core updated to v1.06
+
+v1.21 changelog
+	Wood Aging Tech
+		Integrated compost recipes into the Chemistry Lab Blender 
+		Reworked some recipes
+	Misc fixes
+		Fixed some recipe integration issue 
+		Rebalanced fossil generation frequency
+		Core updated to v1.05
+
 v1.20 changelog
 	Wood Incubator
 		Machine available for customization also without the Chemistry module installed. 

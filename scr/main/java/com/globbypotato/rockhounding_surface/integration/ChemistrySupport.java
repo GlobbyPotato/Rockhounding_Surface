@@ -30,7 +30,6 @@ public class ChemistrySupport extends IReciper {
 			sendToBlender(Arrays.asList("gemLapis", "gemQuartz"), Arrays.asList(7,2), BaseRecipes.aging(8, 7));
 			sendToBlender(Arrays.asList("dustIron", "dustSilicon"), Arrays.asList(4,5), BaseRecipes.aging(8, 8));
 			sendToBlender(Arrays.asList("gemCarnelian"), Arrays.asList(9), BaseRecipes.aging(8, 8));
-			sendToBlender(Arrays.asList(BaseRecipes.aging(9, 9)), BaseRecipes.aging(8, 10));
 			sendToBlender(Arrays.asList(BaseRecipes.bonemeal, BaseRecipes. gypsum(9, 0)), BaseRecipes.gypsumMeals);
 			sendToBlender(Arrays.asList(BaseRecipes.gypsumMeal, BaseRecipes. gypsum(4, 0), BaseRecipes. gypsum(6, 4), getElements(1, 8)), BaseRecipes.gypsumConds);
 			sendToBlender(Arrays.asList(BaseRecipes.gypsumCond, BaseRecipes.quartzs, BaseRecipes. gypsum(5, 0), getElements(2, 8)), BaseRecipes.gypsumAmends);
