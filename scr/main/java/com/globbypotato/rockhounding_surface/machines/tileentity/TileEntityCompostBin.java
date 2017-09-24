@@ -92,6 +92,15 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 		return ModConfig.speedCompost;
 	}
 
+	public int getCompost(){
+		return this.amount;
+	}
+
+	public int getCompostMax(){
+		return this.capacity;
+	}
+
+
 	//----------------------- I/O -----------------------
 	@Override
 	public void readFromNBT(NBTTagCompound compound){
@@ -102,7 +111,7 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound){
 		super.writeToNBT(compound);
-		compound.setInteger("Amount", this.amount);
+		compound.setInteger("Amount", getCompost());
 		return compound;
 	}
 
@@ -123,7 +132,7 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 	}
 
 	private boolean canProcess(ItemStack stack) {
-		return this.amount >= this.compostFactor
+		return getCompost() >= this.compostFactor
 			&& output.canSetOrStack(stack, BaseRecipes.compost);
 	}
 
@@ -134,7 +143,7 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 
 	private boolean canAcquire() {
 		return input.getStackInSlot(INPUT_SLOT) != null 
-			&& this.amount <= (this.capacity - getCompostFactor());
+			&& getCompost() <= (getCompostMax() - getCompostFactor());
 	}
 
 	private void acquire() {

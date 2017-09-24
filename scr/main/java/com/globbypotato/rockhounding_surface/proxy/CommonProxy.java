@@ -4,6 +4,8 @@ import com.globbypotato.rockhounding_surface.ModBiomes;
 import com.globbypotato.rockhounding_surface.ModBlocks;
 import com.globbypotato.rockhounding_surface.ModItems;
 import com.globbypotato.rockhounding_surface.compat.crafttweaker.CTSupport;
+import com.globbypotato.rockhounding_surface.compat.top.TopCompat;
+import com.globbypotato.rockhounding_surface.compat.waila.WailaCompat;
 import com.globbypotato.rockhounding_surface.fluids.ModFluids;
 import com.globbypotato.rockhounding_surface.handler.GlobbyEventHandler;
 import com.globbypotato.rockhounding_surface.handler.GuiHandler;
@@ -51,6 +53,10 @@ public class CommonProxy {
 
 		// Register oreDictionary
 		ModDictionary.loadDictionary();
+
+		// Waila compatilbility
+        WailaCompat.init();
+        TopCompat.init();
 	}
 
 	public void init(FMLInitializationEvent e){

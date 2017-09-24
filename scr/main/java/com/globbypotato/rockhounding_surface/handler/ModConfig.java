@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ModConfig {
+	public static final String CATEGORY_SUPPORT = "Support";
 	public static final String CATEGORY_BUILDING = "Building";
 	public static final String CATEGORY_FOSSILWOOD = "FossilWood";
 	public static final String CATEGORY_TRUFFLES = "Truffles";
@@ -27,9 +28,15 @@ public class ModConfig {
 	public static int whiteSandsID;
 	public static int machineTank;
 	
+	public static boolean enableTOP;
+
 	public static void loadConfig(FMLPreInitializationEvent event) {
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
+
+	//SUPPORT
+		config.addCustomCategoryComment("Integration", "Mod support and integration parameters.");
+		enableTOP = config.get(							CATEGORY_SUPPORT, "SupportTheOneProbe",		true,	"Enable the additional info for The One Probe").getBoolean();
 
 	//BUILDING
 		config.addCustomCategoryComment("Building", "These settings handle the allowed building parts.");

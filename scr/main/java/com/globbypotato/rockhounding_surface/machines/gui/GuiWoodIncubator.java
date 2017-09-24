@@ -6,7 +6,6 @@ import com.globbypotato.rockhounding_surface.machines.tileentity.TileEntityWoodI
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -38,36 +37,20 @@ public class GuiWoodIncubator extends GuiBase {
 		int y = (this.height - this.ySize) / 2;
 
 		//fuel
-		if(mouseX >= 10+x && mouseX <= 21+x && mouseY >= 48+y && mouseY <= 99+y){
-			drawPowerInfo("ticks", this.woodIncubator.getPower(), this.woodIncubator.getPowerMax(), mouseX, mouseY);
+		if(mouseX >= 10+x && mouseX <= 21+x && mouseY >= 27+y && mouseY <= 78+y){
+			drawPowerInfo("ticks", this.woodIncubator.getCookTimeMax(), this.woodIncubator.getPower(), this.woodIncubator.getPowerMax(), mouseX, mouseY);
+		}
+
+		//fuel status
+		String[] fuelstatusString = handleFuelStatus(this.woodIncubator.isFuelGated(), this.woodIncubator.hasFuelBlend(), this.woodIncubator.canInduct(), this.woodIncubator.allowPermanentInduction());
+		if(mouseX >= 7+x && mouseX <= 24+x && mouseY >= 7+y && mouseY <= 24+y){
+			drawMultiLabel(fuelstatusString, mouseX, mouseY);
 		}
 
 		//redstone
 		if(!this.woodIncubator.hasFuelBlend()){
-			if(mouseX >= 31+x && mouseX <= 42+x && mouseY >= 33+y && mouseY <= 84+y){
-				drawPowerInfo("RF", this.woodIncubator.getRedstone(), this.woodIncubator.getRedstoneMax(), mouseX, mouseY);
-			}
-		}
-
-		//fuel status
-		if(this.woodIncubator.getInput().getStackInSlot(this.woodIncubator.FUEL_SLOT) == null){
-			   	//fuel
-				String fuelString = TextFormatting.DARK_GRAY + "Fuel Type: " + TextFormatting.GOLD + "Common";
-				String indString = TextFormatting.DARK_GRAY + "Induction: " + TextFormatting.RED + "OFF";
-				String permaString = "";
-				if(this.woodIncubator.hasFuelBlend()){
-					fuelString = TextFormatting.DARK_GRAY + "Fuel Type: " + TextFormatting.GOLD + "Blend";
-				}
-				if(this.woodIncubator.canInduct()){
-					indString = TextFormatting.DARK_GRAY + "Induction: " + TextFormatting.RED + "ON";
-					permaString = TextFormatting.DARK_GRAY + "Status: " + TextFormatting.DARK_GREEN + "Mobile";
-					if(this.woodIncubator.hasPermanentInduction()){
-						permaString = TextFormatting.DARK_GRAY + "Status: " + TextFormatting.DARK_RED + "Permanent";
-					}
-				}
-				String multiString[] = new String[]{fuelString, "", indString, permaString};
-			if(mouseX >= 7+x && mouseX <= 24+x && mouseY >= 30+y && mouseY <= 47+y){
-				   drawMultiLabel(multiString, mouseX, mouseY);
+			if(mouseX >= 31+x && mouseX <= 42+x && mouseY >= 27+y && mouseY <= 78+y){
+				drawEnergyInfo("RF", this.woodIncubator.getRedstone(), this.woodIncubator.getRedstoneMax(), mouseX, mouseY);
 			}
 		}
 
@@ -110,16 +93,16 @@ public class GuiWoodIncubator extends GuiBase {
 		this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
 
 		//power bar
-		if (this.woodIncubator.powerCount > 0){
-            int k = this.getBarScaled(50, this.woodIncubator.powerCount, this.woodIncubator.powerMax);
-            this.drawTexturedModalRect(i + 11, j + 49 + (50 - k), 176, 27, 10, k);
-		}
+        if (this.woodIncubator.getPower() > 0){
+            int k = this.getBarScaled(50, this.woodIncubator.getPower(), this.woodIncubator.getPowerMax());
+            this.drawTexturedModalRect(i + 11, j + 28 + (50 - k), 176, 27, 10, k);
+        }
 
 		//redstone
 		if(!this.woodIncubator.hasFuelBlend()){
-			if (this.woodIncubator.redstoneCount > 0){
-				int k = this.getBarScaled(50, this.woodIncubator.redstoneCount, this.woodIncubator.redstoneMax);
-				this.drawTexturedModalRect(i + 32, j + 34 + (50 - k), 176, 81, 10, k);
+			if (this.woodIncubator.getRedstone() > 0){
+				int k = this.getBarScaled(50, this.woodIncubator.getRedstone(), this.woodIncubator.getRedstoneMax());
+				this.drawTexturedModalRect(i + 32, j + 28 + (50 - k), 176, 81, 10, k);
 			}
 		}
 
@@ -135,17 +118,17 @@ public class GuiWoodIncubator extends GuiBase {
 
 		//induction icons
 		if(this.woodIncubator.hasPermanentInduction()){
-			this.drawTexturedModalRect(i + 7, j + 30, 176, 154, 18, 18); //inductor
+			this.drawTexturedModalRect(i + 7, j + 7, 176, 154, 18, 18); //inductor
 		}
 
 		//activation
-        if(this.woodIncubator.activation){
+        if(this.woodIncubator.isActive()){
             this.drawTexturedModalRect(i + 7, j + 122, 176, 172, 16, 16);
         }
 
 		//blend fix
 		if(this.woodIncubator.hasFuelBlend()){
-			this.drawTexturedModalRect(i + 25, j + 14, 208, 0, 21, 89); //blend
+			this.drawTexturedModalRect(i + 25, j + 7, 208, 0, 21, 92); //blend
 		}
 
 		//input fluid

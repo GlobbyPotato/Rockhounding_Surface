@@ -5,7 +5,6 @@ import com.globbypotato.rockhounding_core.machines.tileentity.TemplateStackHandl
 import com.globbypotato.rockhounding_core.machines.tileentity.TileEntityMachineTank;
 import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler;
 import com.globbypotato.rockhounding_core.machines.tileentity.WrappedItemHandler.WriteMode;
-import com.globbypotato.rockhounding_core.utils.CoreUtils;
 import com.globbypotato.rockhounding_surface.handler.ModConfig;
 import com.globbypotato.rockhounding_surface.machines.gui.GuiWoodIncubator;
 import com.globbypotato.rockhounding_surface.machines.recipe.MachineRecipes;
@@ -40,7 +39,7 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 		inputTank = new FluidTank(1000 + ModConfig.machineTank){
 			@Override
 			public boolean canFillFluidType(FluidStack fluid){
-				return activation && solventHasRecipe(fluid) && isValidInterval() && isCorrectSolvent(fluid);
+				return isActive() && solventHasRecipe(fluid) && isValidInterval() && isCorrectSolvent(fluid);
 			}
 
 			@Override
@@ -54,19 +53,19 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 		input =  new MachineStackHandler(INPUT_SLOTS,this){
 			@Override
 			public ItemStack insertItem(int slot, ItemStack insertingStack, boolean simulate){
-				if(slot == FUEL_SLOT && CoreUtils.isPowerSource(insertingStack) && !isWood(insertingStack)){
+				if(slot == FUEL_SLOT && isGatedPowerSource(insertingStack) && !isWood(insertingStack)){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
 				if(slot == REDSTONE_SLOT && hasRedstone(insertingStack)){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
-				if(slot == WOOD_SLOT && activation && isValidInterval() && inputHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getInput()) ){
+				if(slot == WOOD_SLOT && isActive() && isValidInterval() && inputHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getInput()) ){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
-				if(slot == INPUT_SLOT && activation && isValidInterval() && (soluteHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getSolute()) || canSoluteOredict(insertingStack, slot))){
+				if(slot == INPUT_SLOT && isActive() && isValidInterval() && (soluteHasRecipe(insertingStack) && insertingStack.isItemEqual(getRecipe().getSolute()) || canSoluteOredict(insertingStack, slot))){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
-				if(slot == SOLVENT_SLOT && activation && isValidInterval() && solventHasRecipe(FluidUtil.getFluidContained(insertingStack)) && FluidUtil.getFluidContained(insertingStack).isFluidEqual(getRecipe().getSolvent())){
+				if(slot == SOLVENT_SLOT && isActive() && isValidInterval() && solventHasRecipe(FluidUtil.getFluidContained(insertingStack)) && FluidUtil.getFluidContained(insertingStack).isFluidEqual(getRecipe().getSolvent())){
 					return super.insertItem(slot, insertingStack, simulate);
 				}
 				return insertingStack;
@@ -181,7 +180,6 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 	public void readFromNBT(NBTTagCompound compound){
 		super.readFromNBT(compound);
 		this.recipeIndex = compound.getInteger("RecipeScan");
-		this.activation = compound.getBoolean("Activation");
 		this.inputTank.readFromNBT(compound.getCompoundTag("InputTank"));
 	}
 
@@ -189,7 +187,6 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 	public NBTTagCompound writeToNBT(NBTTagCompound compound){
 		super.writeToNBT(compound);
 		compound.setInteger("RecipeScan", this.recipeIndex);
-		compound.setBoolean("Activation", this.activation);
 
 		NBTTagCompound inputTankNBT = new NBTTagCompound();
 		this.inputTank.writeToNBT(inputTankNBT);
@@ -226,7 +223,7 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 	}
 
 	public boolean canSynthesize(){
-		return activation
+		return isActive()
 			&& isValidInterval()
 			&& this.getPower() >= this.getCookTimeMax()
 			&& this.getRedstone() >= this.getCookTimeMax()

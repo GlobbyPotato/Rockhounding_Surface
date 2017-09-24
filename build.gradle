@@ -30,6 +30,7 @@ repositories {
     maven { // JEI
         url "http://dvs1.progwml6.com/files/maven"
     }
+
     maven { // CHISEL
         name 'Chisel'
         url "http://maven.tterrag.com/"
@@ -38,13 +39,24 @@ repositories {
     maven { // CraftTweaker
         url "http://maven.blamejared.com"
     }
+	
+    maven { // Waila
+		url "http://mobiusstrip.eu/maven" 
+	}
+
+    maven { // TOP
+        url "http://maven.tterrag.com"
+    }
+
 }
 
 dependencies {
     deobfCompile "mezz.jei:jei_${version_mc}:${version_jei}"
     compile "team.chisel:Chisel:MC${version_mc}-${version_chisel}:api"
     deobfCompile "MineTweaker3:MineTweaker3-MC1102-Main:${version_ct}"
-	compile files("lib/rockhounding_core-1.10.2-1.06.jar")
+	deobfCompile "mcjty.theoneprobe:TheOneProbe:${version_top}"
+	deobfProvided "mcp.mobius.waila:Waila:${version_wa}_1.9.4"
+	compile files("lib/rockhounding_core-1.10.2-${version_core}.jar")
 }
 
 processResources

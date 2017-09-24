@@ -35,7 +35,7 @@ public class ChemistrySupport extends IReciper {
 			sendToBlender(Arrays.asList(BaseRecipes.gypsumCond, BaseRecipes.quartzs, BaseRecipes. gypsum(5, 0), getElements(2, 8)), BaseRecipes.gypsumAmends);
 		}
 	}
-	
+
 	public static Item elements(){
 		if(SupportUtils.rhChemistryLoaded()){
 			Item block = Item.REGISTRY.getObject(new ResourceLocation(SupportUtils.rhChemistryID + ":" + "chemicalDusts"));

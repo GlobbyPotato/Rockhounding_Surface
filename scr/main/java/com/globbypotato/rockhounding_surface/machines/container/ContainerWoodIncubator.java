@@ -23,9 +23,9 @@ public class ContainerWoodIncubator extends ContainerBase<TileEntityWoodIncubato
 		IItemHandler template = tile.getTemplate();
 
 		this.addSlotToContainer(new SlotItemHandler(input, 0, 62, 34));//input solute
-		this.addSlotToContainer(new SlotItemHandler(input, 1, 8, 31));//fuel
+		this.addSlotToContainer(new SlotItemHandler(input, 1, 8, 8));//fuel
 		this.addSlotToContainer(new SlotItemHandler(input, 2, 110, 34));//input log
-		this.addSlotToContainer(new SlotItemHandler(input, 3, 29, 86));//input redstone
+		this.addSlotToContainer(new SlotItemHandler(input, 3, 29, 82));//input redstone
 		this.addSlotToContainer(new SlotItemHandler(input, 4, 62, 83));//input solvent
 
 		this.addSlotToContainer(new SlotItemHandler(output, 0, 110, 83));//output
@@ -46,6 +46,7 @@ public class ContainerWoodIncubator extends ContainerBase<TileEntityWoodIncubato
 				this.tile.recipeIndex = MachineRecipes.woodIncubatorRecipes.size() - 1;
     			this.tile.activation = false;
 			}
+			doClickSound(player, tile.getWorld(), tile.getPos());
     		return null;
     	}else if(slot == 7){
     		if(this.tile.recipeIndex < MachineRecipes.woodIncubatorRecipes.size() - 1){
@@ -55,9 +56,11 @@ public class ContainerWoodIncubator extends ContainerBase<TileEntityWoodIncubato
     			this.tile.recipeIndex = -1; 
     			this.tile.activation = false;
     		}
+			doClickSound(player, tile.getWorld(), tile.getPos());
     		return null;
     	}else if(slot == 8){
    			this.tile.activation = !this.tile.activation; 
+			doClickSound(player, tile.getWorld(), tile.getPos());
     		return null;
     	}else{
     		return super.slotClick(slot, dragType, clickTypeIn, player);

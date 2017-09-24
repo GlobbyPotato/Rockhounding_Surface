@@ -1,3 +1,9 @@
+v1.23 changelog
+	Misc fixes
+		Added Waila and TOP support
+		Minor cleanings
+		Core updated
+
 v1.22 changelog
 	Wood Incubator correctly handling fuel blend
 	Various fixes and tweaks
