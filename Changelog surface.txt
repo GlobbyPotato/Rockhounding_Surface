@@ -1,3 +1,8 @@
+v1.24 changelog (hotfix)
+	Compost Bin
+		Fixed a compatibility crash if Natura is not installed
+		Core updated to v1.10
+
 v1.23 changelog
 	Misc fixes
 		Added Waila and TOP support
