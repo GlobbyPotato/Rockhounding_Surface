@@ -64,7 +64,7 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 			|| (composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof IPlantable)
 			|| (composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof BlockLeaves)
 			|| (composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof IGrowable && !(Block.getBlockFromItem(composting) instanceof BlockGrass))
-			|| composting == SupportUtils.naturaSeeds().getItem();
+			|| (SupportUtils.naturaLoaded() && composting == SupportUtils.naturaSeeds().getItem());
 	}
 
 	public static boolean isValidOredict(ItemStack stack) {
@@ -155,7 +155,11 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 		ItemStack stack = input.getStackInSlot(INPUT_SLOT);
 		if(stack != null){
 			Item composting = stack.getItem();
-			if(composting instanceof ItemSeeds || composting == Items.FEATHER || composting == SupportUtils.naturaSeeds().getItem()){
+			if(composting instanceof ItemSeeds){
+				return 1;
+			}else if(composting == Items.FEATHER){
+				return 1;
+			}else if(SupportUtils.naturaLoaded() && composting == SupportUtils.naturaSeeds().getItem()){
 				return 1;
 			}else if(composting instanceof ItemBlock && Block.getBlockFromItem(composting) instanceof BlockSapling){
 				return 2;
