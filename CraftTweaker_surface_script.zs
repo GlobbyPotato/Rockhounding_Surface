@@ -16,7 +16,7 @@ mods.rockhounding_surface.CompostBin.add(<minecraft:dye:0>, true);
 //oredictable = if oredicted versions of the solute will be allowed as well
 //solvent = the fluidstack representing the solvent in which to perform the process.
 //solventAmount = the needed amount of solvent.
-//input = itemstack representing the final object
+//output = itemstack representing the final object
 mods.rockhounding_surface.WoodIncubator.add(<minecraft:slime_ball>, <minecraft:dye:7>, true, <liquid:water>, 1000, <minecraft:slime>);
 
 //Parameters = output
