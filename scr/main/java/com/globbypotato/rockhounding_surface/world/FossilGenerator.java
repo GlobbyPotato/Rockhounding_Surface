@@ -78,7 +78,7 @@ public class FossilGenerator implements IWorldGenerator {
 		Biome biome = world.getBiome(pos);
 		if(isValidTaiga(biome)){
 	    	for(int tries = 0; tries < getDivisionOf(4); tries++){
-		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(16);
+		    	int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(6) + 4;
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
 		        if(world.getBlockState(blockPos).equals(biome.topBlock) ){
@@ -116,7 +116,7 @@ public class FossilGenerator implements IWorldGenerator {
 		Biome biome = world.getBiome(pos);
 		if(isBiome(biome, Type.BEACH)){
 	    	for(int tries = 0; tries < getDivisionOf(1); tries++){
-		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(30) + 30; int z = pos.getZ() + random.nextInt(16);
+		    	int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(30) + 30; int z = pos.getZ() + random.nextInt(6) + 4;
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
 		        if(world.getBlockState(blockPos).isOpaqueCube() ){
@@ -132,7 +132,7 @@ public class FossilGenerator implements IWorldGenerator {
 		}
 		if(isBiome(biome, Type.OCEAN)){
 	    	for(int tries = 0; tries < getDivisionOf(1); tries++){
-		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(30) + 30; int z = pos.getZ() + random.nextInt(16);
+		    	int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(30) + 30; int z = pos.getZ() + random.nextInt(6) + 4;
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
 		        if(y > 50 && world.getBlockState(blockPos).isOpaqueCube() ){
@@ -153,7 +153,7 @@ public class FossilGenerator implements IWorldGenerator {
 		Biome biome = world.getBiome(pos);
 		if(isValidTaiga(biome)){
 	    	for(int tries = 0; tries < getDivisionOf(2); tries++){
-		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(16);
+		    	int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(6) + 4;
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
 		        if (world.getBlockState(blockPos).equals(biome.topBlock) ){
@@ -194,7 +194,7 @@ public class FossilGenerator implements IWorldGenerator {
 		Biome biome = world.getBiome(pos);
 	    if(isBiome(biome, Type.SWAMP)){
 	    	for(int tries = 0; tries < getDivisionOf(10); tries++){
-		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(26) + 50; int z = pos.getZ() + random.nextInt(16);
+		    	int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(26) + 50; int z = pos.getZ() + random.nextInt(6) + 4;
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
 		        if (world.getBlockState(blockPos).equals(biome.topBlock) ){
@@ -227,7 +227,7 @@ public class FossilGenerator implements IWorldGenerator {
 		Biome biome = world.getBiome(pos);
 	    if(isBiome(biome, Type.SWAMP)){
 	    	for(int tries = 0; tries < getDivisionOf(4); tries++){
-		    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(16);
+		    	int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(6) + 4;
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
 		        if (world.getBlockState(blockPos).equals(biome.topBlock) ){
@@ -258,7 +258,7 @@ public class FossilGenerator implements IWorldGenerator {
 		if(isBiome(biome, Type.BEACH)){
 	    	for(int tries = 0; tries < getDivisionOf(6); tries++){
 		    	//get a point
-	    		int x = pos.getX() + random.nextInt(16); int y = random.nextInt(5) + 61; int z = pos.getZ() + random.nextInt(16);
+	    		int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(5) + 61; int z = pos.getZ() + random.nextInt(6) + 4;
 		        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		        blockPos.setPos(x, y, z);
 		        if (world.getBlockState(blockPos).equals(biome.topBlock) || world.getBlockState(blockPos).equals(Blocks.GRASS) ){
@@ -293,7 +293,7 @@ public class FossilGenerator implements IWorldGenerator {
 			if(BiomeDictionary.areBiomesEquivalent(biome, ModBiomes.WHITE_SANDS)){
 		    	for(int tries = 0; tries < getDivisionOf(6); tries++){
 			    	//get a point
-		    		int x = pos.getX() + random.nextInt(16); int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(16);
+		    		int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(50) + 50; int z = pos.getZ() + random.nextInt(6) + 4;
 			        BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 			        blockPos.setPos(x, y, z);
 			        if (world.getBlockState(blockPos).equals(biome.topBlock) ){
@@ -353,7 +353,7 @@ public class FossilGenerator implements IWorldGenerator {
 
 	    for (int i = 0; i < tweakedRarity; ++i){
 	    	//get a random block pos
-	    	int x = pos.getX() + random.nextInt(16); int y = random.nextInt(250) + 1; int z = pos.getZ() + random.nextInt(16);
+	    	int x = pos.getX() + random.nextInt(6) + 4; int y = random.nextInt(250) + 1; int z = pos.getZ() + random.nextInt(6) + 4;
 	    	oneCheck = 0;
 	    	BlockPos.MutableBlockPos trunkPos = new BlockPos.MutableBlockPos();
 	        trunkPos.setPos(x, y, z);
@@ -447,6 +447,7 @@ public class FossilGenerator implements IWorldGenerator {
 			}
 			private boolean isValidHill(Biome biome) {
 				return  !isBiome(biome, Type.SNOWY) &&
+						!isBiome(biome, Type.FOREST) && 
 						(isBiome(biome, Type.HILLS) || 
 						isBiome(biome, Type.MOUNTAIN));
 			}
@@ -459,7 +460,6 @@ public class FossilGenerator implements IWorldGenerator {
 			private boolean isValidForest(Biome biome) {
 				return   isBiome(biome, Type.FOREST) && 
 						!isBiome(biome, Type.CONIFEROUS) && 
-						!isBiome(biome, Type.HILLS) &&
 						!isBiome(biome, Type.DENSE) &&
 						!isBiome(biome, Type.LUSH);
 			}
@@ -470,7 +470,7 @@ public class FossilGenerator implements IWorldGenerator {
 				}
 			}
 			private void spawnTrunk(World world, Biome biome, MutableBlockPos trunkPos, int x, int y, int z, Block woodType, int woodVariant){
-				int getSize = rand.nextInt(fossilSize) + 2;
+				int getSize = (rand.nextInt(fossilSize) / 2) + 2;
 				int getDirection = rand.nextInt(4) + 2;
 				int side = 0; int sizeX = 0; int sizeZ = 0;
 				if(getDirection == 2){
@@ -493,6 +493,15 @@ public class FossilGenerator implements IWorldGenerator {
 			  		    	oneCheck = 1;
 			        	}
 			        }
+					trunkPos.setPos(x - (size * sizeX), y, z - (size * sizeZ));
+			        if (world.getBlockState(trunkPos).equals(biome.topBlock) ){
+			        	trunkPos.setPos(x - (size * sizeX), y + 1, z - (size * sizeZ));
+			        	if (!world.getBlockState(trunkPos).isOpaqueCube()){
+			  		    	state = woodType.getStateFromMeta(woodVariant + side);
+			  		    	world.setBlockState(trunkPos, state);
+			  		    	oneCheck = 1;
+			        	}
+			        }
 				}	
 		    }
 			
@@ -507,7 +516,7 @@ public class FossilGenerator implements IWorldGenerator {
 
 	private int getMultiplyOf(int i) {
 		int rarity = fossilRarity * i;
-		return 0;
+		return rarity;
 	}
 
 

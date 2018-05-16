@@ -39,9 +39,9 @@ public class BiomeWhiteSands extends Biome {
         	//dead grass
         	if(rand.nextInt(3) == 0){
 	        	for (int bush = 0; bush < 200; ++bush){
-		    		int x = pos.getX() + rand.nextInt(16); 
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
 		    		int y = rand.nextInt(30) + 60; 
-		    		int z = pos.getZ() + rand.nextInt(16);
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
 			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
@@ -54,10 +54,10 @@ public class BiomeWhiteSands extends Biome {
 	        }
         	//tall grass
 	        if(rand.nextInt(3) == 0){
-	        	for (int bush = 0; bush < 50; ++bush){
-		    		int x = pos.getX() + rand.nextInt(16); 
+	        	for (int bush = 0; bush < 80; ++bush){
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
 		    		int y = rand.nextInt(30) + 60; 
-		    		int z = pos.getZ() + rand.nextInt(16);
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
 			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
@@ -74,9 +74,9 @@ public class BiomeWhiteSands extends Biome {
         	//ricegrass
 	        if(rand.nextInt(4) == 0){
 	        	for (int bush = 0; bush < 30; ++bush){
-		    		int x = pos.getX() + rand.nextInt(16); 
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
 		    		int y = rand.nextInt(50) + 50; 
-		    		int z = pos.getZ() + rand.nextInt(16);
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
 			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
@@ -93,9 +93,9 @@ public class BiomeWhiteSands extends Biome {
         	//soaptree
 	        if(rand.nextInt(4) == 0){
 		        for (int bush = 0; bush < 30; ++bush){
-		    		int x = pos.getX() + rand.nextInt(16) + 8; 
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
 		    		int y = rand.nextInt(50) + 50; 
-		    		int z = pos.getZ() + rand.nextInt(16) + 8;
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
 			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
@@ -112,9 +112,9 @@ public class BiomeWhiteSands extends Biome {
 	        //spoon
 	        if(rand.nextInt(5) == 0){
 		        for (int bush = 0; bush < 30; ++bush){
-		    		int x = pos.getX() + rand.nextInt(8); 
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
 		    		int y = rand.nextInt(50) + 50; 
-		    		int z = pos.getZ() + rand.nextInt(8);
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
 			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
@@ -131,9 +131,9 @@ public class BiomeWhiteSands extends Biome {
 	        //pear
 	        if(rand.nextInt(6) == 0){
 		        for (int bush = 0; bush < 10; ++bush){
-		    		int x = pos.getX() + rand.nextInt(16) + 8; 
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
 		    		int y = rand.nextInt(50) + 50; 
-		    		int z = pos.getZ() + rand.nextInt(16) + 8;
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
 			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
@@ -150,9 +150,9 @@ public class BiomeWhiteSands extends Biome {
 	        //rose
 	        if(rand.nextInt(4) == 0){
 		        for (int bush = 0; bush < 15; ++bush){
-		    		int x = pos.getX() + rand.nextInt(16); 
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
 		    		int y = rand.nextInt(50) + 50;
-		    		int z = pos.getZ() + rand.nextInt(16);
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
 			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
@@ -168,10 +168,10 @@ public class BiomeWhiteSands extends Biome {
 	        }
 	        //skunkbush
 	        if(rand.nextInt(3) == 0){
-		        for (int bush = 0; bush < 4; ++bush){
-		    		int x = pos.getX() + rand.nextInt(16); 
+		        for (int bush = 0; bush < 8; ++bush){
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
 		    		int y = rand.nextInt(50) + 50; 
-		    		int z = pos.getZ() + rand.nextInt(16);
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
 			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);

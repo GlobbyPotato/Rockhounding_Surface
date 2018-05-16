@@ -38,9 +38,12 @@ public class TileEntityCompostBin extends TileEntityMachineEnergy {
 	public int capacity = 1000 + ModConfig.machineTank;
 	public int amount;
 
+	public static int totInput = 1;
+	public static int totOutput = 1;
+	
 	public TileEntityCompostBin(){
-		super(1, 1, 0);
-		input =  new MachineStackHandler(INPUT_SLOTS,this){
+		super(totInput, totOutput, 0);
+		input =  new MachineStackHandler(totInput,this){
 			@Override
 			public ItemStack insertItem(int slot, ItemStack insertingStack, boolean simulate){
 				if(slot == INPUT_SLOT && (hasRecipe(insertingStack) || canCompost(insertingStack) || isValidOredict(insertingStack))){

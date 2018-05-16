@@ -18,10 +18,12 @@ public class Reference {
 	//Create new Creative Tab with Icon
 	public static CreativeTabs RockhoundingSurface = new CreativeTabs("rockhoundingSurface") {
         @SideOnly(Side.CLIENT)
+        @Override
 		public Item getTabIconItem() { 
 			return Item.getItemFromBlock(ModBlocks.fossilPlanks); 
 		}
         @SideOnly(Side.CLIENT)
+        @Override
         public int getIconItemDamage(){
             return EnumFossilPlanks.BETULA.ordinal();
         }

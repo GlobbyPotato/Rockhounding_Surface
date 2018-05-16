@@ -33,8 +33,11 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 
 	public FluidTank inputTank;
 
+	public static int totInput = 5;
+	public static int totOutput = 1;
+
 	public TileEntityWoodIncubator() {
-		super(5, 1, 1);
+		super(totInput, totOutput, 1);
 
 		inputTank = new FluidTank(1000 + ModConfig.machineTank){
 			@Override
@@ -50,7 +53,7 @@ public class TileEntityWoodIncubator extends TileEntityMachineTank{
 		inputTank.setTileEntity(this);
 		inputTank.setCanFill(true);
 
-		input =  new MachineStackHandler(INPUT_SLOTS,this){
+		input =  new MachineStackHandler(totInput,this){
 			@Override
 			public ItemStack insertItem(int slot, ItemStack insertingStack, boolean simulate){
 				if(slot == FUEL_SLOT && isGatedPowerSource(insertingStack) && !isWood(insertingStack)){

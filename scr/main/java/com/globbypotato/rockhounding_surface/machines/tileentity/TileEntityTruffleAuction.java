@@ -35,10 +35,13 @@ public class TileEntityTruffleAuction extends TileEntityMachineInv {
 	private int auctionMax = 1200;
 	ItemStack lootStack;
 
-	public TileEntityTruffleAuction(){
-		super(2, 0);
+	public static int totInput = 2;
+	public static int totOutput = 1;
 
-		input =  new MachineStackHandler(INPUT_SLOTS,this){
+	public TileEntityTruffleAuction(){
+		super(totInput, totOutput);
+
+		input =  new MachineStackHandler(totInput,this){
 			@Override
 			public ItemStack insertItem(int slot, ItemStack insertingStack, boolean simulate){
 				if(slot == TRUFFLE_SLOT && hasTruffles(insertingStack)){
