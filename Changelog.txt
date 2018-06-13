@@ -1,3 +1,6 @@
+v1.25 changelog
+	Sync to updated Core
+
 v1.24 changelog (hotfix)
 	Compost Bin
 		Fixed a compatibility crash if Natura is not installed
