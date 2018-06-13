@@ -1,202 +1,48 @@
-v1.24 changelog (hotfix)
-	Compost Bin
-		Fixed a compatibility crash if Natura is not installed
-		Core updated to v1.10
+v3.09 changelog
+	Several fixes and tweaks
+	Code cleaning
+	Core updated to v3.12
 
-v1.23 changelog
-	Misc fixes
-		Added Waila and TOP support
-		Minor cleanings
-		Core updated
-
-v1.22 changelog
-	Wood Incubator correctly handling fuel blend
-	Various fixes and tweaks
-	Core updated to v1.06
-
-v1.21 changelog
-	Wood Aging Tech
-		Integrated compost recipes into the Chemistry Lab Blender 
-		Reworked some recipes
-	Misc fixes
-		Fixed some recipe integration issue 
-		Rebalanced fossil generation frequency
-		Core updated to v1.05
-
-v1.20 changelog
-	Wood Incubator
-		Machine available for customization also without the Chemistry module installed. 
-		No available recipes from Chemistry though
-		Recipe Selector scrolling made continous once reached the limits
-	Misc fixes
-		Code cleaning
-		Core updated and synced to v1.04
-
-v1.19 changelog
-	Truffle Auction Table
-		Truffles to sell must be placed inside the gui to start an auction. May require to break and place again the table after updating
-	Wood Incubator
-		Fixed a potential crash
-	Misc Fixes
-		Some JEI additions 
-		Minor cleanings
-
-v1.18 changelog
-	Rockhounding core updated to v1.02
-		[Request] Added a Fuel Blend option inspired by ATM:Expert, configurable from the Core config 
-		Minor fixes, cleaning and maintenance
-
-v1.17 changelog
-	Minor tweaks
-		Sync to latest Core
-		Since version 1.16 it requires the Rockhounding Core which contains shared classes by all the Rockhounding modules.
-
-1.16 changelog
-	Wood Incubator
-		Lava can be piped in as fuel and lava buckets used on it
-	Misc fixes
-		Some code cleaning
-		Misc fixes
-
-v1.15 changelog
-	All devices
-		Output items can be extracted from any side
-	Misc fixes
-		Enabled the Universal Bucket
-		Rebalanced the Enriched Bonemeal due to gypsum abundance
-		Added an enabler for each building part (fences, gates, stairs)
-		Some tooltip fix
-		Some code cleaning
-
-v1.14 changelog
-	Wood Incubator
-		Solid inputs will now respect too the activation switch to improve their automation
-		Reworked the recipe to follow the Chemistry module style
-
-v1.13 changelog
-	Reworked the fluid appearence
-	various fixes to JEI, guis and machines
-
-v1.12 changelog
+v3.08 changelog 
+	Vivarium
+		Can set a 1/n chance for both output production and input consumption
+		CraftTweaker script updated
 	Fossil Wood
-		Added the last set of fossil woods
-			Fossil Azurite Wood (Found as laying trunks in snowy hills)
-			Teredo-Bored Wood (Found underwater in beaches and shallow oceans)
-			Fossil Beech (Found as laying trunks in snowy plains)
-			Yellow Cat Redwood (Found a buried roots in coniferous biomes)
-		Added all the related wood building parts
-		Added recipes for the Wood Incubator
-			Added some composts for the new recipes
-			Added Teredo Grub (randomly drops while breaking Lily Pads)
-	Wood Incubator
-		Added an Activation Switch
-		When scrolling recipes it will prevent fluids jumping in and out the solvent tanks
-		Needs to be activated for the machine to process
-		Small gui appearence rework
-		Needs to break the machine before opening the gui to refresh and avoid issues
-	Misc fixes
-		Some minor cleanings
+		Planks given the WOOD material for compatibility issues. issue #5
+	Core updated to v3.08
 
-v1.11 changelog
-	Machines
-		Rewritten the energy handling
-		Permanent Induction upgrade for the Wood Incubator (from Chemistry module)
-		Added support to CraftTweaker
-		Wood logs inhibited from fuel usage in the Incubator being them the input
-	Misc fixes
-		Some JEI fixes and additions
-		Minor fixes and cleaning
+v3.07 changelog
+	Some textures improved
+	Minor tweaks
 
-v1.10 changelog
-	Fixed a texture loading
-	Fixed a broken compatibility in Compost Bin
+v3.06 changelog
+	Rearranged some enablers to entirely isolate features. Fossil woods and aging remain always enabled (A new config will clean it.)
+	Some companion features automatically handled if the companion mod is available.
+
+v3.05 changelog
+	Requires Core v3.06
+	Redstone Flux Api no longer needed by this module
+	Wood incubator no longer requires powering
+	Added the Vivarium. Farms objects out of an input (Input rarely consumed. Early concept).
+	issue #3: Teredo grubs breeded in the Vivarium instead of breaking lilypads. 
+	issue #4: Worldgen slightly rearranged to better generate woods
+
+v3.04 changelog
+	Requires Core v3.05
 	Minor fixes
 
-v1.09 changelog
-	Fossil woods
-		Reworked the aspect of the bog spruce deposit
-	Gypsum
-		Added extra uses for the White Sands plants
-			Strings can be made of Desert spoon fibers
-			Sotol (drink) can be made out of Desert Spoon stalks
-			Lead can be made of Soaptree Yukka fibers
-			Replaced Desert Rose with Honey Mesquite plant
-			Added some mesquire related food
+v3.03 changelog
+	Some oredict handling fixes
 	Misc fixes
-		Some code cleaning
-		Minor fixes
 
-v1.08 changelog
-	Misc Fixes
-		Fixed a machine dropping issue
-	Rockhounding API
-		Archive updated
-		Added the machines recipe removal methods to the recipe API
+v3.02 changelog (hotfix)
+	Fixed a worldgen cascading lag
+	
+v3.01 changelog
+	Unlocked the Wood Aging Tech device/items. Requires Chemistry for recipes.
+	Fixed the Compost Bin. CraftTweaker script updated too.
+	Minor Fixes
+	Core Syncing
 
-v1.07 changelog
-	Gypsum
-		Reworked the worldgen
-		White Sand beach disabled from the config (frequency = 0, still usable)
-		Added the White Sands Biome
-			Biome populated by silverfish and rabbit
-			Added some specific biome vegetation
-			Added some specific biome related crops and food
-	Misc fixes
-		Minor ore dictionay fixes
-		Minor recipe rebalancing
-
-v1.06 changelog
-	Gypsum
-		Added the column, nether brick theme, cobble theme, creeper theme
-		Added some gypsum parts to the ore dictionary
-		Some recipes balanced
-		Added gypsum blocks to Chisel for quick crafting
-	Misc fixes
-		Some code cleaning
-		Sorted a potential integration issue with blocks
-		Wood Incubator tooltips
-
-v1.05 changelog
-	Tweaked the Truffle trading logic
-		Included a competition factor where the more villagers are around, the higher is the quality of the auction
-		Doubled the radius at which villagers will be detected (10 blocks horizontally and 4 vertically)
-		Child villagers won't participate to the auction
-	Misc fixes
-		Added more parts to ore dictionary
-		Minor recipe tweaks
-		Some code cleaning
-
-v1.04 changelog
-	Gypsum
-		Completed the building set
-		Added the Gypsum Fractal Block/Slab (chiseled quartz theme)
-		Added the purpur themes
-	Fertilizers
-		Added the Compost Bin
-			Turns organic objects into Organic Compost
-			Added the Organic Compost
-			Organic Compost has a chance to improve gravel into coarse dirt (5x2x5 grid)
-			Unified repetitive recipe variants by using Organic Compost
-			Added Compost Bin to the Rockhounding api
-			Added a 25% success rate per block to balance the fertilizers
-			Weighted the recipes to be tiered
-	Misc fixes
-		Fixed some recipe mistakes
-		Fixed some naming issue
-
-v1.03 changelog
-	Misc Fixes
-		Fixed some recipe quantity mistakes
-		Fixed some display names
-
-v1.02 changelog
-	Wood Incubator
-		When No Recipe is selected, the tank will try to drain
-		Breaking the machine will store the content of the tank
-
-v1.01 changelog
-	Misc fixes
-		Fixed a naming issue
-		Fixed Inductor Interface not recognized by the Incubator
-		Some recipe updates
-		Added Gypsum Dust to Chemical Extractor compatibility
+v3.00 changelog
+	Initial commit
