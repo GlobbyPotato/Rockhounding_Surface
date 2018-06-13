@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "rockhounding_surface:blocks/cold_logs_redwood_top",
+        "side": "rockhounding_surface:blocks/cold_logs_redwood_side"
+    }
+}

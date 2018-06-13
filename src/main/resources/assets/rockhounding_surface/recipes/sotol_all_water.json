@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "toolPot",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "listAllwater",
+			"type": "forge:ore_dict"
+		},
+		{
+			"item": "minecraft:sugar",
+			"data": 0
+		},
+		{
+			"item": "rockhounding_surface:gypsum_bush_lo",
+			"data": 2
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:sotol",
+				"data": 0
+			}
+}

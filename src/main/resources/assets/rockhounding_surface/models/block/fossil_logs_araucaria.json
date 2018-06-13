@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "rockhounding_surface:blocks/fossil_logs_araucaria_top",
+        "side": "rockhounding_surface:blocks/fossil_logs_araucaria_side"
+    }
+}

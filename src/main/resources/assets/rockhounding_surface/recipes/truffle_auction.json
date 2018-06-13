@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:machines",
+	"pattern": [
+		"WWW", 
+		" P ", 
+		"PPP"
+	],
+	"key": {
+		"W":{
+				"item": "minecraft:carpet",			
+				"data": 0
+			},
+		"P":{
+				"ore": "plankWood",
+				"type": "forge:ore_dict"
+			}
+	},
+	"result":{
+				"item": "rockhounding_surface:truffle_auction",			
+				"data": 0
+			}
+}

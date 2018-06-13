@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:machines",
+	"pattern": [
+		"PSP", 
+		"SCS", 
+		"PSP"
+	],
+	"key": {
+		"S":{
+				"ore": "slabWood",
+				"type": "forge:ore_dict"
+			},
+		"C":{
+				"ore": "chest",
+				"type": "forge:ore_dict"
+			},
+		"P":{
+				"ore": "plankWood",
+				"type": "forge:ore_dict"
+			}
+	},
+	"result":{
+				"item": "rockhounding_surface:compost_bin",			
+				"data": 0
+			}
+}

@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"item": "minecraft:pumpkin",
+			"data": 0
+		},
+		{
+			"ore": "foodTruffle",
+			"type": "forge:ore_dict"
+		},
+		{
+			"item": "minecraft:potato",
+			"data": 0
+		},
+		{
+			"item": "minecraft:milk_bucket",
+			"data": 0
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:truffle_pumpkin",
+				"data": 0
+			}
+}

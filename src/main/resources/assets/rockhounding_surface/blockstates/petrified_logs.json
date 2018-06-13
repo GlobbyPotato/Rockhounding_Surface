@@ -1,0 +1,23 @@
+{
+    "variants": {
+        "axis=y,variant=betula":     { "model": "rockhounding_surface:petrified_logs_betula" },
+        "axis=z,variant=betula":     { "model": "rockhounding_surface:petrified_logs_betula", "x": 90 },
+        "axis=x,variant=betula":     { "model": "rockhounding_surface:petrified_logs_betula", "x": 90, "y": 90 },
+        "axis=none,variant=betula":  { "model": "rockhounding_surface:petrified_logs_betula" },
+        
+		"axis=y,variant=castano":    { "model": "rockhounding_surface:petrified_logs_castano" },
+        "axis=z,variant=castano":    { "model": "rockhounding_surface:petrified_logs_castano", "x": 90 },
+        "axis=x,variant=castano":    { "model": "rockhounding_surface:petrified_logs_castano", "x": 90, "y": 90 },
+        "axis=none,variant=castano": { "model": "rockhounding_surface:petrified_logs_castano" },
+        
+		"axis=y,variant=opalized":   { "model": "rockhounding_surface:petrified_logs_opalized" },
+        "axis=z,variant=opalized":   { "model": "rockhounding_surface:petrified_logs_opalized", "x": 90 },
+        "axis=x,variant=opalized":   { "model": "rockhounding_surface:petrified_logs_opalized", "x": 90, "y": 90 },
+        "axis=none,variant=opalized":{ "model": "rockhounding_surface:petrified_logs_opalized" },
+        
+		"axis=y,variant=rainbow":    { "model": "rockhounding_surface:petrified_logs_rainbow" },
+        "axis=z,variant=rainbow":    { "model": "rockhounding_surface:petrified_logs_rainbow", "x": 90  },
+        "axis=x,variant=rainbow":    { "model": "rockhounding_surface:petrified_logs_rainbow", "x": 90, "y": 90 },
+        "axis=none,variant=rainbow": { "model": "rockhounding_surface:petrified_logs_rainbow" }
+    }
+}

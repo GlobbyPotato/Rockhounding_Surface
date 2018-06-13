@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "foodTruffle",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "cropTomato",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "listAllmushroom",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodOliveoil",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:truffle_tomato",
+				"data": 0
+			}
+}

@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "variant=skunkbush":  	{"model" : "rockhounding_surface:gypsum_crops_skunkbush"},
+        "variant=sourberry":  	{"model" : "rockhounding_surface:gypsum_crops_sourberry"},
+		"variant=deadgrass":  	{"model" : "rockhounding_surface:gypsum_crops_deadgrass"},
+		"variant=purpleseed": 	{"model" : "rockhounding_surface:gypsum_crops_purpleseed"},
+		"variant=purplebush": 	{"model" : "rockhounding_surface:gypsum_crops_purplebush"},
+		"variant=purplepear": 	{"model" : "rockhounding_surface:gypsum_crops_purplepear"},
+		"variant=mesquiteseed": {"model" : "rockhounding_surface:gypsum_crops_mesquiteseed"},
+		"variant=mesquitebush": {"model" : "rockhounding_surface:gypsum_crops_mesquitebush"},
+		"variant=mesquitebean": {"model" : "rockhounding_surface:gypsum_crops_mesquitebean"}
+	}
+}

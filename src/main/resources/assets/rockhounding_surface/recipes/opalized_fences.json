@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:wood",
+	"pattern": [
+		"PSP",
+		"PSP"
+	],
+	"key": {
+		"S":{
+				"item": "rockhounding_surface:fossil_sticks",			
+				"data": 10
+			},
+		"P":{
+				"item": "rockhounding_surface:fossil_planks",			
+				"data": 10
+			}
+	},
+	"result":{
+				"item": "rockhounding_surface:opalized_fences",			
+				"data": 0,
+				"count": 4
+			}
+}

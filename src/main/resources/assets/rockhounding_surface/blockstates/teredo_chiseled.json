@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=blinds":  {"model" : "rockhounding_surface:teredo_chiseled_blinds"},
+        "variant=chaotic": {"model" : "rockhounding_surface:teredo_chiseled_chaotic"},
+        "variant=chaotich":{"model" : "rockhounding_surface:teredo_chiseled_chaotich"},
+        "variant=clean":   {"model" : "rockhounding_surface:teredo_chiseled_clean"},
+        "variant=crate":   {"model" : "rockhounding_surface:teredo_chiseled_crate"},
+        "variant=cratex":  {"model" : "rockhounding_surface:teredo_chiseled_cratex"},
+        "variant=cratef":  {"model" : "rockhounding_surface:teredo_chiseled_cratef"},
+        "variant=double":  {"model" : "rockhounding_surface:teredo_chiseled_double"},
+        "variant=fancy":   {"model" : "rockhounding_surface:teredo_chiseled_fancy"},
+        "variant=large":   {"model" : "rockhounding_surface:teredo_chiseled_large"},
+        "variant=panel":   {"model" : "rockhounding_surface:teredo_chiseled_panel"},
+        "variant=parquet": {"model" : "rockhounding_surface:teredo_chiseled_parquet"},
+        "variant=short":   {"model" : "rockhounding_surface:teredo_chiseled_short"},
+        "variant=vertical":{"model" : "rockhounding_surface:teredo_chiseled_vertical"},
+        "variant=uneven":  {"model" : "rockhounding_surface:teredo_chiseled_uneven"},
+        "variant=fence":   {"model" : "rockhounding_surface:teredo_chiseled_fence"}
+    }
+}

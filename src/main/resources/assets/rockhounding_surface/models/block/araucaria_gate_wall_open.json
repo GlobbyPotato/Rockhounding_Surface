@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_gate_open",
+    "textures": {
+        "texture": "rockhounding_surface:blocks/fossil_planks_araucaria"
+    }
+}

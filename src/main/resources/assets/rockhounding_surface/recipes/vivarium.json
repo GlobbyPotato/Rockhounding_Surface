@@ -1,0 +1,31 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:machines",
+	"pattern": [
+		"GBG", 
+		"TDT", 
+		"TTT"
+	],
+	"key": {
+		"G":{
+			"ore": "blockGlass",
+			"type": "forge:ore_dict"
+			},
+		"D":{
+			"ore": "dirt",
+			"type": "forge:ore_dict"
+			},
+		"B":{
+			"item": "minecraft:water_bucket",			
+			"data": 0
+			},
+		"T":{
+			"item": "minecraft:hardened_clay",			
+			"data": 0
+			}
+	},
+	"result":{
+			"item": "rockhounding_surface:vivarium",			
+			"data": 0
+			}
+}

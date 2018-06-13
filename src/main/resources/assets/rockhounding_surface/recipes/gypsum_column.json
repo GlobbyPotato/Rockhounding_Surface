@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:gypsum",
+	"pattern": [
+		"S",
+		"S"
+	],
+	"key": {
+		"S":{
+				"item": "rockhounding_surface:gypsum",			
+				"data": 1
+			}
+	},
+	"result":{
+				"item": "rockhounding_surface:gypsum_column",			
+				"data": 0,
+				"count": 2
+			}
+}

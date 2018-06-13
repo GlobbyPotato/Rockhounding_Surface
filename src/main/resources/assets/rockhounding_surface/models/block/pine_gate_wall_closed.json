@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_gate_closed",
+    "textures": {
+        "texture": "rockhounding_surface:blocks/fossil_planks_pine"
+    }
+}

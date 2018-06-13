@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "variant=ricegrass": {"model" : "rockhounding_surface:gypsum_bush_hi_ricegrass"},
+        "variant=soaptree":  {"model" : "rockhounding_surface:gypsum_bush_hi_soaptree"},
+		"variant=spoon":  	 {"model" : "rockhounding_surface:gypsum_bush_hi_spoon"},
+		"variant=pear":  	 {"model" : "rockhounding_surface:gypsum_bush_hi_pear"},
+		"variant=mesquite":  {"model" : "rockhounding_surface:gypsum_bush_hi_mesquite"},
+		"variant=grass":  	 {"model" : "rockhounding_surface:gypsum_bush_hi_grass"}
+    }
+}

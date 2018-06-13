@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=down":  { "model": "rockhounding_surface:vivarium"	},
+        "facing=up":    { "model": "rockhounding_surface:vivarium" 	},
+        "facing=south": { "model": "rockhounding_surface:vivarium", "y": 180},
+        "facing=north": { "model": "rockhounding_surface:vivarium" },
+        "facing=east":  { "model": "rockhounding_surface:vivarium", "y": 90  },
+        "facing=west":  { "model": "rockhounding_surface:vivarium", "y": 270 }
+    }
+}

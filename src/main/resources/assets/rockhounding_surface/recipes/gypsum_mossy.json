@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:gypsum",
+	"ingredients":[
+		{
+				"item": "rockhounding_surface:gypsum",
+				"data": 2
+		},
+		{
+			"ore": "vine",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:gypsum",
+				"data": 5
+			}
+}

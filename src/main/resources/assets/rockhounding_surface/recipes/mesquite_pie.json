@@ -1,0 +1,30 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "toolMixingbowl",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "flourMesquite",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "cropAlmond",
+			"type": "forge:ore_dict"
+		},
+		{
+			"item": "minecraft:sugar",
+			"data": 0
+		},
+		{
+			"ore": "egg",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:mesquite_pie",
+				"data": 0
+			}
+}

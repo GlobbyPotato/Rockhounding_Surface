@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "rockhounding_surface:blocks/cold_logs_teredo_top",
+        "side": "rockhounding_surface:blocks/cold_logs_teredo_side"
+    }
+}

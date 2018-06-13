@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "rockhounding_surface:blocks/ricegrass_crop_stage_6"
+    }
+}

@@ -1,7 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "particle": "rockhounding_surface:blocks/gypsumBushHi_spoon",
-        "cross": "rockhounding_surface:blocks/gypsumBushHi_spoon"
-    }
-}

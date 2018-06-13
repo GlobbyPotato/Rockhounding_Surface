@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "rockhounding_surface:blocks/fossilPlanks_araucaria",
-        "top": "rockhounding_surface:blocks/fossilPlanks_araucaria",
-        "side": "rockhounding_surface:blocks/fossilPlanks_araucaria"
-    }
-}

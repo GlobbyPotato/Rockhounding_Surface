@@ -1,8 +1,0 @@
-{
-    "parent": "block/inner_stairs",
-    "textures": {
-        "bottom": "rockhounding_surface:blocks/fossilPlanks_kauri",
-        "top": "rockhounding_surface:blocks/fossilPlanks_kauri",
-        "side": "rockhounding_surface:blocks/fossilPlanks_kauri"
-    }
-}

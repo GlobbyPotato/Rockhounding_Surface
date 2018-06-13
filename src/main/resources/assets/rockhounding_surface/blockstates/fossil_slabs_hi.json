@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=oak": 			{"model" : "rockhounding_surface:fossil_slabs_hi_oak"},
+        "variant=spruce": 		{"model" : "rockhounding_surface:fossil_slabs_hi_spruce"},
+        "variant=kauri": 		{"model" : "rockhounding_surface:fossil_slabs_hi_kauri"},
+        "variant=mophane": 		{"model" : "rockhounding_surface:fossil_slabs_hi_mophane"},
+        "variant=palm": 		{"model" : "rockhounding_surface:fossil_slabs_hi_palm"},
+        "variant=pine": 		{"model" : "rockhounding_surface:fossil_slabs_hi_pine"},
+        "variant=driftwood": 	{"model" : "rockhounding_surface:fossil_slabs_hi_driftwood"},
+        "variant=araucaria":	{"model" : "rockhounding_surface:fossil_slabs_hi_araucaria"},
+        "variant=betula": 		{"model" : "rockhounding_surface:fossil_slabs_hi_betula"},
+        "variant=castano": 		{"model" : "rockhounding_surface:fossil_slabs_hi_castano"},
+        "variant=opalized": 	{"model" : "rockhounding_surface:fossil_slabs_hi_opalized"},
+        "variant=rainbow": 		{"model" : "rockhounding_surface:fossil_slabs_hi_rainbow"},
+		"variant=azurite": 		{"model" : "rockhounding_surface:fossil_slabs_hi_azurite"},
+		"variant=teredo": 		{"model" : "rockhounding_surface:fossil_slabs_hi_teredo"},
+		"variant=beech": 		{"model" : "rockhounding_surface:fossil_slabs_hi_beech"},
+		"variant=redwood": 		{"model" : "rockhounding_surface:fossil_slabs_hi_redwood"}
+    }
+}

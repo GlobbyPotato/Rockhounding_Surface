@@ -1,8 +1,0 @@
-{
-    "parent": "block/upper_slab",
-    "textures": {
-        "bottom": "rockhounding_surface:blocks/fossilPlanks_redwood",
-        "top": "rockhounding_surface:blocks/fossilPlanks_redwood",
-        "side": "rockhounding_surface:blocks/fossilPlanks_redwood"
-    }
-}

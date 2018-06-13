@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "rockhounding_surface:blocks/petrified_logs_castano_top",
+        "side": "rockhounding_surface:blocks/petrified_logs_castano_side"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=oak": 			{"model" : "rockhounding_surface:fossil_planks_oak"},
+        "variant=spruce": 		{"model" : "rockhounding_surface:fossil_planks_spruce"},
+        "variant=kauri": 		{"model" : "rockhounding_surface:fossil_planks_kauri"},
+        "variant=mophane": 		{"model" : "rockhounding_surface:fossil_planks_mophane"},
+        "variant=palm": 		{"model" : "rockhounding_surface:fossil_planks_palm"},
+        "variant=pine": 		{"model" : "rockhounding_surface:fossil_planks_pine"},
+        "variant=driftwood": 	{"model" : "rockhounding_surface:fossil_planks_driftwood"},
+        "variant=araucaria": 	{"model" : "rockhounding_surface:fossil_planks_araucaria"},
+        "variant=betula": 		{"model" : "rockhounding_surface:fossil_planks_betula"},
+        "variant=castano": 		{"model" : "rockhounding_surface:fossil_planks_castano"},
+        "variant=opalized": 	{"model" : "rockhounding_surface:fossil_planks_opalized"},
+        "variant=rainbow": 		{"model" : "rockhounding_surface:fossil_planks_rainbow"},
+		"variant=azurite": 		{"model" : "rockhounding_surface:fossil_planks_azurite"},
+		"variant=teredo": 		{"model" : "rockhounding_surface:fossil_planks_teredo"},
+		"variant=beech": 		{"model" : "rockhounding_surface:fossil_planks_beech"},
+		"variant=redwood": 		{"model" : "rockhounding_surface:fossil_planks_redwood"}
+    }
+}

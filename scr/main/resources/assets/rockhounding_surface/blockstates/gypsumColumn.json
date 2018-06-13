@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "axis=y": { "model": "rockhounding_surface:gypsumColumn" },
-        "axis=z": { "model": "rockhounding_surface:gypsumColumn", "x": 90 },
-        "axis=x": { "model": "rockhounding_surface:gypsumColumn", "x": 90, "y": 90 }
-    }
-}

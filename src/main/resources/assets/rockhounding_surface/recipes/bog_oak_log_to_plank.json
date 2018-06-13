@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:wood",
+	"ingredients":[
+		{
+			"item": "rockhounding_surface:bog_logs",
+			"data":0
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:fossil_planks",
+				"data": 0,
+				"count": 4
+			}
+}

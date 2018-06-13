@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "rockhounding_surface:blocks/kauri_chiseled_cratex"
+    }
+}

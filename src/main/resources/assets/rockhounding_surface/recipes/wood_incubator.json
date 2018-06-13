@@ -1,0 +1,31 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:machines",
+	"pattern": [
+		"IRI", 
+		"IBI", 
+		"IGI"
+	],
+	"key": {
+		"G":{
+			"ore": "blockGlass",
+			"type": "forge:ore_dict"
+			},
+		"R":{
+			"ore": "dustRedstone",
+			"type": "forge:ore_dict"
+			},
+		"B":{
+			"item": "minecraft:bucket",			
+			"data": 0
+			},
+		"I":{
+			"ore": "ingotIron",
+			"type": "forge:ore_dict"
+			}
+	},
+	"result":{
+			"item": "rockhounding_surface:wood_incubator",			
+			"data": 0
+			}
+}

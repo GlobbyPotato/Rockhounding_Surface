@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:gypsum",
+	"ingredients":[
+		{
+			"item": "minecraft:glass_bottle",
+			"data": 0
+		},
+		{
+			"item": "minecraft:water_bucket",
+			"data": 0
+		},
+		{
+			"item": "minecraft:sugar",
+			"data": 0
+		},
+		{
+			"item": "rockhounding_surface:gypsum_bush_lo",
+			"data": 2
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:sotol",
+				"data": 0
+			}
+}

@@ -1,0 +1,30 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "listAllbeefcooked",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodTruffle",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "listAllmushroom",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "cropSpiceleaf",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodOliveoil",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:truffle_fillet",
+				"data": 0
+			}
+}

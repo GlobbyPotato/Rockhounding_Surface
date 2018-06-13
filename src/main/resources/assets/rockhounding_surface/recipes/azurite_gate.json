@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:wood",
+	"pattern": [
+		"SPS",
+		"SPS"
+	],
+	"key": {
+		"S":{
+				"item": "rockhounding_surface:fossil_sticks",			
+				"data": 12
+			},
+		"P":{
+				"item": "rockhounding_surface:fossil_planks",			
+				"data": 12
+			}
+	},
+	"result":{
+				"item": "rockhounding_surface:azurite_gate",			
+				"data": 0,
+				"count": 1
+			}
+}

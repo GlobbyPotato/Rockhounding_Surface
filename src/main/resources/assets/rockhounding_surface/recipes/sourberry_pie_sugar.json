@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "egg",
+			"type": "forge:ore_dict"
+		},
+		{
+			"item": "minecraft:sugar",
+			"data": 0
+		},
+		{
+			"ore": "cropSourberry",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:sourberry_pie",
+				"data": 0
+			}
+}

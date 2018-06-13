@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "cropOnion",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodTruffle",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "cropRice",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodButter",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:truffle_rice",
+				"data": 0
+			}
+}

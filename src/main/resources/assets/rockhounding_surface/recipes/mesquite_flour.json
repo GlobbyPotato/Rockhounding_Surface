@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "toolMortarandpestle",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "cropMesquite",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:gypsum_items",
+				"data": 5
+			}
+}

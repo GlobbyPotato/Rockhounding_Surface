@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "variant=plain":  {"model" : "rockhounding_surface:gypsum_plain"},
+        "variant=block":  {"model" : "rockhounding_surface:gypsum_block"},
+		"variant=bricks": {"model" : "rockhounding_surface:gypsum_bricks"},
+        "variant=cracked":{"model" : "rockhounding_surface:gypsum_cracked"},
+		"variant=carved": {"model" : "rockhounding_surface:gypsum_carved"},
+		"variant=mossy":  {"model" : "rockhounding_surface:gypsum_mossy"},
+		"variant=double": {"model" : "rockhounding_surface:gypsum_double"},
+		"variant=fractal":{"model" : "rockhounding_surface:gypsum_fractal"},
+		"variant=tile":	  {"model" : "rockhounding_surface:gypsum_tile"},
+		"variant=nether": {"model" : "rockhounding_surface:gypsum_nether"},
+		"variant=cobble": {"model" : "rockhounding_surface:gypsum_cobble"},
+		"variant=creeper":{"model" : "rockhounding_surface:gypsum_creeper"},
+		"variant=paving": {"model" : "rockhounding_surface:gypsum_paving"}
+    }
+}

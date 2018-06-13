@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:miscs",
+	"pattern": [
+		"SSS"
+	],
+	"key": {
+		"S":{
+				"item": "rockhounding_surface:gypsum_bush_lo",			
+				"data": 2
+			}
+	},
+	"result":{
+				"item": "minecraft:string",			
+				"data": 0
+			}
+}

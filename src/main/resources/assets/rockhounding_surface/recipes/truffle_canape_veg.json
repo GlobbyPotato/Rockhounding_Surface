@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "foodToast",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodTruffle",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodFirmtofu",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodOliveoil",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:truffle_canape",
+				"data": 0,
+				"count": 6
+			}
+}

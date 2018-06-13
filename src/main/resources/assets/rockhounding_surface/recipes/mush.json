@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "toolPot",
+			"type": "forge:ore_dict"
+		},
+		{
+			"item": "rockhounding_surface:ricegrass_item",
+			"data": 0
+		},
+		{
+			"ore": "cropCorn",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "listAllwater",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:mush",
+				"data": 0
+			}
+}

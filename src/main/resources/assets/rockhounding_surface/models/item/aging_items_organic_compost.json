@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "rockhounding_surface:items/aging_items_organic_compost"
+    }
+}

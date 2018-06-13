@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "rockhounding_surface:blocks/araucaria_chiseled_fancy"
+    }
+}

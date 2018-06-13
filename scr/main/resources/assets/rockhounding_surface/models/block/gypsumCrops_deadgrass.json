@@ -1,7 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "particle": "rockhounding_surface:blocks/gypsumCrops_deadgrass",
-        "cross": "rockhounding_surface:blocks/gypsumCrops_deadgrass"
-    }
-}

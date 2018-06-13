@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "toolJuicer",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "cropPurplepear",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "cropPurplepear",
+			"type": "forge:ore_dict"
+		},
+		{
+			"item": "minecraft:snowball",
+			"data": 0
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:purplepear_smoothie",
+				"data": 0
+			}
+}

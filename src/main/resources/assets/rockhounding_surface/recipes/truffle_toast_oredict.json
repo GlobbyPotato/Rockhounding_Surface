@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"ore": "bread",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "foodTruffle",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:truffle_toast",
+				"data": 0,
+				"count": 3
+			}
+}

@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "rockhounding_surface:blocks/fossilPlanks_teredo",
-        "top": "rockhounding_surface:blocks/fossilPlanks_teredo",
-        "side": "rockhounding_surface:blocks/fossilPlanks_teredo"
-    }
-}

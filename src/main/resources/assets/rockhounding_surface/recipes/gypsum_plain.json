@@ -1,0 +1,24 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "rockhounding_surface:gypsum",
+	"pattern": [
+		"SSS",
+		"SWS",
+		"SSS"
+	],
+	"key": {
+		"S":{
+				"item": "rockhounding_surface:white_sand",			
+				"data": 0
+			},
+		"W":{
+				"item": "minecraft:water_bucket",			
+				"data": 0
+			}
+	},
+	"result":{
+				"item": "rockhounding_surface:gypsum",			
+				"data": 0,
+				"count": 8
+			}
+}

@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"item": "minecraft:glass_bottle",
+			"data": 0
+		},
+		{
+			"ore": "flourMesquite",
+			"type": "forge:ore_dict"
+		},
+		{
+			"item": "minecraft:water_bucket",
+			"data": 0
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:mesquite_liquor",
+				"data": 0
+			}
+}

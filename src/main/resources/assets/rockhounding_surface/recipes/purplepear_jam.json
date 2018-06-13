@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"item": "minecraft:bowl",
+			"data": 0
+		},
+		{
+			"item": "minecraft:sugar",
+			"data": 0
+		},
+		{
+			"ore": "cropPurplepear",
+			"type": "forge:ore_dict"
+		},
+		{
+			"ore": "cropPurplepear",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:purplepear_jam",
+				"data": 0
+			}
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_inventory",
+    "textures": {
+        "texture": "rockhounding_surface:blocks/fossil_planks_opalized"
+    }
+}

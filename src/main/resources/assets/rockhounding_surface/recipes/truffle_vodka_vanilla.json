@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:food",
+	"ingredients":[
+		{
+			"item": "minecraft:water_bucket",
+			"data": 0
+		},
+		{
+			"ore": "cropTruffle",
+			"type": "forge:ore_dict"
+		},
+		{
+			"item": "minecraft:potato",
+			"data": 0
+		},
+		{
+			"item": "minecraft:sugar",
+			"data": 0
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:truffle_vodka",
+				"data": 0
+			}
+}
