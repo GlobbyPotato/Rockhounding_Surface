@@ -1,3 +1,6 @@
+v1.26 changelog
+	Fixed some worldgen issues (lag, generation)
+
 v1.25 changelog
 	Sync to updated Core
 
