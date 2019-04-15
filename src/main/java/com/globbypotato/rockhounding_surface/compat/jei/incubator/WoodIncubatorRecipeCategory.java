@@ -41,7 +41,7 @@ public class WoodIncubatorRecipeCategory extends RHRecipeCategory {
 
 		WoodIncubatorRecipeWrapper wrapper = (WoodIncubatorRecipeWrapper) recipeWrapper;
 		
-		guiFluidStacks.init(TANK_SLOT, true,  21, 21, 66, 22, 2000, false, null);
+		guiFluidStacks.init(TANK_SLOT, true,  21, 21, 66, 22, 500, false, null);
 		guiFluidStacks.set(TANK_SLOT, wrapper.getFluidInputs().get(0));
 		
 		guiItemStacks.init(INPUT_SLOT, true, 0, 23);

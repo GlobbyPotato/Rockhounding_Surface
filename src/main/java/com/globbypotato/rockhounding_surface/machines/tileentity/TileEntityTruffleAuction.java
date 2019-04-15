@@ -36,7 +36,7 @@ public class TileEntityTruffleAuction extends TileEntityInv {
 	public static int inputSlots = 2;
 
 	public TileEntityTruffleAuction(){
-		super(inputSlots, 0, 0);
+		super(inputSlots, 0, 0, 0);
 
 		this.input =  new MachineStackHandler(inputSlots,this){
 			@Override

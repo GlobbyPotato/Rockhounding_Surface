@@ -3,6 +3,7 @@ package com.globbypotato.rockhounding_surface.handler;
 import java.util.Random;
 
 import com.globbypotato.rockhounding_surface.ModItems;
+import com.globbypotato.rockhounding_surface.blocks.fossil_wood.FossilChiseled;
 import com.globbypotato.rockhounding_surface.blocks.io.GateIO;
 import com.globbypotato.rockhounding_surface.blocks.io.LogIO;
 import com.globbypotato.rockhounding_surface.enums.EnumTruffles;
@@ -56,6 +57,26 @@ public class GlobbyEventHandler {
 				if(itemstack.getItemDamage() ==  EnumTruffles.WHITE.ordinal()){chance = 1;}
 				event.getToolTip().add(TextFormatting.GRAY + "Rarity: " + TextFormatting.YELLOW + chance + "%");
 			}
+
+			if(Block.getBlockFromItem(itemstack.getItem()) instanceof FossilChiseled){
+				if(itemstack.getItemDamage() ==  0){event.getToolTip().add(TextFormatting.DARK_GRAY + itemstack.getDisplayName() + " Blinds");}
+				if(itemstack.getItemDamage() ==  1){event.getToolTip().add(TextFormatting.DARK_GRAY + "Horizontal " + itemstack.getDisplayName() + " in Disarray");}
+				if(itemstack.getItemDamage() ==  2){event.getToolTip().add(TextFormatting.DARK_GRAY + "Vertical " + itemstack.getDisplayName() + " in Disarray");}
+				if(itemstack.getItemDamage() ==  3){event.getToolTip().add(TextFormatting.DARK_GRAY + "Short " + itemstack.getDisplayName());}
+				if(itemstack.getItemDamage() ==  4){event.getToolTip().add(TextFormatting.DARK_GRAY + itemstack.getDisplayName() + " Crate");}
+				if(itemstack.getItemDamage() ==  5){event.getToolTip().add(TextFormatting.DARK_GRAY + itemstack.getDisplayName() + " Scaffold");}
+				if(itemstack.getItemDamage() ==  6){event.getToolTip().add(TextFormatting.DARK_GRAY + "Fancy " + itemstack.getDisplayName() + " Crate");}
+				if(itemstack.getItemDamage() ==  7){event.getToolTip().add(TextFormatting.DARK_GRAY + itemstack.getDisplayName() + " Double Slab");}
+				if(itemstack.getItemDamage() ==  8){event.getToolTip().add(TextFormatting.DARK_GRAY + "Fancy " + itemstack.getDisplayName() + " Arrangment");}
+				if(itemstack.getItemDamage() ==  9){event.getToolTip().add(TextFormatting.DARK_GRAY + "Large Long " + itemstack.getDisplayName());}
+				if(itemstack.getItemDamage() == 10){event.getToolTip().add(TextFormatting.DARK_GRAY + itemstack.getDisplayName() + " Panel");}
+				if(itemstack.getItemDamage() == 11){event.getToolTip().add(TextFormatting.DARK_GRAY + itemstack.getDisplayName() + " Parquet");}
+				if(itemstack.getItemDamage() == 12){event.getToolTip().add(TextFormatting.DARK_GRAY + "Short " + itemstack.getDisplayName());}
+				if(itemstack.getItemDamage() == 13){event.getToolTip().add(TextFormatting.DARK_GRAY + "Vertical " + itemstack.getDisplayName());}
+				if(itemstack.getItemDamage() == 14){event.getToolTip().add(TextFormatting.DARK_GRAY + "Vertical Uneven " + itemstack.getDisplayName());}
+				if(itemstack.getItemDamage() == 15){event.getToolTip().add(TextFormatting.DARK_GRAY + "Large Vertical " + itemstack.getDisplayName());}
+			}
+
 		}
 	}
 

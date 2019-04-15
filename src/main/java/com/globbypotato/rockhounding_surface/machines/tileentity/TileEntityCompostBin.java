@@ -35,7 +35,7 @@ public class TileEntityCompostBin extends TileEntityInv {
 	public static int outputSlots = 1;
 
 	public TileEntityCompostBin(){
-		super(inputSlots, outputSlots, 0);
+		super(inputSlots, outputSlots, 0, 0);
 		this.input =  new MachineStackHandler(inputSlots,this){
 			@Override
 			public ItemStack insertItem(int slot, ItemStack insertingStack, boolean simulate){

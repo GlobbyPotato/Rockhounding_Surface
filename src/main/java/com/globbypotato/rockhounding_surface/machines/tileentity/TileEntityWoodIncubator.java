@@ -36,7 +36,7 @@ public class TileEntityWoodIncubator extends TileEntityTank{
 	public FluidTank inputTank;
 
 	public TileEntityWoodIncubator() {
-		super(inputSlots, outputSlots, templateSlots);
+		super(inputSlots, outputSlots, templateSlots, 0);
 
 		this.inputTank = new FluidTank(ModConfig.machineTank < 1000 ? 1000 : ModConfig.machineTank){
 			@Override

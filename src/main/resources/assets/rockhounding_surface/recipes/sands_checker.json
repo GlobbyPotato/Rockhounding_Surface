@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "rockhounding_surface:util",
+	"ingredients":[
+		{
+			"item": "minecraft:paper",
+			"data": 0
+		},
+		{
+			"ore": "sand",
+			"type": "forge:ore_dict"
+		}
+	],
+	"result":{
+				"item": "rockhounding_surface:gypsum_items",
+				"data": 6
+			}
+}

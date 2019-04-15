@@ -9,10 +9,10 @@ import javax.annotation.Nonnull;
 import com.globbypotato.rockhounding_surface.compat.jei.RHRecipeWrapper;
 import com.globbypotato.rockhounding_surface.machines.recipe.MachineRecipes;
 import com.globbypotato.rockhounding_surface.machines.recipe.VivariumRecipe;
-import com.globbypotato.rockhounding_surface.utils.BaseRecipes;
 
 import mezz.jei.api.ingredients.IIngredients;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class VivariumRecipeWrapper extends RHRecipeWrapper<VivariumRecipe> {
 	
@@ -23,16 +23,26 @@ public class VivariumRecipeWrapper extends RHRecipeWrapper<VivariumRecipe> {
 	public static List<VivariumRecipeWrapper> getRecipes() {
 		List<VivariumRecipeWrapper> recipes = new ArrayList<>();
 		for (VivariumRecipe recipe : MachineRecipes.vivariumRecipes) {
-			if(!recipe.getInput().isEmpty()){
+			if(isValidRecipe(recipe)){
 				recipes.add(new VivariumRecipeWrapper(recipe));
 			}
 		}
 		return recipes;
 	}
 
-	@Nonnull
+	private static boolean isValidRecipe(VivariumRecipe recipe){
+		return ((!recipe.getType() && !recipe.getInput().isEmpty()) || (recipe.getType() && OreDictionary.getOres(recipe.getOredict()).size() > 0))
+			&& recipe.getOutput() != null;
+	}
+
 	public List<ItemStack> getInputs(){
-		return Collections.singletonList(getRecipe().getInput());
+		ArrayList<ItemStack> inputs = new ArrayList<ItemStack>();
+		if(getRecipe().getType()){
+			inputs.addAll(OreDictionary.getOres(getRecipe().getOredict()));
+		}else{
+			inputs.add(getRecipe().getInput());
+		}
+		return inputs;
 	}
 
 	@Nonnull

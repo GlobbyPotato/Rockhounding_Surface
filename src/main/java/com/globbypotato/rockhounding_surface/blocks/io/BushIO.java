@@ -11,12 +11,14 @@ import com.globbypotato.rockhounding_surface.handler.Reference;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -74,6 +76,16 @@ public class BushIO extends BlockBush {
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player){
         return new ItemStack(state.getBlock(), 1, state.getBlock().getMetaFromState(state));
+    }
+
+	@Override
+    public boolean isTopSolid(IBlockState state){
+        return false;
+    }
+
+	@Override
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face){
+        return BlockFaceShape.UNDEFINED;
     }
 
 }

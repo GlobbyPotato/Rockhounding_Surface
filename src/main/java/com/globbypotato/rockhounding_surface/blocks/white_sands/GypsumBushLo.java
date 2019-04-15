@@ -6,12 +6,9 @@ import com.globbypotato.rockhounding_surface.ModBlocks;
 import com.globbypotato.rockhounding_surface.ModItems;
 import com.globbypotato.rockhounding_surface.blocks.io.BushIO;
 import com.globbypotato.rockhounding_surface.enums.EnumBushes;
+import com.globbypotato.rockhounding_surface.utils.ModUtils;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockFarmland;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.block.BlockSand;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -29,6 +26,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GypsumBushLo extends BushIO {
 	public GypsumBushLo(String name){
         super(name);
+        this.setTickRandomly(true);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumBushes.values()[0]));
         this.disableStats();
     }
@@ -43,51 +41,52 @@ public class GypsumBushLo extends BushIO {
 
     @Override
     public boolean canSustainBush(IBlockState state){
-        return isValidSoil(state);
+        return ModUtils.isValidSoil(state);
     }
-
-			private static boolean isValidSoil(IBlockState state) {
-				return state.getBlock() instanceof BlockGrass || state.getBlock() instanceof BlockSand || state.getBlock() instanceof BlockDirt || state.getBlock() instanceof BlockFarmland || state.getBlock() == ModBlocks.WHITE_SAND;
-			}
 
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
-        checkTop(state, worldIn, pos);
+        if(!hasTop(worldIn, pos)){
+            this.dropHalfBlock(worldIn, pos, state);
+        }
+        IBlockState soilState = worldIn.getBlockState(pos.down());
+    	if(!ModUtils.isValidSoil(soilState)){
+            this.dropHalfBlock(worldIn, pos, state);
+    	}
     }
-
-		    private void checkTop(IBlockState state, World worldIn, BlockPos pos) {
-		        BlockPos topPos = new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
-		        IBlockState topState = worldIn.getBlockState(topPos);
-		        if(topState.getBlock() instanceof GypsumBushHi){
-		            this.checkAndDropBlock(worldIn, pos, state);
-		        }
-			}
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand){
-        this.checkAndDropBlock(worldIn, pos, state);
+        if(!hasTop(worldIn, pos)){
+            this.dropHalfBlock(worldIn, pos, state);
+        }
+        IBlockState soilState = worldIn.getBlockState(pos.down());
+    	if(!ModUtils.isValidSoil(soilState)){
+            this.dropHalfBlock(worldIn, pos, state);
+    	}
+
+    	worldIn.scheduleBlockUpdate(pos, this, this.tickRate(worldIn), 0);
     }
 
-	    @Override
-	    public void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state){
-	        if (!canSustainBush(state) && !canStay(worldIn, pos)){
-	            this.dropBlockAsItem(worldIn, pos, state, 0);
-	            if(!worldIn.isRemote){
-	            	worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-	            }
-	        }
-	    }
+    @Override
+    public void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state){}
 
-			    private static boolean canStay(World worldIn, BlockPos pos){
-			        BlockPos topPos = new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
-			        IBlockState topState = worldIn.getBlockState(topPos);
-			        return topState.getBlock() instanceof GypsumBushHi;
-			    }
+    public void dropHalfBlock(World worldIn, BlockPos pos, IBlockState state){
+        this.dropBlockAsItem(worldIn, pos, state, 0);
+        if(!worldIn.isRemote){
+        	worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+        }
+    }
+
+    private static boolean hasTop(World worldIn, BlockPos pos){
+        IBlockState topState = worldIn.getBlockState(pos.up());
+        return topState.getBlock() instanceof GypsumBushHi;
+    }
 
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack){
-        BlockPos topPos = new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
+        BlockPos topPos = pos.up();
         IBlockState topState = worldIn.getBlockState(topPos);
         if(topState.getBlock().isAir(topState, worldIn, topPos)){
         	worldIn.setBlockState(topPos, ModBlocks.GYPSUM_BUSH_HI.getStateFromMeta(stack.getMetadata()));

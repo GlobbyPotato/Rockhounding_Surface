@@ -14,8 +14,10 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
+@ObjectHolder(Reference.MODID)
 public class ModBiomes {
 
 	public static final BiomeWhiteSands WHITE_SANDS = new BiomeWhiteSands(new BiomeProperties("White Sands").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(1.3F).setRainfall(0.3F).setWaterColor(13161691));
@@ -33,7 +35,7 @@ public class ModBiomes {
 				BiomeManager.addVillageBiome(WHITE_SANDS, true);
 				BiomeManager.addStrongholdBiome(WHITE_SANDS);
 		        BiomeProvider.allowedBiomes.add(WHITE_SANDS);
-		        BiomeDictionary.addTypes(WHITE_SANDS, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.DRY);
+		        BiomeDictionary.addTypes(WHITE_SANDS, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.DRY, BiomeDictionary.Type.DEAD);
 			}
 		}
 	}

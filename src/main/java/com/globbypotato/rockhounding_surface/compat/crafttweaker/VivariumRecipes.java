@@ -18,14 +18,14 @@ public class VivariumRecipes extends CTSupport{
 	public static ArrayList<VivariumRecipe> recipeList = MachineRecipes.vivariumRecipes;
 
     @ZenMethod
-    public static void add(IItemStack input, IItemStack output) {
-        if(input == null || output == null) {error(name); return;}
-        CraftTweakerAPI.apply(new AddToVivarium(new VivariumRecipe(toStack(input), toStack(output), 2000, 20)));
-    }
-    @ZenMethod
     public static void add(IItemStack input, IItemStack output, int produceRate, int consumeRate) {
         if(input == null || output == null) {error(name); return;}
         CraftTweakerAPI.apply(new AddToVivarium(new VivariumRecipe(toStack(input), toStack(output), produceRate, consumeRate)));
+    }
+    @ZenMethod
+    public static void add(String oredict, IItemStack output, int produceRate, int consumeRate) {
+        if(output == null) {error(name); return;}
+        CraftTweakerAPI.apply(new AddToVivarium(new VivariumRecipe(oredict, toStack(output), produceRate, consumeRate)));
     }
 		    private static class AddToVivarium implements IAction {
 		    	private VivariumRecipe recipe;

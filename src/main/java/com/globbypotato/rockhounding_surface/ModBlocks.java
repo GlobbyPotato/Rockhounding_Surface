@@ -15,6 +15,7 @@ import com.globbypotato.rockhounding_surface.blocks.fossil_wood.FossilStairs;
 import com.globbypotato.rockhounding_surface.blocks.fossil_wood.PetrifiedLogs;
 import com.globbypotato.rockhounding_surface.blocks.itemblocks.BushIB;
 import com.globbypotato.rockhounding_surface.blocks.itemblocks.FossilSlabIB;
+import com.globbypotato.rockhounding_surface.blocks.itemblocks.GypsumIB;
 import com.globbypotato.rockhounding_surface.blocks.itemblocks.GypsumSlabIB;
 import com.globbypotato.rockhounding_surface.blocks.itemblocks.ShrubIB;
 import com.globbypotato.rockhounding_surface.blocks.white_sands.Gypsum;
@@ -286,7 +287,7 @@ public class ModBlocks {
 			registry.register(new FossilSlabIB(FOSSIL_SLABS_LO, EnumFossilPlanks.getNames()).setRegistryName(FOSSIL_SLABS_LO.getRegistryName()));
 			registry.register(new FossilSlabIB(FOSSIL_SLABS_HI, EnumFossilPlanks.getNames()).setRegistryName(FOSSIL_SLABS_HI.getRegistryName()));
 
-			registry.register(new ItemBlock(WHITE_SAND).setRegistryName(WHITE_SAND.getRegistryName()));
+			registry.register(new GypsumIB(WHITE_SAND).setRegistryName(WHITE_SAND.getRegistryName()));
 			if(ModConfig.allowGypsumDeco){
 				registry.register(new BaseMetaIB(GYPSUM, EnumGypsumBlocks.getNames()).setRegistryName(GYPSUM.getRegistryName()));
 				registry.register(new GypsumSlabIB(GYPSUM_SLABS_LO, EnumGypsumBlocks.getNames()).setRegistryName(GYPSUM_SLABS_LO.getRegistryName()));

@@ -2,6 +2,7 @@ package com.globbypotato.rockhounding_surface.items;
 
 import java.util.Random;
 
+import com.globbypotato.rockhounding_surface.ModBiomes;
 import com.globbypotato.rockhounding_surface.enums.EnumGypsumItems;
 import com.globbypotato.rockhounding_surface.handler.ModConfig;
 import com.globbypotato.rockhounding_surface.integration.SupportUtils;
@@ -15,13 +16,17 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -207,4 +212,16 @@ public class GypsumItems extends ArrayIO {
         }
     }
 
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+    	if(ModConfig.ENABLE_SANDS){
+    		if(playerIn.getHeldItemMainhand().getItemDamage() == EnumGypsumItems.SANDS_MAP.ordinal()){
+    	    	if(!worldIn.isRemote){
+	    			int sandID = Biome.getIdForBiome(ModBiomes.WHITE_SANDS);
+					playerIn.sendMessage(new TextComponentString("White Sands is registered with ID = " + sandID));
+    	    	}
+    		}
+    	}
+    	return super.onItemRightClick(worldIn, playerIn, handIn);
+    }
 }

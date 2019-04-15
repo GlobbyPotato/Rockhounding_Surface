@@ -55,6 +55,7 @@ public class ModItems {
 	public static final Item TRUFFLE_OMELETTE = new ModFood(3, 0.8F, false, EnumAction.EAT, 		32, EnumFood.getName(EnumFood.TRUFFLE_OMELETTE.ordinal()));
 
 	public static final Item SOURBERRY_JUICE = new ModFood(5, 1.0F, false, EnumAction.DRINK, 		32, EnumFood.getName(EnumFood.SOURBERRY_JUICE.ordinal()));
+	public static final Item SOURBERRY_SMOOTHIE = new ModFood(5, 1.6F, false, EnumAction.DRINK,		32, EnumFood.getName(EnumFood.SOURBERRY_SMOOTHIE.ordinal()));
 	public static final Item PURPLEPEAR_JUICE = new ModFood(5, 1.0F, false, EnumAction.DRINK, 		32, EnumFood.getName(EnumFood.PURPLEPEAR_JUICE.ordinal()));
 	public static final Item PURPLEPEAR_SMOOTHIE = new ModFood(5, 1.6F, false, EnumAction.DRINK,	32, EnumFood.getName(EnumFood.PURPLEPEAR_SMOOTHIE.ordinal()));
 	public static final Item MESQUITE_PIE = new ModFood(6, 0.7F, false, EnumAction.EAT, 			24, EnumFood.getName(EnumFood.MESQUITE_PIE.ordinal()));
@@ -103,6 +104,7 @@ public class ModItems {
 			if(SupportUtils.pamsLoaded()){
 				if(ModConfig.ENABLE_SANDS){
 					registry.register(SOURBERRY_JUICE);
+					registry.register(SOURBERRY_SMOOTHIE);
 					registry.register(PURPLEPEAR_JUICE);
 					registry.register(PURPLEPEAR_SMOOTHIE);
 					registry.register(MESQUITE_PIE);
@@ -153,6 +155,7 @@ public class ModItems {
 				if(ModConfig.ENABLE_SANDS){
 					RegistryHandler.registerSingleModel(SOURBERRY_JUICE);
 					RegistryHandler.registerSingleModel(PURPLEPEAR_JUICE);
+					RegistryHandler.registerSingleModel(SOURBERRY_SMOOTHIE);
 					RegistryHandler.registerSingleModel(PURPLEPEAR_SMOOTHIE);
 					RegistryHandler.registerSingleModel(MESQUITE_PIE);
 					RegistryHandler.registerSingleModel(MUSH);

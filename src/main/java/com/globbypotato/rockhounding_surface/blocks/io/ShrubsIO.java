@@ -2,18 +2,16 @@ package com.globbypotato.rockhounding_surface.blocks.io;
 
 import java.util.Random;
 
-import com.globbypotato.rockhounding_surface.ModBlocks;
+import com.globbypotato.rockhounding_surface.utils.ModUtils;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockFarmland;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.block.BlockSand;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -89,7 +87,7 @@ public class ShrubsIO extends PlantMetaIO implements IPlantable, IGrowable{
     private void checkSoil(IBlockState state, World worldIn, BlockPos pos) {
         BlockPos soilPos = new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ());
         IBlockState soilState = worldIn.getBlockState(soilPos);
-        if(!isValidSoil(soilState)){
+        if(!ModUtils.isValidSoil(soilState)){
             this.checkAndDropBlock(worldIn, pos, state);
         }
 	}
@@ -106,11 +104,17 @@ public class ShrubsIO extends PlantMetaIO implements IPlantable, IGrowable{
 	private static boolean canStay(World worldIn, BlockPos pos) {
         BlockPos soilPos = new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ());
         IBlockState soilState = worldIn.getBlockState(soilPos);
-		return isValidSoil(soilState);
+		return ModUtils.isValidSoil(soilState);
 	}
 
-	private static boolean isValidSoil(IBlockState state) {
-		return state.getBlock() instanceof BlockGrass || state.getBlock() instanceof BlockSand || state.getBlock() instanceof BlockDirt || state.getBlock() instanceof BlockFarmland || state.getBlock() == ModBlocks.WHITE_SAND;
-	}
+	@Override
+    public boolean isTopSolid(IBlockState state){
+        return false;
+    }
+
+	@Override
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face){
+        return BlockFaceShape.UNDEFINED;
+    }
 
 }

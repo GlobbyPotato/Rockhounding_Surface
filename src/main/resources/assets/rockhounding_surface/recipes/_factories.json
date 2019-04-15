@@ -1,0 +1,5 @@
+{
+	"recipes": {
+		"no_bucket_shapeless": "com.globbypotato.rockhounding_surface.utils.ShapelessNoBucket$Factory"
+	}
+}

@@ -37,7 +37,8 @@ public class ModConfig {
 	public static boolean ENABLE_TRUFFLES;
 	public static int truffleRarity;
 	public static boolean pigGriefing;
-
+	public static boolean dirtSubstrate;
+	
 	public static int speedWoodIncubator;
 	public static int speedCompost;
 	public static int machineTank;
@@ -45,6 +46,7 @@ public class ModConfig {
 	public static boolean ENABLE_SANDS;
 	public static boolean allowGypsumDeco;
 	public static boolean enableFertilizers;
+	public static boolean droppedGypsum;
 
 	public static void loadConfig(FMLPreInitializationEvent event) {
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
@@ -96,6 +98,8 @@ public class ModConfig {
 		ENABLE_SANDS = config.get(						CATEGORY_GYPSUM, 	 "ENABLE_BIOME", 			true,	"Enable the White Sands Biome and its features (biome, food) before creating a world").getBoolean();
 		allowGypsumDeco = config.get(					CATEGORY_GYPSUM, 	 "ALLOW_GYPSUM_DECO", 		true,	"Enable the gypsum blocks").getBoolean();
 		enableFertilizers = config.get(					CATEGORY_GYPSUM, 	 "ALLOW_FERTILIZERS", 		true,	"Enable the gypsum fertilizers").getBoolean();
+		droppedGypsum = config.get(						CATEGORY_GYPSUM, 	 "ALLOW_GYPSUM_TOSS", 		true,	"Enable the gypsum making by tossing White Sand into water").getBoolean();
+		dirtSubstrate = config.get(						CATEGORY_GYPSUM, 	 "ALLOW_DIRT_SUBSTRATE", 	false,	"Add a dirt substrate under the gypsum top layer").getBoolean();
 
         if (config.hasChanged()) {
         	config.save();

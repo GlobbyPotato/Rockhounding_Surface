@@ -20,7 +20,7 @@ public class TileEntityVivarium extends TileEntityInv {
 	public static int outputSlots = 1;
 
 	public TileEntityVivarium(){
-		super(inputSlots, outputSlots, 0);
+		super(inputSlots, outputSlots, 0, 0);
 		this.input =  new MachineStackHandler(inputSlots,this){
 			@Override
 			public ItemStack insertItem(int slot, ItemStack insertingStack, boolean simulate){
@@ -78,22 +78,22 @@ public class TileEntityVivarium extends TileEntityInv {
 		return recipeList().get(x);
 	}
 
-	public boolean isValidInput(ItemStack insertingStack) {
-		if(!insertingStack.isEmpty()){
-			ArrayList<Integer> inputIDs = CoreUtils.intArrayToList(OreDictionary.getOreIDs(insertingStack));
-			if(!inputIDs.isEmpty()){
-				for(VivariumRecipe recipe: recipeList()){
-					ArrayList<Integer> recipeIDs = CoreUtils.intArrayToList(OreDictionary.getOreIDs(recipe.getInput()));
-					if(!recipeIDs.isEmpty()){
-						for(Integer ores: recipeIDs){
-							if(inputIDs.contains(ores)){
-								return true;
-							}
+	public boolean isValidInput(ItemStack stack) {
+		if(!stack.isEmpty()){
+			for(VivariumRecipe recipe: recipeList()){
+				if(recipe.getType()){
+					ArrayList<Integer> inputOreIDs = CoreUtils.intArrayToList(OreDictionary.getOreIDs(stack));
+					if(!inputOreIDs.isEmpty()){
+						if(inputOreIDs.contains(OreDictionary.getOreID(recipe.getOredict()))){
+							return true;
 						}
+					}
+				}else{
+					if(recipe.getInput().isItemEqual(stack)){
+						return true;
 					}
 				}
 			}
-			return recipeList().stream().anyMatch(recipe -> ItemStack.areItemsEqual(recipe.getInput(), insertingStack));
 		}
 		return false;
 	}
@@ -101,8 +101,15 @@ public class TileEntityVivarium extends TileEntityInv {
 	public VivariumRecipe getCurrentRecipe(){
 		if(!inputSlot().isEmpty()){
 			for(int x = 0; x < recipeList().size(); x++){
-				if(CoreUtils.isMatchingIngredient(inputSlot(), getRecipeList(x).getInput())){
-					return getRecipeList(x);
+				if(getRecipeList(x).getType()){
+					ArrayList<Integer> inputOreIDs = CoreUtils.intArrayToList(OreDictionary.getOreIDs(inputSlot()));
+					if(inputOreIDs.contains(OreDictionary.getOreID(getRecipeList(x).getOredict()))){
+						return getRecipeList(x);
+					}
+				}else{
+					if(getRecipeList(x).getInput().isItemEqual(inputSlot())){
+						return getRecipeList(x);
+					}
 				}
 			}
 		}
@@ -118,11 +125,11 @@ public class TileEntityVivarium extends TileEntityInv {
 	}
 
 	public int getConsume(){
-		return isValidRecipe() ? getCurrentRecipe().getConsumeRate() : 0;
+		return isValidRecipe() ? getCurrentRecipe().getConsumeRate() : 1;
 	}
 
 	public int getProduce(){
-		return isValidRecipe() ? getCurrentRecipe().getProduceRate() : 0;
+		return isValidRecipe() ? getCurrentRecipe().getProduceRate() : 1;
 	}
 
 

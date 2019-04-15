@@ -25,7 +25,8 @@ public enum EnumFood implements BaseEnum{
 	MESQUITE_LIQUOR,
 	MESQUITE_TEA,
 	MESQUITE_FLOWER,
-	MUSH;
+	MUSH,
+	SOURBERRY_SMOOTHIE;
 
 	//---------CUSTOM----------------
 	public static int size(){

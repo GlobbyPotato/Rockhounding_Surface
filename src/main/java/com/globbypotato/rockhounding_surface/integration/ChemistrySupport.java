@@ -26,8 +26,7 @@ public class ChemistrySupport extends IReciper {
 							CoreBasics.waterStack(1000), 
 							null, 
 							new FluidStack(ModFluids.ACIDIC_WATER, 1000),
-							null,
-							ItemStack.EMPTY);
+							null);
 
 			sendToLabOven(	null, 	
 							BaseRecipes.aging(1, EnumAgingItems.ORGANIC_COMPOST.ordinal()), 		
@@ -35,8 +34,7 @@ public class ChemistrySupport extends IReciper {
 							new FluidStack(ModFluids.ACIDIC_WATER, 1000), 
 							null,			
 							new FluidStack(ModFluids.AGING_BATH, 1000),
-							null,
-							ItemStack.EMPTY);
+							null);
 
 			sendToLabOven(	null,
 							BaseRecipes.aging(1, EnumAgingItems.CONTAMINATING_COMPOST.ordinal()), 
@@ -44,8 +42,7 @@ public class ChemistrySupport extends IReciper {
 							new FluidStack(ModFluids.AGING_BATH, 1000), 
 							null,
 							new FluidStack(ModFluids.CASTING_BATH, 1000),
-							null,
-							ItemStack.EMPTY);
+							null);
 
 			sendToSlurryPond(	BaseRecipes.gypsum(1, EnumGypsumItems.COMPOST.ordinal()), 
 								CoreBasics.waterStack(200), 

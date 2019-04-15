@@ -6,7 +6,8 @@ public enum EnumGypsumItems implements BaseEnum{
 	CONDITIONER,
 	AMENDMENT,
 	COMPOST,
-	MESQUITE_FLOUR;
+	MESQUITE_FLOUR,
+	SANDS_MAP;
 
 	//---------CUSTOM----------------
 	public static int size(){

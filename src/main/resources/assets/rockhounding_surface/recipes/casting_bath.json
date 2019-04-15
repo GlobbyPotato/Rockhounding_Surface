@@ -1,0 +1,34 @@
+{
+	"type": "rockhounding_surface:no_bucket_shapeless",
+	"group": "rockhounding_surface:aging",
+	"ingredients":[
+		{
+			"item": "rockhounding_surface:aging_items",
+			"data": 1
+		},
+		{
+			"item": "rockhounding_surface:aging_items",
+			"data": 1
+		},
+		{
+			"item": "rockhounding_surface:aging_items",
+			"data": 1
+		},
+		{
+			  "type": "minecraft:item_nbt",
+			  "item": "forge:bucketfilled",
+			  "nbt": {
+				"FluidName": "aging_bath",
+				"Amount": 1000
+			  }
+		}
+	],
+	"result":{
+		  "type": "minecraft:item_nbt",
+		  "item": "forge:bucketfilled",
+		  "nbt": {
+			"FluidName": "casting_bath",
+			"Amount": 1000
+		  }
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"type": "rockhounding_surface:no_bucket_shapeless",
+	"group": "rockhounding_surface:aging",
+	"ingredients":[
+		{
+			"item": "minecraft:coal",
+			"data": 0
+		},
+		{
+			"item": "minecraft:coal",
+			"data": 0
+		},
+		{
+			"item": "minecraft:rotten_flesh",
+			"data": 0
+		},
+		{
+			"item": "minecraft:rotten_flesh",
+			"data": 0
+		},
+		{
+			"item": "minecraft:water_bucket",
+			"data": 0
+		}
+	],
+	"result":{
+		  "type": "minecraft:item_nbt",
+		  "item": "forge:bucketfilled",
+		  "nbt": {
+			"FluidName": "acidic_water",
+			"Amount": 1000
+		  }
+	}
+}

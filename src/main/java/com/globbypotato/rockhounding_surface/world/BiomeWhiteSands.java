@@ -3,6 +3,7 @@ package com.globbypotato.rockhounding_surface.world;
 import java.util.Random;
 
 import com.globbypotato.rockhounding_surface.ModBlocks;
+import com.globbypotato.rockhounding_surface.handler.ModConfig;
 import com.globbypotato.rockhounding_surface.handler.Reference;
 
 import net.minecraft.block.state.IBlockState;
@@ -21,7 +22,7 @@ public class BiomeWhiteSands extends Biome {
 		super(properties);
         this.setRegistryName(new ResourceLocation(Reference.MODID, "white_sands"));
 		this.topBlock = ModBlocks.WHITE_SAND.getDefaultState();
-		this.fillerBlock = ModBlocks.WHITE_SAND.getDefaultState();
+		this.fillerBlock = ModConfig.dirtSubstrate ? Blocks.DIRT.getDefaultState() : ModBlocks.WHITE_SAND.getDefaultState();
 		this.decorator.dirtGen = new WorldGenMinable(Blocks.DIRT.getDefaultState(), 16);
 		this.decorator.clayPerChunk = 6;
         this.decorator.treesPerChunk = -999;
@@ -48,7 +49,7 @@ public class BiomeWhiteSands extends Biome {
 		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
-			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
+			    		BlockPos bushPos1 = soilPos.up();
 				        if (isBlockAir(worldIn, bushPos1)){
 			  		    	IBlockState bushState1 = ModBlocks.GYPSUM_CROPS.getStateFromMeta(2);
 			  		    	worldIn.setBlockState(bushPos1, bushState1);
@@ -64,8 +65,8 @@ public class BiomeWhiteSands extends Biome {
 		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
-			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
-			    		BlockPos bushPos2 = new BlockPos(x, y + 2, z);
+			    		BlockPos bushPos1 = soilPos.up();
+			    		BlockPos bushPos2 = soilPos.up(2);
 				        if (isBlockAir(worldIn, bushPos1) && isBlockAir(worldIn, bushPos2) ){
 			  		    	IBlockState bushState1 = ModBlocks.GYPSUM_BUSH_LO.getStateFromMeta(5);
 			  		    	IBlockState bushState2 = ModBlocks.GYPSUM_BUSH_HI.getStateFromMeta(5);
@@ -83,8 +84,8 @@ public class BiomeWhiteSands extends Biome {
 		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
-			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
-			    		BlockPos bushPos2 = new BlockPos(x, y + 2, z);
+			    		BlockPos bushPos1 = soilPos.up();
+			    		BlockPos bushPos2 = soilPos.up(2);
 				        if (isBlockAir(worldIn, bushPos1) && isBlockAir(worldIn, bushPos2) ){
 			  		    	IBlockState bushState1 = ModBlocks.GYPSUM_BUSH_LO.getStateFromMeta(0);
 			  		    	IBlockState bushState2 = ModBlocks.GYPSUM_BUSH_HI.getStateFromMeta(0);
@@ -102,8 +103,8 @@ public class BiomeWhiteSands extends Biome {
 		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
-			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
-			    		BlockPos bushPos2 = new BlockPos(x, y + 2, z);
+			    		BlockPos bushPos1 = soilPos.up();
+			    		BlockPos bushPos2 = soilPos.up(2);
 				        if (isBlockAir(worldIn, bushPos1) && isBlockAir(worldIn, bushPos2) ){
 			  		    	IBlockState bushState1 = ModBlocks.GYPSUM_BUSH_LO.getStateFromMeta(1);
 			  		    	IBlockState bushState2 = ModBlocks.GYPSUM_BUSH_HI.getStateFromMeta(1);
@@ -121,8 +122,8 @@ public class BiomeWhiteSands extends Biome {
 		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
-			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
-			    		BlockPos bushPos2 = new BlockPos(x, y + 2, z);
+			    		BlockPos bushPos1 = soilPos.up();
+			    		BlockPos bushPos2 = soilPos.up(2);
 				        if (isBlockAir(worldIn, bushPos1) && isBlockAir(worldIn, bushPos2) ){
 			  		    	IBlockState bushState1 = ModBlocks.GYPSUM_BUSH_LO.getStateFromMeta(2);
 			  		    	IBlockState bushState2 = ModBlocks.GYPSUM_BUSH_HI.getStateFromMeta(2);
@@ -140,8 +141,8 @@ public class BiomeWhiteSands extends Biome {
 		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
-			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
-			    		BlockPos bushPos2 = new BlockPos(x, y + 2, z);
+			    		BlockPos bushPos1 = soilPos.up();
+			    		BlockPos bushPos2 = soilPos.up(2);
 				        if (isBlockAir(worldIn, bushPos1) && isBlockAir(worldIn, bushPos2) ){
 			  		    	IBlockState bushState1 = ModBlocks.GYPSUM_BUSH_LO.getStateFromMeta(3);
 			  		    	IBlockState bushState2 = ModBlocks.GYPSUM_BUSH_HI.getStateFromMeta(3);
@@ -159,8 +160,8 @@ public class BiomeWhiteSands extends Biome {
 		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
-			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
-			    		BlockPos bushPos2 = new BlockPos(x, y + 2, z);
+			    		BlockPos bushPos1 = soilPos.up();
+			    		BlockPos bushPos2 = soilPos.up(2);
 				        if (isBlockAir(worldIn, bushPos1) && isBlockAir(worldIn, bushPos2) ){
 			  		    	IBlockState bushState1 = ModBlocks.GYPSUM_BUSH_LO.getStateFromMeta(4);
 			  		    	IBlockState bushState2 = ModBlocks.GYPSUM_BUSH_HI.getStateFromMeta(4);
@@ -178,9 +179,25 @@ public class BiomeWhiteSands extends Biome {
 		    		int z = pos.getZ() + rand.nextInt(14) + 1;
 		    		BlockPos soilPos = new BlockPos(x, y, z);
 			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
-			    		BlockPos bushPos1 = new BlockPos(x, y + 1, z);
+			    		BlockPos bushPos1 = soilPos.up();
 				        if (isBlockAir(worldIn, bushPos1)){
 			  		    	IBlockState bushState1 = ModBlocks.GYPSUM_CROPS.getStateFromMeta(rand.nextInt(2));
+			  		    	worldIn.setBlockState(bushPos1, bushState1);
+				        }
+			        }
+		        }
+	        }
+	        //dead bush
+	        if(rand.nextInt(2) == 0){
+		        for (int bush = 0; bush < 10; ++bush){
+		    		int x = pos.getX() + rand.nextInt(14) + 1; 
+		    		int y = rand.nextInt(50) + 50; 
+		    		int z = pos.getZ() + rand.nextInt(14) + 1;
+		    		BlockPos soilPos = new BlockPos(x, y, z);
+			        if (worldIn.getBlockState(soilPos).equals(this.topBlock) ){
+			    		BlockPos bushPos1 = soilPos.up();
+				        if (isBlockAir(worldIn, bushPos1)){
+			  		    	IBlockState bushState1 = Blocks.DEADBUSH.getDefaultState();
 			  		    	worldIn.setBlockState(bushPos1, bushState1);
 				        }
 			        }
